@@ -1,1 +1,50 @@
-multisig/target
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+multisig-client/node_modules
+multisig-client/.pnp
+multisig-client/.pnp.js
+
+# testing
+multisig-client/coverage
+
+# next.js
+multisig-client/.next/
+multisig-client/out/
+
+# production
+multisig-client/build
+
+# misc
+multisig-client/.DS_Store
+multisig-client/*.pem
+
+# debug
+multisig-client/npm-debug.log*
+multisig-client/yarn-debug.log*
+multisig-client/yarn-error.log*
+
+# local env files
+multisig-client/.env*.local
+
+# vercel
+multisig-client/.vercel
+
+# typescript
+multisig-solidity/*.tsbuildinfo
+multisig-solidity/next-env.d.ts
+
+multisig-solidity/node_modules
+multisig-solidity/.env
+
+# Hardhat files
+multisig-solidity/cache
+multisig-solidity/artifacts
+
+# TypeChain files
+multisig-solidity/typechain
+multisig-solidity/typechain-types
+
+# solidity-coverage files
+multisig-solidity/coverage
+multisig-solidity/coverage.json
