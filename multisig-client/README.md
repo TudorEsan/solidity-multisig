@@ -1,28 +1,8 @@
-# Template for dApp built in Next.js
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Template for a decentralized application (dApp) built in [Next](https://nextjs.org).
+## Getting Started
 
-- [TypeScript](https://www.typescriptlang.org)
-- [Next 14](https://nextjs.org/blog/next-14)
-- [TanStack Query](https://tanstack.com/query/latest)
-- [Sass](https://sass-lang.com)
-- [Tailwind CSS](https://tailwindcss.com)
-
-### Web3 Packages
-
-- [ethers](https://docs.ethers.org/v5/)
-- [rainbowkit](https://www.rainbowkit.com)
-- [wagmi](https://wagmi.sh)
-
----
-
-## Available Scripts
-
-### Development Mode
-
-#### Start the Development Server
-
-These commands start the application in development mode. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result. The page auto-updates as you edit the file.
+First, run the development server:
 
 ```bash
 npm run dev
@@ -30,46 +10,27 @@ npm run dev
 yarn dev
 # or
 pnpm dev
+# or
+bun dev
 ```
 
-### Production Build
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-#### Build the App for Production
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-These commands build an optimized version of the application for production, saved in the `.next` folder.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-```bash
-npm run build
-# or
-yarn build
-# or
-pnpm build
-```
+## Learn More
 
-### Production Server
+To learn more about Next.js, take a look at the following resources:
 
-#### Start the Production Server
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-After building the application, use these commands to start the server in production mode.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-```bash
-npm run start
-# or
-yarn start
-# or
-pnpm start
-```
+## Deploy on Vercel
 
-### Code Quality
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-#### Run the Linter
-
-Run these commands to start the linter, which helps maintain code quality and find any issues.
-
-```bash
-npm run lint
-# or
-yarn lint
-# or
-pnpm lint
-```
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
