@@ -48,3 +48,5 @@ multisig-solidity/typechain-types
 # solidity-coverage files
 multisig-solidity/coverage
 multisig-solidity/coverage.json
+
+multisig-client/.env
