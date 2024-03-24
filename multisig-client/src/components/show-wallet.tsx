@@ -10,6 +10,14 @@ import {
 } from "@radix-ui/react-icons";
 import Link from "next/link";
 
+/**
+ * Renders a wallet component that displays the wallet address and name (if available).
+ *
+ * @param {Object} props - The component props.
+ * @param {string | null} props.name - The name of the wallet (can be null).
+ * @param {string} props.address - The address of the wallet.
+ * @returns {JSX.Element} The rendered wallet component.
+ */
 export const ShowWallet = ({
   address,
   name,

@@ -11,6 +11,9 @@ import { MultisigService } from "@/service/multisig.service";
 import type { WalletSchema } from "@/validations/wallet.schama";
 import { CreateWalletForm } from "@/validations/create-wallet-schema";
 
+/**
+ * Custom hook for deploying a multisig contract and adding it to the wallet.
+ */
 export const useDeployMultisig = () => {
   const { data: walletClient } = useWalletClient();
   const chain = useChainId();

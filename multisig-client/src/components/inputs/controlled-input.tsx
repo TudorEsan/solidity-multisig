@@ -8,6 +8,14 @@ interface ControlledInputProps extends Omit<InputProps, "name"> {
   withoutErrorMessage?: boolean;
 }
 
+/**
+ * Renders a controlled input component.
+ *
+ * @param name - The name of the input field.
+ * @param withoutErrorMessage - Optional. If set to `true`, the error message will not be displayed.
+ * @param rest - Additional props to be passed to the `Input` component.
+ * @returns The controlled input component.
+ */
 export function ControlledInput({
   name,
   withoutErrorMessage = false,

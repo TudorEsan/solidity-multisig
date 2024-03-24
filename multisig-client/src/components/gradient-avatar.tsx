@@ -6,6 +6,11 @@ import stringHash from "string-hash";
 import hslTriad from "hsl-triad";
 import hslRgb from "hsl-rgb";
 
+/**
+ * Generates two colors based on a given string.
+ * @param s - The input string.
+ * @returns An array containing two colors in RGB format.
+ */
 export const generateColours = (s: string): [string, string] => {
   const hash = stringHash(s);
   const colors = hslTriad(hash % 360, 1, 0.5);

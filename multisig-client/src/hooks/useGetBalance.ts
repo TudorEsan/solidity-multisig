@@ -3,6 +3,12 @@ import { useMemo } from "react";
 import { ethers } from "ethers";
 import { erc20Abi } from "viem";
 
+/**
+ * Custom hook to fetch the native token balance and ERC20 token balances for a given address.
+ *
+ * @param tokenAddresses - An array of ERC20 token addresses.
+ * @returns An object containing the loading state, error state, native balance, and ERC20 balances.
+ */
 export function useNativeAndERC20Balances(tokenAddresses: string[]) {
   const { address, isConnected } = useAccount();
 
