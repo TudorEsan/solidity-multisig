@@ -1,86 +1,14 @@
-"use client";
-import React from "react";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
-  Link,
-  Button,
-} from "@nextui-org/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-
+import React from "react";
 export function AppNavbar() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
-
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
-      <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
-        <NavbarBrand>
-          <p className="font-bold text-inherit">Guardian</p>
-        </NavbarBrand>
-      </NavbarContent>
-
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <ConnectButton chainStatus="icon" accountStatus="avatar" />
-      </NavbarContent>
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </Navbar>
+    <div className="fixed z-50 top-0 left-0 lg:left-60 right-0  h-16 bg-white dark:bg-black border-b flex items-center ">
+      <div className="flex justify-between items-center  my-auto px-6 xl:px-12 w-full ">
+        <p className="text-2xl font-semibold">Guardian</p>
+        <div className="flex items-center gap-3">
+          <ConnectButton />
+        </div>
+      </div>
+    </div>
   );
 }

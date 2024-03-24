@@ -25,7 +25,6 @@ export const useDeployMultisig = () => {
         args: [owners, formData.threshold],
       });
 
-      console.log("txHash", txHash);
       if (!txHash) {
         throw new Error("Failed to deploy contract");
       }

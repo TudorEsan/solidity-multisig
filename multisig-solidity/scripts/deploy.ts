@@ -2,7 +2,6 @@ import { ethers } from "hardhat";
 
 async function main() {
   const [deployer] = await ethers.getSigners();
-  console.log("Deploying contracts with the account:", deployer.address);
   const token = await (
     await ethers.getContractFactory("Multisig")
   ).deploy(
@@ -12,7 +11,6 @@ async function main() {
     ],
     1
   );
-  console.log("Token address:", token.getAddress());
 }
 
 // We recommend this pattern to be able to use async/await everywhere

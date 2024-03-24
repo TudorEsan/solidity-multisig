@@ -21,7 +21,6 @@ export const authOptions: AuthOptions = {
         },
       },
       async authorize(credentials, req) {
-        console.log("credentials", credentials);
         try {
           const siwe = new SiweMessage(
             JSON.parse(credentials?.message || "{}")
@@ -49,7 +48,6 @@ export const authOptions: AuthOptions = {
           }
 
           await siwe.verify({ signature: credentials?.signature || "" });
-          console.log("test");
           return {
             id: siwe.address,
           };

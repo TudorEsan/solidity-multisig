@@ -27,23 +27,27 @@ export async function POST(request: Request) {
   try {
     data = WalletSchema.parse(body);
   } catch (error: any) {
-    console.log("error", error);
     return Response.json(
       { error: error?.message ?? "Invalid Data" },
       { status: 400 }
     );
   }
 
-  const user = db
-    .select()
-    .from(UsersTable)
-    .where(sql`${UsersTable.address} = ${address}`);
+  const user = (
+    await db
+      .select()
+      .from(UsersTable)
+      .where(sql`${UsersTable.address} = ${address}`)
+  )[0];
 
   if (!user) {
-    await db.insert(UsersTable).values({
-      address,
-      createdAt: new Date(),
-    });
+    const user = await db
+      .insert(UsersTable)
+      .values({
+        address,
+        createdAt: new Date(),
+      })
+      .returning();
   }
 
   const wallet = await db
@@ -57,5 +61,5 @@ export async function POST(request: Request) {
     })
     .returning();
 
-  return wallet;
+  return Response.json(wallet);
 }
