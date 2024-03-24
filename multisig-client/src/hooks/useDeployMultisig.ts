@@ -10,6 +10,7 @@ import { useMutation } from "@tanstack/react-query";
 import { MultisigService } from "@/service/multisig.service";
 import type { WalletSchema } from "@/validations/wallet.schama";
 import { CreateWalletForm } from "@/validations/create-wallet-schema";
+import { useRouter } from "next/navigation";
 
 /**
  * Custom hook for deploying a multisig contract and adding it to the wallet.
@@ -17,6 +18,7 @@ import { CreateWalletForm } from "@/validations/create-wallet-schema";
 export const useDeployMultisig = () => {
   const { data: walletClient } = useWalletClient();
   const chain = useChainId();
+  const router = useRouter();
 
   const deployMutation = useMutation({
     mutationFn: async (formData: CreateWalletForm) => {
@@ -39,6 +41,7 @@ export const useDeployMultisig = () => {
         name: formData.name,
       });
 
+      router.push("/accounts");
       return addedWallet;
     },
   });

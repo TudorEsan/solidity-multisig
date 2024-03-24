@@ -1,5 +1,6 @@
 import { GradientAvatar } from "@/components/gradient-avatar";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardDescription,
@@ -10,10 +11,12 @@ import {
 import { WalletsTable, db } from "@/db/drizzle";
 import { shortenAddress } from "@/helpers/shortenAddress";
 import { getServerAddress } from "@/lib/getServerAddress";
+import { TrashIcon } from "@radix-ui/react-icons";
 import { sql } from "drizzle-orm";
 import { utils } from "ethers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { DeleteButton } from "./components/delete-button";
 
 const Page = async ({ searchParams }: { searchParams: WalletQueryParam }) => {
   const address = await getServerAddress();
@@ -24,6 +27,7 @@ const Page = async ({ searchParams }: { searchParams: WalletQueryParam }) => {
     .select()
     .from(WalletsTable)
     .where(sql`${WalletsTable.address} = ${address}`);
+
   return (
     <Card className="max-w-2xl mx-auto w-full">
       <CardHeader>
@@ -31,27 +35,33 @@ const Page = async ({ searchParams }: { searchParams: WalletQueryParam }) => {
         <CardDescription>Select a wallet to view its details.</CardDescription>
       </CardHeader>
       <CardContent>
-        {wallets.map((wallet) => (
-          <Link
-            className="flex items-center gap-4 rounded-md border hover:bg-neutral-800 p-2"
-            key={wallet.id}
-            href={`/dashboard?acc=${wallet.chain}:${wallet.address}`}
-          >
-            <GradientAvatar size={40} text={wallet.address} />
-            <div className="flex flex-col">
-              <p>{wallet.name}</p>
-              <p className="text-muted-foreground">
-                {shortenAddress(wallet.address)}
-              </p>
-            </div>
-            <div className="ml-auto flex gap-2">
-              <Badge variant="secondary">
-                {wallet.owners.length}/{wallet.threshold}
-              </Badge>
-              <p> {wallet.chain}</p>
-            </div>
+        <div className="flex items-center justify-center w-full flex-col gap-3">
+          {wallets.map((wallet) => (
+            <Link
+              className="flex items-center gap-4 rounded-md border hover:bg-neutral-800 p-2 w-full"
+              key={wallet.id}
+              href={`/dashboard?acc=${wallet.chain}:${wallet.address}`}
+            >
+              <GradientAvatar size={40} text={wallet.address} />
+              <div className="flex flex-col">
+                <p>{wallet.name}</p>
+                <p className="text-muted-foreground">
+                  {shortenAddress(wallet.address)}
+                </p>
+              </div>
+              <div className="ml-auto flex gap-2 items-center">
+                <Badge variant="secondary">
+                  {wallet.owners.length}/{wallet.threshold}
+                </Badge>
+                <p> {wallet.chain}</p>
+                <DeleteButton id={wallet.id} />
+              </div>
+            </Link>
+          ))}
+          <Link href="/create" className="mt-4">
+            <Button>Create Wallet</Button>
           </Link>
-        ))}
+        </div>
       </CardContent>
     </Card>
   );
