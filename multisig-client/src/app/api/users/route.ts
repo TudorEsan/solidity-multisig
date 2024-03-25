@@ -58,6 +58,7 @@ export async function POST(request: Request) {
       chain: data.chain,
       address: address,
       name: data.name,
+      walletAddress: data.address,
     })
     .returning();
 

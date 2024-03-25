@@ -36,6 +36,7 @@ export const WalletsTable = pgTable("wallets", {
   address: text("address")
     .references(() => UsersTable.address)
     .notNull(),
+  walletAddress: text("walletAddress").notNull(),
   name: text("name"),
 });
 

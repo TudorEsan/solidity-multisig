@@ -1,10 +1,10 @@
 # Multisig DApp Development Documentation
-Introduction
+### Introduction
 
 The development of a multisig (multiple signature) DApp (Decentralized Application) represents an important advancement in enhancing security and trust in blockchain transactions. Multisig wallets require multiple parties to approve a transaction before it can be executed, providing an additional layer of security against unauthorized access and reducing the risk of fraudulent activities. This project aims to develop a multisig DApp on the Ethereum blockchain using Solidity, focusing on security, usability, and performance to meet the evolving needs of users in the blockchain space.
 
-### Requirements Analysis
-Functional Requirements
+## Requirements Analysis
+### Functional Requirements
 The multisig wallet DApp will support the following core functionalities:
 
 Wallet Creation: Users can create a new multisig wallet by specifying the wallet name, initial members, and the required number of approvals for a transaction.

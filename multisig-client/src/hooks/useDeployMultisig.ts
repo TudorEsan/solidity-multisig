@@ -1,17 +1,12 @@
-import React from "react";
-import {
-  useChainId,
-  useWaitForTransactionReceipt,
-  useWalletClient,
-} from "wagmi";
+import { useChainId, useWalletClient } from "wagmi";
 import Multisig from "@/contracts/Multisig.json";
-import { Address } from "viem";
 import { useMutation } from "@tanstack/react-query";
 import { MultisigService } from "@/service/multisig.service";
-import type { WalletSchema } from "@/validations/wallet.schama";
 import { CreateWalletForm } from "@/validations/create-wallet-schema";
 import { useRouter } from "next/navigation";
 import { Routes } from "@/routes";
+import { getTransactionReceipt } from "@wagmi/core";
+import { wagmiConfig } from "@/app/providers";
 
 /**
  * Custom hook for deploying a multisig contract and adding it to the wallet.
@@ -34,12 +29,19 @@ export const useDeployMultisig = () => {
       if (!txHash) {
         throw new Error("Failed to deploy contract");
       }
+      console.log({
+        txHash,
+      });
+      let txReceipt = await getTransactionReceipt(wagmiConfig, {
+        hash: txHash,
+      });
 
       const addedWallet = await MultisigService.addWallet({
         owners,
         threshold: Number(formData.threshold),
         chain,
         name: formData.name,
+        address: txReceipt.contractAddress as string,
       });
 
       router.push(Routes.wallets());

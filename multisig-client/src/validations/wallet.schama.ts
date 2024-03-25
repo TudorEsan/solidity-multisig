@@ -6,6 +6,7 @@ export const WalletSchema = z
     threshold: z.number(),
     chain: z.number(),
     name: z.string(),
+    address: z.string(),
   })
   .refine((data) => {
     return data.owners.length >= data.threshold;

@@ -28,7 +28,7 @@ const CreateWallet = () => {
   return (
     <FormProvider {...form}>
       <div className="grid grid-cols-3 gap-4">
-        <Card className="w-full lg:col-span-2">
+        <Card className="w-full col-span-2">
           <CardHeader>
             <CardTitle>Create a new Wallet</CardTitle>
             <CardDescription>

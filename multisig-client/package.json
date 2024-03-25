@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate": "drizzle-kit generate:pg --schema=./src/db/drizzle.ts && node -r esbuild-register src/db/migrate.ts"
+    "migrate": "drizzle-kit generate:pg --schema=./src/db/drizzle.ts && node -r esbuild-register src/db/migrate.ts",
+    "studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@moralisweb3/next": "^2.25.1",

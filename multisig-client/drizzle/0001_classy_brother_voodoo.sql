@@ -1,0 +1,1 @@
+ALTER TABLE "wallets" ADD COLUMN "walletAddress" text NOT NULL DEFAULT 'N/A';

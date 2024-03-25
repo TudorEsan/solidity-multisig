@@ -1,5 +1,5 @@
 "use client";
-import { useNativeAndERC20Balances } from "@/hooks/useGetBalance";
+import { useNativeAndERC20Balances } from "@/hooks/useNativeAndERC20Balances";
 import React from "react";
 
 export const Tokens = () => {
@@ -7,5 +7,10 @@ export const Tokens = () => {
     "0x4200000000000000000000000000000000000042",
   ]);
 
-  return <div>Tokens</div>;
+  return (
+    <div className="mt-8">
+      <h1 className="text-xl">Your Tokens</h1>
+      
+    </div>
+  );
 };

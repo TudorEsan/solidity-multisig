@@ -18,6 +18,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { DeleteButton } from "./components/delete-button";
 import { Routes } from "@/routes";
+import Image from "next/image";
+import { CHAINS_IMAGES } from "@/constants/chains";
 
 const Page = async ({ searchParams }: { searchParams: WalletQueryParam }) => {
   const address = await getServerAddress();
@@ -41,20 +43,26 @@ const Page = async ({ searchParams }: { searchParams: WalletQueryParam }) => {
             <Link
               className="flex items-center gap-4 rounded-md border hover:bg-neutral-800 p-2 w-full"
               key={wallet.id}
-              href={`/dashboard?acc=${wallet.chain}:${wallet.address}`}
+              href={`/dashboard?acc=${wallet.chain}:${wallet.walletAddress}`}
             >
-              <GradientAvatar size={40} text={wallet.address} />
+              <GradientAvatar size={40} text={wallet.walletAddress} />
               <div className="flex flex-col">
                 <p>{wallet.name}</p>
                 <p className="text-muted-foreground">
-                  {shortenAddress(wallet.address)}
+                  {shortenAddress(wallet.walletAddress)}
                 </p>
               </div>
               <div className="ml-auto flex gap-2 items-center">
                 <Badge variant="secondary">
                   {wallet.owners.length}/{wallet.threshold}
                 </Badge>
-                <p> {wallet.chain}</p>
+                <Image
+                  height={32}
+                  width={32}
+                  alt="chain"
+                  // @ts-ignore
+                  src={`${CHAINS_IMAGES[Number(wallet.chain)] as string}`}
+                />
                 <DeleteButton id={wallet.id} />
               </div>
             </Link>
