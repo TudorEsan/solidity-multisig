@@ -11,6 +11,7 @@ import { MultisigService } from "@/service/multisig.service";
 import type { WalletSchema } from "@/validations/wallet.schama";
 import { CreateWalletForm } from "@/validations/create-wallet-schema";
 import { useRouter } from "next/navigation";
+import { Routes } from "@/routes";
 
 /**
  * Custom hook for deploying a multisig contract and adding it to the wallet.
@@ -41,7 +42,7 @@ export const useDeployMultisig = () => {
         name: formData.name,
       });
 
-      router.push("/accounts");
+      router.push(Routes.wallets());
       return addedWallet;
     },
   });

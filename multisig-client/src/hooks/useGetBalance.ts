@@ -44,11 +44,11 @@ export function useNativeAndERC20Balances(tokenAddresses: string[]) {
   // Combine loading states for simplicity
   const isLoading = isNativeBalanceLoading || areERC20BalancesLoading;
   const isError = isNativeBalanceError || areERC20BalancesError;
-  console.log(
-    erc20BalancesData,
-    areERC20BalancesLoading,
-    areERC20BalancesError
-  );
+  // console.log(
+  //   erc20BalancesData,
+  //   areERC20BalancesLoading,
+  //   areERC20BalancesError
+  // );
 
   // Format ERC20 balances
   const erc20Balances = erc20BalancesData

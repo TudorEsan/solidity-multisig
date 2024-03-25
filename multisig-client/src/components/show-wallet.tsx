@@ -9,6 +9,7 @@ import {
   SymbolIcon,
 } from "@radix-ui/react-icons";
 import Link from "next/link";
+import { Routes } from "@/routes";
 
 /**
  * Renders a wallet component that displays the wallet address and name (if available).
@@ -24,7 +25,7 @@ export const ShowWallet = ({
 }: {
   name: string | null;
   address: string;
-}) => {
+}): JSX.Element => {
   const [copied, setCopied] = React.useState(false);
   return (
     <div className="flex items-center gap-3 p-2 border rounded-md">
@@ -44,7 +45,7 @@ export const ShowWallet = ({
             {copied ? <CheckIcon /> : <ClipboardCopyIcon />}
           </button>
           <Link
-            href={`/accounts`}
+            href={Routes.wallets()}
             className="rounded-full p-1.5 bg-slate-900 border hover:scale-105"
           >
             <SymbolIcon />

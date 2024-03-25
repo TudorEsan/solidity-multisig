@@ -17,11 +17,12 @@ import { utils } from "ethers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { DeleteButton } from "./components/delete-button";
+import { Routes } from "@/routes";
 
 const Page = async ({ searchParams }: { searchParams: WalletQueryParam }) => {
   const address = await getServerAddress();
   if (!address) {
-    redirect("/login");
+    redirect(Routes.login());
   }
   const wallets = await db
     .select()
@@ -58,7 +59,7 @@ const Page = async ({ searchParams }: { searchParams: WalletQueryParam }) => {
               </div>
             </Link>
           ))}
-          <Link href="/create" className="mt-4">
+          <Link href={Routes.create()} className="mt-4">
             <Button>Create Wallet</Button>
           </Link>
         </div>

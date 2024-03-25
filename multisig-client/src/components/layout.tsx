@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { AppNavbar } from "./navbar";
 import { ShowWallet } from "./show-wallet";
@@ -17,11 +18,12 @@ export const Layout = ({
   children: React.ReactNode;
   selectedWallet: string | null;
 }) => {
+  console.log("selected", selectedWallet);
   return (
     <div>
       <Drawer selectedWallet={selectedWallet} />
       <AppNavbar />
-      <div className="ml-60">
+      <div className="ml-60 px-4">
         <div className="relative max-w-5xl mx-auto top-24">{children}</div>
       </div>
     </div>

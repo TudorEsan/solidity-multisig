@@ -33,7 +33,7 @@ export const GradientAvatar = ({ size = 24, text }: Props) => {
   }, [text]);
 
   const gradientId = React.useMemo(
-    () => `gradient-${Math.random().toString(36).substr(2, 9)}`,
+    () => `gradient-${stringHash(text)}`,
     [text]
   );
 
@@ -61,8 +61,8 @@ export const GradientAvatar = ({ size = 24, text }: Props) => {
           y2={size}
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color={gradient[0]} />
-          <stop offset="1" stop-color={gradient[1]} />
+          <stop stopColor={gradient[0]} />
+          <stop offset="1" stopColor={gradient[1]} />
         </linearGradient>
       </defs>
     </svg>
