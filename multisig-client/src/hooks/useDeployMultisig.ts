@@ -8,6 +8,8 @@ import { Routes } from "@/routes";
 import { getTransactionReceipt } from "@wagmi/core";
 import { wagmiConfig } from "@/app/providers";
 
+import { toast } from "sonner";
+
 /**
  * Custom hook for deploying a multisig contract and adding it to the wallet.
  */
@@ -46,6 +48,10 @@ export const useDeployMultisig = () => {
 
       router.push(Routes.wallets());
       return addedWallet;
+    },
+    onError: (error) => {
+      console.error(error);
+      toast.error(error.message);
     },
   });
 

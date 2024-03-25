@@ -6,6 +6,7 @@ import {
   GetSiweMessageOptions,
   RainbowKitSiweNextAuthProvider,
 } from "@rainbow-me/rainbowkit-siwe-next-auth";
+import { Toaster } from "sonner";
 
 import {
   darkTheme,
@@ -72,6 +73,7 @@ export const AppProviders = ({
             getSiweMessageOptions={getSiweMessageOptions}
           >
             <RainbowKitProvider theme={darkTheme()}>
+              <Toaster />
               <NextUIProvider>{children}</NextUIProvider>
             </RainbowKitProvider>
           </RainbowKitSiweNextAuthProvider>

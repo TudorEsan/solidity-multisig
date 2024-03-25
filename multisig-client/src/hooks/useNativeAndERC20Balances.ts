@@ -15,13 +15,19 @@ export function useNativeAndERC20Balances(tokenAddresses: string[]) {
   const { address } = useGetSelectedWallet();
 
   // Fetching native token balance
-  const {
-    data: nativeBalanceData,
-    isLoading: isNativeBalanceLoading,
-    isError: isNativeBalanceError,
-  } = useBalance({
+  const nativeBalance = useBalance({
     address: address as Address,
   });
+
+  const ethereum = {
+    identifier: "ETH",
+    price: 0,
+    decimals: 18,
+    balance: nativeBalance.data?.value?.toString() ?? "0",
+    isLoading: nativeBalance.isLoading,
+    error: nativeBalance.error,
+    url: "/images/ethereum.svg",
+  };
 
   // Prepare contract reads for ERC20 balances
   // const erc20Reads = useMemo(
@@ -63,11 +69,9 @@ export function useNativeAndERC20Balances(tokenAddresses: string[]) {
   //   : [];
 
   // Format native balance
-  const nativeBalance = nativeBalanceData
-    ? ethers.utils.formatEther(nativeBalanceData.value)
-    : "0";
 
   return {
     nativeBalance,
+    tokens: [ethereum],
   };
 }
