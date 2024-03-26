@@ -1,5 +1,5 @@
 "use client";
-import { ControlledInput } from "@/components/inputs/controlled-input";
+import { ControlledInput } from "@/components/ui/controlled/controlled-input";
 import {
   Card,
   CardDescription,

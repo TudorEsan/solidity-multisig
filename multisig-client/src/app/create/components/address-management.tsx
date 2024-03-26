@@ -1,6 +1,6 @@
 import React from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
-import { ControlledInput } from "@/components/inputs/controlled-input";
+import { ControlledInput } from "@/components/ui/controlled/controlled-input";
 import { Button } from "@/components/ui/button";
 import { Cross1Icon, PlusIcon, TrashIcon } from "@radix-ui/react-icons";
 import { CreateWalletForm } from "@/validations/create-wallet-schema";

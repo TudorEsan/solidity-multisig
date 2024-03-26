@@ -15,9 +15,8 @@ export const Header = () => {
           {ethers.utils.formatEther(tokens?.[0]?.balance).toString()} ETH
         </p>
       </div>
-      {/* <Button size="icon" className="rounded-full">
-        <ArrowUpIcon />
-      </Button> */}
+      <Button size="icon" className="rounded-full">
+      </Button>
       <ShareAddress />
     </div>
   );
