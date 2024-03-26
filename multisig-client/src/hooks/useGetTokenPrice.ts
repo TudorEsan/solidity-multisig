@@ -3,7 +3,7 @@ import { QueryKeys } from "./query-keys";
 
 export const useGetTokenPrices = () => {
   return useQuery({
-    queryKey: QueryKeys.tokenPrices(),
+    queryKey: QueryKeys.tokensPrices(),
     queryFn: async () => {
       return { data: [] };
     },

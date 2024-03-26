@@ -6,6 +6,7 @@ export type WalletToken = {
   decimals: number;
   identifier: string;
   type: "ERC20" | "ETH";
+  price?: number;
 };
 
 export type Token = Omit<WalletToken, "balance">;

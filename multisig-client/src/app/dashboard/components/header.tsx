@@ -2,11 +2,12 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { ShareAddress } from "./share-address";
-import { useNativeAndERC20Balances } from "@/hooks/useNativeAndERC20Balances";
+import { useGetTokenBalance } from "@/hooks/useGetTokenBalance";
 import { ethers } from "ethers";
+import { SendTokensButton } from "./send-tokens";
 
 export const Header = () => {
-  const { tokens } = useNativeAndERC20Balances([]);
+  const { tokens } = useGetTokenBalance([]);
   return (
     <div className="flex gap-2 items-end">
       <div className="flex flex-col">
@@ -15,8 +16,7 @@ export const Header = () => {
           {ethers.utils.formatEther(tokens?.[0]?.balance).toString()} ETH
         </p>
       </div>
-      <Button size="icon" className="rounded-full">
-      </Button>
+      <SendTokensButton />
       <ShareAddress />
     </div>
   );

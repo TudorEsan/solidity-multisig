@@ -1,17 +1,18 @@
-import { ArrowUpIcon } from '@heroicons/react/solid';
-import { ChevronLeftIcon } from '@radix-ui/react-icons';
-import { Modal, ModalContent } from '@nextui-org/react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { FormProvider, useForm } from 'react-hook-form';
-import { AnimatePresence, motion } from 'framer-motion';
+"use client";
+import { ArrowUpIcon, ChevronLeftIcon } from "@radix-ui/react-icons";
+import { Modal, ModalContent } from "@nextui-org/react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormProvider, useForm } from "react-hook-form";
+import { AnimatePresence, motion } from "framer-motion";
 
-import { Button } from '@/components/ui/button';
-
-
-import { SelectWalletTokenAmountWidget } from '../ui/controlled/select-wallet-token-amount-widget';
-
-import { SelectRecipient } from './select-recepient';
-import { ReviewTokenSend } from './review-token-send';
+import { Button } from "@/components/ui/button";
+import { SendTokenSchema } from "@/validations/send-token-schema";
+import { useGetTokenBalance } from "@/hooks/useGetTokenBalance";
+import { useMultistepForm } from "@/hooks/useMultistepForm";
+import { SelectWalletTokenAmountWidget } from "@/components/ui/controlled/select-wallet-token-amount-widget";
+import useModalStore from "@/hooks/useModalStore";
+import { SelectRecipient } from "./select-receiver";
+import { ReviewTokenSend } from "./review-token-send";
 
 const pageTransitionVariants = {
   initial: {
@@ -32,29 +33,31 @@ const SendTokensForm = ({ onClose }: { onClose: () => void }) => {
   const form = useForm<SendTokenSchema>({
     resolver: zodResolver(SendTokenSchema),
   });
-  const walletTokens = useGetAccountTokens();
+  const { tokens, isLoading } = useGetTokenBalance([]);
   const { next, back, step, currentStepIndex, isFirstStep } = useMultistepForm([
     <SelectWalletTokenAmountWidget
-      walletTokens={walletTokens.data ?? []}
-      isLoading={walletTokens.isLoading}
+      key="select"
+      walletTokens={tokens ?? []}
+      isLoading={isLoading}
       next={() => next()}
     />,
-    <SelectRecipient next={() => next()} />,
+    <SelectRecipient key="recipient" next={() => next()} />,
     <ReviewTokenSend
       close={() => {
         onClose();
       }}
+      key="review"
     />,
   ]);
 
   const getTitle = () => {
     if (currentStepIndex === 0) {
-      return 'Send';
+      return "Send";
     }
     if (currentStepIndex === 1) {
-      return 'Select Recipient';
+      return "Select Recipient";
     }
-    return 'Review';
+    return "Review";
   };
 
   return (
@@ -95,27 +98,23 @@ const SendTokensForm = ({ onClose }: { onClose: () => void }) => {
 };
 
 export const SendTokensButton = ({ onClick }: { onClick?: () => void }) => {
-  const handleOpen = useModalStore(s => s.showSendTokens);
+  const handleOpen = useModalStore((s) => s.showSendTokens);
   return (
-    <button
-      type="button"
+    <Button
+      size="icon"
+      className="rounded-full"
       onClick={() => {
-        handleOpen();
         onClick?.();
+        handleOpen();
       }}
     >
-      <div className="flex flex-col items-center gap-1">
-        <Button size="icon" className="rounded-full bg-sky-500">
-          <ArrowUpIcon className="w-6 h-6 text-white" />
-        </Button>
-        <p className="text-sm font-light">Send</p>
-      </div>
-    </button>
+      <ArrowUpIcon className="w-6 h-6" />
+    </Button>
   );
 };
 
 export const SendTokensModal = () => {
-  const { isOpen, onOpenChange } = useModalStore(s => ({
+  const { isOpen, onOpenChange } = useModalStore((s) => ({
     isOpen: s.isSendTokensVisible,
     onOpenChange: s.hideSendTokens,
   }));

@@ -107,6 +107,7 @@ export const ControlledTokenSelectModal = ({ select, root }: Props) => {
       }
       const token = select.tokens[0];
       form.setValue(select.name, token);
+      console.log('setting token', token)
     }
   }, [select.tokens]);
 

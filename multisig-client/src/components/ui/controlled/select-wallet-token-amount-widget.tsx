@@ -7,8 +7,8 @@ import { z } from "zod";
 import { Utils } from "@pulsar.money/core";
 
 import { Button } from "@/components/ui/button";
-import { SendTokenSchema } from "@/components/schemas/send-token-schema";
-import { WalletTokenSchema } from "@/components/schemas/wallet-token-schema";
+import { SendTokenSchema } from "@/validations/send-token-schema";
+import { WalletTokenSchema } from "@/validations/wallet-token-schema";
 import { WalletToken } from "@/types/token.type";
 import { useGetTokenPrice } from "@/hooks/useGetTokenPrice";
 import { sanitizeNumberInput } from "@/helpers/sanitizer";
@@ -18,10 +18,10 @@ import {
 } from "@/helpers/numberFormaters";
 import { ethers } from "ethers";
 import { StyledNumber } from "@/components/styled-number";
-import { SwitchIcon } from "@radix-ui/react-icons";
 import { ControlledTokenSelectModal } from "./controlled-token-select-modal";
 import { ErrorMessage } from "../error-message";
 import { ControlledInput } from "./controlled-input-shad";
+import { SwitchHorizontalIcon } from "@heroicons/react/solid";
 
 interface AutoResizeInputProps {
   name: "amount" | "priceUsd";
@@ -140,7 +140,7 @@ export const SelectWalletTokenAmountWidget = ({
   const handleNext = async () => {
     const hasEnoughBalance = BigNumber(amount)
       .times(10 ** (token?.decimals ?? 1))
-      .lte(token?.balance ?? 0);
+      .lte(token?.balance ?? "0");
     if (hasEnoughBalance) {
       next();
     } else {
@@ -164,7 +164,7 @@ export const SelectWalletTokenAmountWidget = ({
   const handleMax = () => {
     let balance = BigNumber(
       maxNumberFormater(
-        ethers.utils.formatUnits(token?.balance, token?.decimals)
+        ethers.utils.formatUnits(token?.balance ?? "0", token?.decimals)
       )
     );
     if (token.identifier === "ETH") {
@@ -267,7 +267,7 @@ export const SelectWalletTokenAmountWidget = ({
           onClick={() => setShowPrice(!showPrice)}
           disabled={!tokenPrice.data}
         >
-          <SwitchIcon className="h-6 w-6" />
+          <SwitchHorizontalIcon className="h-6 w-6" />
         </Button>
       </div>
       <div className="flex flex-col mb-5">
@@ -279,7 +279,7 @@ export const SelectWalletTokenAmountWidget = ({
         />
         <p className="text-center text-muted-foreground text-sm">
           {shortNumberFormater(
-            ethers.utils.formatUnits(token?.balance, token?.decimals)
+            ethers.utils.formatUnits(token?.balance ?? "0", token?.decimals)
           )}{" "}
           {selectedTokenIdentifier}
         </p>

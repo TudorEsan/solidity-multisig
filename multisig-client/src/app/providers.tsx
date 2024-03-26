@@ -27,6 +27,7 @@ import {
 import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { SendTokensModal } from "./dashboard/components/send-tokens";
 
 export const wagmiConfig = getDefaultConfig({
   appName: "My Multisig App",
@@ -74,6 +75,7 @@ export const AppProviders = ({
           >
             <RainbowKitProvider theme={darkTheme()}>
               <Toaster />
+              <SendTokensModal />
               <NextUIProvider>{children}</NextUIProvider>
             </RainbowKitProvider>
           </RainbowKitSiweNextAuthProvider>

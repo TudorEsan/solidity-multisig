@@ -18,7 +18,6 @@ export const Layout = ({
   children: React.ReactNode;
   selectedWallet: string | null;
 }) => {
-  console.log("selected", selectedWallet);
   return (
     <div>
       <Drawer selectedWallet={selectedWallet} />
