@@ -34,9 +34,21 @@ export const useDeployMultisig = () => {
       console.log({
         txHash,
       });
-      let txReceipt = await getTransactionReceipt(wagmiConfig, {
-        hash: txHash,
-      });
+      let txReceipt;
+      let retryCount = 0;
+      while (retryCount < 3) {
+        try {
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+          console.log("try", retryCount);
+          txReceipt = await getTransactionReceipt(wagmiConfig, {
+            hash: txHash,
+          });
+          break;
+        } catch (error) {
+          console.error(error);
+          retryCount++;
+        }
+      }
 
       const addedWallet = await MultisigService.addWallet({
         owners,

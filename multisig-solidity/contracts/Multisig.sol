@@ -155,6 +155,14 @@ contract MultiSigWallet {
         return transactions.length;
     }
 
+    function getTransactions()
+        public
+        view
+        returns (Transaction[] memory)
+    {
+        return transactions;
+    }
+
     function getTransaction(uint256 _txIndex)
         public
         view

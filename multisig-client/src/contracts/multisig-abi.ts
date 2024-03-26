@@ -226,6 +226,46 @@ export const MultisigAbi = [
     type: "function",
   },
   {
+    inputs: [],
+    name: "getTransactions",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "address",
+            name: "to",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "value",
+            type: "uint256",
+          },
+          {
+            internalType: "bytes",
+            name: "data",
+            type: "bytes",
+          },
+          {
+            internalType: "bool",
+            name: "executed",
+            type: "bool",
+          },
+          {
+            internalType: "uint256",
+            name: "numConfirmations",
+            type: "uint256",
+          },
+        ],
+        internalType: "struct MultiSigWallet.Transaction[]",
+        name: "",
+        type: "tuple[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [
       {
         internalType: "uint256",
