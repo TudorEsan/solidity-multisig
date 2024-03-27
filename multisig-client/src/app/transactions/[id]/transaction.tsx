@@ -1,4 +1,5 @@
 "use client";
+import { DisplayAddress } from "@/components/display-address";
 import { LoadingScreen } from "@/components/loading-screen";
 import { ReviewSend } from "@/components/review-send";
 import { Badge } from "@/components/ui/badge";
@@ -11,13 +12,17 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useGetRequiredConfirmations } from "@/hooks/useGetRequiredConfirmations";
-import { useGetSelectedWallet } from "@/hooks/useGetSelectedWallet";
 import { useGetTransaction } from "@/hooks/useGetTransaction";
+import { useGetTransactionApprovals } from "@/hooks/useGetTransactionApprovals";
+import { useGetTransactionHash } from "@/hooks/useGetTransactionHash";
 import { useMultisigMutations } from "@/hooks/useMultisigMutations";
+import { useQueryClient } from "@tanstack/react-query";
 import React from "react";
+import { History } from "./components/history";
+import { RefreshIcon } from "@heroicons/react/solid";
+import { QueryKeys } from "@/hooks/query-keys";
 
 export const Transaction = ({ id }: { id: string }) => {
-  const { address } = useGetSelectedWallet();
   const { numConfirmationsRequired, error, isLoading, queryKey } =
     useGetRequiredConfirmations();
   const {
@@ -32,6 +37,26 @@ export const Transaction = ({ id }: { id: string }) => {
     loading: loadingMutation,
     isPending,
   } = useMultisigMutations();
+  const { owners, queryKey: ownersQueryKeys } = useGetTransactionApprovals(id);
+  const queryClient = useQueryClient();
+  const txHash = useGetTransactionHash(id, transaction?.executed ?? false);
+
+  const queries = [
+    queryKey,
+    transactionQueryKey,
+    ownersQueryKeys,
+    QueryKeys.getTranasctionHistory(id),
+    QueryKeys.getTransactionHash(id),
+  ];
+  const handleRefresh = async () => {
+    await Promise.all([
+      queries.map((query) =>
+        queryClient.invalidateQueries({
+          queryKey: query,
+        })
+      ),
+    ]);
+  };
 
   if (isLoading || isTransactionLoading) {
     return <LoadingScreen />;
@@ -62,14 +87,22 @@ export const Transaction = ({ id }: { id: string }) => {
           <table>
             <tbody>
               <tr>
-                <td className="pr-6 font-bold">Transaction Status</td>{" "}
+                <td className="pr-6 font-bold">Transaction Status</td>
                 <td>{transaction.executed ? "Executed" : "Pending"}</td>
+              </tr>
+              <tr>
+                <td className="pr-6 font-bold">Transaction Hash</td>
+                <td>
+                  <div className="max-w-40 truncate">
+                    {txHash.data ? txHash.data[0]?.transactionHash : "N/A"}
+                  </div>
+                </td>
               </tr>
               <tr>
                 <td className="pr-6 font-bold">Transaction ID</td> <td>{id}</td>
               </tr>
               <tr>
-                <td className="pr-6 font-bold">Confirmations</td>{" "}
+                <td className="pr-6 font-bold">Confirmations</td>
                 <td>
                   <Badge>
                     {transaction.numConfirmations}/{numConfirmationsRequired}
@@ -78,31 +111,56 @@ export const Transaction = ({ id }: { id: string }) => {
               </tr>
             </tbody>
           </table>
-          <div className="mt-8 flex gap-4">
-            <Button
-              className="w-full"
-              variant="destructive"
-              onClick={async () => {
-                await revokeTransaction(id, [queryKey, transactionQueryKey]);
-              }}
-            >
-              {isPending && loadingMutation === "reject"
-                ? "Revoking..."
-                : "Revoke"}
-            </Button>
-            <Button
-              className="w-full"
-              onClick={async () => {
-                await acceptTransaction(id, [queryKey, transactionQueryKey]);
-              }}
-            >
-              {isPending && loadingMutation === "accept"
-                ? "Confirming..."
-                : "Confirm"}
-            </Button>
+          <p className="mt-4">Owners who approved</p>
+          <div className="flex flex-col gap-2 mt-2">
+            {(!owners || owners.length) === 0 && (
+              <p className="text-muted-foreground">
+                No owners have approved this transaction
+              </p>
+            )}
+            {owners?.map((owner) => (
+              <DisplayAddress key={owner} address={owner} />
+            ))}
           </div>
+          {!transaction?.executed && (
+            <div className="mt-8 flex gap-4">
+              <Button
+                className="w-full"
+                variant="destructive"
+                onClick={async () => {
+                  await revokeTransaction(id, queries);
+                }}
+              >
+                {isPending && loadingMutation === "reject"
+                  ? "Revoking..."
+                  : "Revoke"}
+              </Button>
+              <Button
+                className="w-full"
+                onClick={async () => {
+                  await acceptTransaction(id, queries);
+                }}
+              >
+                {isPending && loadingMutation === "accept"
+                  ? "Confirming..."
+                  : "Confirm"}
+              </Button>
+            </div>
+          )}
         </CardContent>
       </Card>
+      <div className="col-span-full flex items-center justify-center flex-col">
+        <History id={id} />
+        <Button
+          className="mt-8 flex gap-2"
+          size="sm"
+          variant="outline"
+          onClick={handleRefresh}
+        >
+          <RefreshIcon className="w-4 h-4" />
+          Refresh
+        </Button>
+      </div>
     </div>
   );
 };

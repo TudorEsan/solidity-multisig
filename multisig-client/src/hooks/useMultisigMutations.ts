@@ -22,7 +22,6 @@ export const useMultisigMutations = () => {
         functionName: "confirmTransaction",
         args: [BigInt(id)],
       });
-      console.log("invalidating queries");
       queryKeys.forEach(async (queryKey) => {
         await queryClient.invalidateQueries({
           queryKey,
@@ -45,7 +44,6 @@ export const useMultisigMutations = () => {
         functionName: "revokeConfirmation",
         args: [BigInt(id)],
       });
-      console.log("invalidating queries");
       queryKeys.forEach(async (queryKey) => {
         await queryClient.invalidateQueries({
           queryKey,

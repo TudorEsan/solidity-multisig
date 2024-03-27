@@ -5,18 +5,14 @@ import { useGetTokenBalance } from "@/hooks/useGetTokenBalance";
 import { ScrollShadow } from "@nextui-org/react";
 import React from "react";
 
-export const Tokens = () => {
-  const { tokens } = useGetTokenBalance([
-    "0x4200000000000000000000000000000000000042",
-  ]);
-
+export const Owners = () => {
   return (
     <Card className="mt-8 p-4">
       <h1 className="text-xl">Your Tokens</h1>
       <ScrollShadow className="h-[325px] mt-4" hideScrollBar>
-        {tokens.map((token) => (
+        {/* {tokens.map((token) => (
           <TokenRow {...token} key={token.identifier} />
-        ))}
+        ))} */}
       </ScrollShadow>
     </Card>
   );

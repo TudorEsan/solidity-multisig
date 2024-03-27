@@ -11,7 +11,6 @@ export const useGetRequiredConfirmations = () => {
     functionName: "numConfirmationsRequired",
     args: [],
   });
-  console.log(data);
 
   const numConfirmationsRequired = useMemo(() => {
     return data?.toString();

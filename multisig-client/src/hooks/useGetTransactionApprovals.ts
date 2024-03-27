@@ -13,5 +13,5 @@ export const useGetTransactionApprovals = (id: string) => {
     args: [BigInt(id)],
   });
 
-  return { owners, error, isLoading, queryKey };
+  return { owners: data, error, isLoading, queryKey };
 };

@@ -6,7 +6,6 @@ export const AddressSchema = z
   .min(1, "Address is required")
   .refine(
     (data) => {
-      console.log("data", data);
       try {
         return ethers.utils.isAddress(data);
       } catch (error) {

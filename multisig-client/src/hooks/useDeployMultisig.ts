@@ -5,7 +5,7 @@ import { MultisigService } from "@/service/multisig.service";
 import { CreateWalletForm } from "@/validations/create-wallet-schema";
 import { Routes } from "@/routes";
 import { getTransactionReceipt } from "@wagmi/core";
-import { wagmiConfig } from "@/app/providers";
+import { wagmiConfig } from "@/constants/config";
 
 import { toast } from "sonner";
 import { useCustomRouter } from "./useCustomRouter";

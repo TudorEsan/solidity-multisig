@@ -29,7 +29,6 @@ export function useGetTokenBalance(tokenAddresses: string[]) {
       url: "/images/ethereum.svg",
       type: "ETH",
     };
-    console.log("heoooo");
     return [ethereum];
   }, [nativeBalance.data?.value]);
 

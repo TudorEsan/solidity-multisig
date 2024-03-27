@@ -4,9 +4,12 @@ import { Tokens } from "./components/tokens";
 
 const Page = () => {
   return (
-    <div>
-      <Header />
+    <div className="grid grid-cols-2 w-full">
+      <div className="col-span-full">
+        <Header />
+      </div>
       <Tokens />
+
     </div>
   );
 };
