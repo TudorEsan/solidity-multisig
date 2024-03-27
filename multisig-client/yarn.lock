@@ -3668,6 +3668,18 @@
   resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.28.2.tgz#8bee8c10b956ebe8e1c57df89f6dd620b787add0"
   integrity sha512-IvRjNUzoJ0Hn5OSpFkPtMY00zEm+EauCnSKOx/PJPOpME6ucM5hSisFdnIN9oU3WDw5lv6OFWDSpG0rM6lF9rw==
 
+"@tanstack/query-devtools@5.28.6":
+  version "5.28.6"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-devtools/-/query-devtools-5.28.6.tgz#da31268b79102e6fd8d6df64763ec9c02d84bd58"
+  integrity sha512-DXJGqbrsteWU9XehDf6s3k3QxwQqGUlNXpitsF1xbwkYBcDaAakiC6hjJSMfPBHOrbZCnWfAGCVf4vh2D75/xw==
+
+"@tanstack/react-query-devtools@^5.28.9":
+  version "5.28.9"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query-devtools/-/react-query-devtools-5.28.9.tgz#26090857178fbc36f9ecc625063f6b1d21894eca"
+  integrity sha512-GHbJDJIhAak2B+7NJvSfT+jfajxMf/CEwbVn4Z+JSVLUZ21/TITwQWaihN1WKKj/nMbizUu6U2O9MTNHW4YPqg==
+  dependencies:
+    "@tanstack/query-devtools" "5.28.6"
+
 "@tanstack/react-query@^5.28.2":
   version "5.28.2"
   resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.28.2.tgz#d7368f4601f410e2f830a26567880bfb132bcf83"
@@ -7376,6 +7388,13 @@ next-auth@^4.24.7:
     preact-render-to-string "^5.1.19"
     uuid "^8.3.2"
 
+next-nprogress-bar@^2.3.9:
+  version "2.3.9"
+  resolved "https://registry.yarnpkg.com/next-nprogress-bar/-/next-nprogress-bar-2.3.9.tgz#f271abb7e1f6bc95b024256f8dcec041dd63bcdb"
+  integrity sha512-X4nJqpyXcqpXwcSyCzed8hKWnOCqzLaINVHdwokKpuJ76Qj8EGB9mPqwCcFhgXsvIdlzPLAKxq6ajPI9tSYmig==
+  dependencies:
+    nprogress "^0.2.0"
+
 next-tick@1, next-tick@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.1.0.tgz#1836ee30ad56d67ef281b22bd199f709449b35eb"
@@ -7462,6 +7481,11 @@ npm-run-path@^5.1.0:
   integrity sha512-ppwTtiJZq0O/ai0z7yfudtBpWIoxM8yE6nHi1X47eFR2EWORqfbu6CnPlNsjeN683eT0qG6H/Pyf9fCcvjnnnQ==
   dependencies:
     path-key "^4.0.0"
+
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/nprogress/-/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
+  integrity sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==
 
 number-to-bn@1.7.0:
   version "1.7.0"

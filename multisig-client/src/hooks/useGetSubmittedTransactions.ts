@@ -3,6 +3,7 @@ import { useReadContract } from "wagmi";
 import { useGetSelectedWallet } from "./useGetSelectedWallet";
 import { MultisigAbi } from "@/contracts/multisig-abi";
 import { BigNumber } from "ethers";
+import { formatEther } from "viem";
 
 export const useGetSubmittedTransactions = () => {
   const { address } = useGetSelectedWallet();
@@ -17,11 +18,11 @@ export const useGetSubmittedTransactions = () => {
   const formatedTransactions = useMemo(() => {
     return data?.map((transaction) => {
       return {
-        to: transaction[0],
-        amount: transaction[1],
-        data: transaction[2],
-        executed: transaction[3],
-        numConfirmations: transaction[4],
+        to: transaction.to,
+        amount: formatEther(transaction.value),
+        data: transaction.data,
+        executed: transaction.executed,
+        numConfirmations: transaction.numConfirmations.toString(),
       };
     });
   }, [data]);

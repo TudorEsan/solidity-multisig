@@ -106,6 +106,10 @@ contract MultiSigWallet {
         transaction.numConfirmations += 1;
         isConfirmed[_txIndex][msg.sender] = true;
 
+        if (transaction.numConfirmations >= numConfirmationsRequired) {
+            executeTransaction(_txIndex);
+        }
+
         emit ConfirmTransaction(msg.sender, _txIndex);
     }
 
@@ -161,6 +165,29 @@ contract MultiSigWallet {
         returns (Transaction[] memory)
     {
         return transactions;
+    }
+
+    function getApprovedOwners(uint256 _txIndex)
+        public
+        view
+        returns (address[] memory)
+    {
+        address[] memory approvedOwners = new address[](owners.length);
+        uint256 approvedOwnersCount = 0;
+
+        for (uint256 i = 0; i < owners.length; i++) {
+            if (isConfirmed[_txIndex][owners[i]]) {
+                approvedOwners[approvedOwnersCount] = owners[i];
+                approvedOwnersCount += 1;
+            }
+        }
+
+        address[] memory result = new address[](approvedOwnersCount);
+        for (uint256 i = 0; i < approvedOwnersCount; i++) {
+            result[i] = approvedOwners[i];
+        }
+
+        return result;
     }
 
     function getTransaction(uint256 _txIndex)

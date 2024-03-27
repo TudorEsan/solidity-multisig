@@ -161,6 +161,25 @@ export const MultisigAbi = [
     type: "function",
   },
   {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_txIndex",
+        type: "uint256",
+      },
+    ],
+    name: "getApprovedOwners",
+    outputs: [
+      {
+        internalType: "address[]",
+        name: "",
+        type: "address[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [],
     name: "getOwners",
     outputs: [

@@ -7,6 +7,8 @@ import {
   RainbowKitSiweNextAuthProvider,
 } from "@rainbow-me/rainbowkit-siwe-next-auth";
 import { Toaster } from "sonner";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+
 
 import {
   darkTheme,
@@ -28,6 +30,7 @@ import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { SendTokensModal } from "./dashboard/components/send-tokens";
+import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 
 export const wagmiConfig = getDefaultConfig({
   appName: "My Multisig App",
@@ -74,9 +77,16 @@ export const AppProviders = ({
             getSiweMessageOptions={getSiweMessageOptions}
           >
             <RainbowKitProvider theme={darkTheme()}>
+              <ProgressBar
+                height="4px"
+                color="#FFFFFF"
+                options={{ showSpinner: false }}
+                shallowRouting
+              />
               <Toaster />
               <SendTokensModal />
               <NextUIProvider>{children}</NextUIProvider>
+              <ReactQueryDevtools initialIsOpen={false} />
             </RainbowKitProvider>
           </RainbowKitSiweNextAuthProvider>
         </SessionProvider>

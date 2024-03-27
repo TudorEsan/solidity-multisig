@@ -14,4 +14,12 @@ export class Routes {
   static wallets() {
     return "/wallets";
   }
+
+  static transactions() {
+    return "/transactions";
+  }
+
+  static transaction(transactionId: string) {
+    return `/transactions/${transactionId}`;
+  }
 }

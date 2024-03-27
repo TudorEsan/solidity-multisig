@@ -3,12 +3,12 @@ import Multisig from "@/contracts/Multisig.json";
 import { useMutation } from "@tanstack/react-query";
 import { MultisigService } from "@/service/multisig.service";
 import { CreateWalletForm } from "@/validations/create-wallet-schema";
-import { useRouter } from "next/navigation";
 import { Routes } from "@/routes";
 import { getTransactionReceipt } from "@wagmi/core";
 import { wagmiConfig } from "@/app/providers";
 
 import { toast } from "sonner";
+import { useCustomRouter } from "./useCustomRouter";
 
 /**
  * Custom hook for deploying a multisig contract and adding it to the wallet.
@@ -16,7 +16,7 @@ import { toast } from "sonner";
 export const useDeployMultisig = () => {
   const { data: walletClient } = useWalletClient();
   const chain = useChainId();
-  const router = useRouter();
+  const router = useCustomRouter();
 
   const deployMutation = useMutation({
     mutationFn: async (formData: CreateWalletForm) => {

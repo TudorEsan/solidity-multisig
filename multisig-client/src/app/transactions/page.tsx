@@ -14,48 +14,87 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useGetRequiredConfirmations } from "@/hooks/useGetRequiredConfirmations";
+import { truncateMiddle } from "@/helpers/truncate";
+import { TokenImage } from "@/components/token-image";
+import { GradientAvatar } from "@/components/gradient-avatar";
+import { useCustomRouter } from "@/hooks/useCustomRouter";
+import { Routes } from "@/routes";
 
 export default function Page() {
   const { isLoading, data, error } = useGetSubmittedTransactions();
+  const { numConfirmationsRequired, isLoading: isRequiredLoading } =
+    useGetRequiredConfirmations();
+  const router = useCustomRouter();
   return (
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead className="w-[140px]">Date</TableHead>
-          <TableHead>Hash</TableHead>
-          <TableHead>Created By</TableHead>
-          <TableHead>Approvals</TableHead>
+          <TableHead className="w-[140px]">To</TableHead>
           <TableHead>Amount</TableHead>
+          <TableHead>Data</TableHead>
+          <TableHead>Confirmations</TableHead>
           <TableHead>Status</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {data?.map((transaction, i) => (
-          <TableRow key={i + "transaction"}>
-            <TableCell className="font-medium">
-              {new Date().toLocaleString()}
-            </TableCell>
-            <TableCell>1</TableCell>
-            <TableCell>me</TableCell>
-            <TableCell>{transaction.numConfirmations}</TableCell>
-            <TableCell>{transaction.amount}</TableCell>
+          <TableRow
+            key={i + "transaction"}
+            onClick={() => router.push(Routes.transaction(String(i)))}
+            className="cursor-pointer"
+          >
             <TableCell>
-              <Badge>{transaction.executed}</Badge>
+              <div className="flex gap-1 items-center">
+                <GradientAvatar size={32} text={transaction.to} />
+                {truncateMiddle(transaction.to, 11)}
+              </div>
+            </TableCell>
+            <TableCell>
+              <div className="flex gap-1 items-center">
+                {transaction.amount}
+                <TokenImage
+                  tokenUrl="/images/ethereum.svg"
+                  identifier="ETH"
+                  className="w-6 h-6 ml-2"
+                />
+                ETH
+              </div>
+            </TableCell>
+            <TableCell className="max-w-[100px] truncate">
+              {transaction.data}
+            </TableCell>
+            <TableCell>
+              {transaction.numConfirmations} / {numConfirmationsRequired}
+            </TableCell>
+            <TableCell>
+              <Badge>
+                {transaction.executed ? "Success" : "Pending Approvals"}
+              </Badge>
             </TableCell>
           </TableRow>
         ))}
-        {isLoading && (
+        {(isLoading || isRequiredLoading) && (
           <TableRow>
-            <TableCell colSpan={6}>
-              <div className="animate-pulse flex space-x-4">
-                <Skeleton className="h-4 w-[140px]" />
-                <Skeleton className="h-4 w-16" />
-                <Skeleton className="h-4 w-24" />
-                <Skeleton className="h-4 w-12" />
-                <Skeleton className="h-4 w-16" />
-                <Skeleton className="h-4 w-20" />
-              </div>
-            </TableCell>
+            {Array.from({ length: 5 }).map((_, i) => (
+              <>
+                <TableCell key={i + "loading"} className="animate-pulse">
+                  <Skeleton className="h-4 w-[140px]" />
+                </TableCell>
+                <TableCell key={i + "loadin1"} className="animate-pulse">
+                  <Skeleton className="h-4 w-full" />
+                </TableCell>
+                <TableCell key={i + "load"} className="animate-pulse">
+                  <Skeleton className="h-4 w-[140px]" />
+                </TableCell>
+                <TableCell key={i + "loading2"} className="animate-pulse">
+                  <Skeleton className="h-4 w-[140px]" />
+                </TableCell>
+                <TableCell key={i + "loadin3"} className="animate-pulse">
+                  <Skeleton className="h-4 w-[140px]" />
+                </TableCell>
+              </>
+            ))}
           </TableRow>
         )}
 
