@@ -11,8 +11,8 @@ export const Tokens = () => {
   ]);
 
   return (
-    <Card className="mt-8 p-4">
-      <h1 className="text-xl">Your Tokens</h1>
+    <Card className="p-4">
+      <h1 className="text-xl font-semibold">Your Tokens</h1>
       <ScrollShadow className="h-[325px] mt-4" hideScrollBar>
         {tokens.map((token) => (
           <TokenRow {...token} key={token.identifier} />

@@ -13,7 +13,6 @@ export const useGetSubmittedTransactions = () => {
     functionName: "getTransactions",
     args: [],
   });
-  console.log(data);
 
   const formatedTransactions = useMemo(() => {
     return data?.map((transaction) => {

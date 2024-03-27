@@ -6,7 +6,6 @@ export const useCustomRouter = () => {
   const queryParams = useSearchParams();
   const push = (path: string) => {
     const acc = queryParams.get("acc");
-    console.log("acc", acc);
     router.push(`${path}?acc=${acc}`);
   };
 

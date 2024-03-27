@@ -103,7 +103,7 @@ export const Layout = ({
       <Drawer selectedWallet={selectedWallet} />
       <AppNavbar />
       <div className="ml-60 px-4">
-        <div className="relative max-w-5xl mx-auto top-24">{children}</div>
+        <div className="relative max-w-5xl mx-auto top-24 pb-4">{children}</div>
       </div>
     </div>
   );

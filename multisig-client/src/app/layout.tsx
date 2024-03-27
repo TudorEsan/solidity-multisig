@@ -19,7 +19,7 @@ export default function RootLayout({
   const { get } = useSearchParams();
   return (
     <html lang="en" className="dark min-h-screen">
-      <body className={cn(inter.className, "min-h-screen")}>
+      <body className={cn(inter.className, "min-h-screen bg-black pb-2")}>
         <AppProviders>
           <Layout selectedWallet={separateChainFromAddress(get("acc"))}>
             {children}
