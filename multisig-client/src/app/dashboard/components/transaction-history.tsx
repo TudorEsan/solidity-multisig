@@ -47,6 +47,7 @@ export const TransactionHistory = () => {
                 {/* @ts-ignore */}
                 <TableCell>
                   {new Date(
+                    // @ts-ignore
                     Number(transaction?.timeStamp ?? 0) * 1000
                   ).toLocaleString()}
                 </TableCell>
@@ -76,6 +77,7 @@ export const TransactionHistory = () => {
                 <TableCell className="max-w-[100px] truncate">
                   {transaction.input}
                 </TableCell>
+                {/* @ts-ignore */}
                 <TableCell>{parseInt(transaction.gas)}</TableCell>
                 <TableCell className="truncate max-w-32">
                   {transaction.hash}

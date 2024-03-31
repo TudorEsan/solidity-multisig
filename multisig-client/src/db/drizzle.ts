@@ -5,6 +5,7 @@ import {
   timestamp,
   uniqueIndex,
   integer,
+  boolean,
 } from "drizzle-orm/pg-core";
 import { InferSelectModel, InferInsertModel, relations } from "drizzle-orm";
 import { sql } from "@vercel/postgres";
@@ -38,6 +39,9 @@ export const WalletsTable = pgTable("wallets", {
     .notNull(),
   walletAddress: text("walletAddress").notNull(),
   name: text("name"),
+  secret: text("secret"),
+  secretVerified: boolean("secretVerified"),
+  secretExpiresAt: timestamp("secretExpires"),
 });
 
 export const WalletsRelations = relations(WalletsTable, ({ one }) => ({

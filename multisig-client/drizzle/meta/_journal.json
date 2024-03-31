@@ -15,6 +15,20 @@
       "when": 1711356310390,
       "tag": "0001_classy_brother_voodoo",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1711702586212,
+      "tag": "0002_green_emma_frost",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1711703031351,
+      "tag": "0003_aberrant_raza",
+      "breakpoints": true
     }
   ]
 }

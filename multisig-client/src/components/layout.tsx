@@ -13,6 +13,7 @@ import {
   SearchIcon as SearchIconSolid,
   ViewGridIcon as ViewGridIconSolid,
   SwitchHorizontalIcon as SwitchHorizontalIconSolid,
+  LockClosedIcon as LockClosedIconSolid,
 } from "@heroicons/react/solid";
 import {
   DatabaseIcon,
@@ -23,6 +24,7 @@ import {
   SearchIcon,
   ViewGridIcon,
   SwitchHorizontalIcon,
+  LockClosedIcon,
 } from "@heroicons/react/outline";
 import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -40,6 +42,12 @@ const drawerLinks = [
     link: Routes.transactions(),
     icon: SwitchHorizontalIcon,
     iconSolid: SwitchHorizontalIconSolid,
+  },
+  {
+    name: "Atlas",
+    link: Routes.atlas(),
+    icon: LockClosedIcon,
+    iconSolid: LockClosedIconSolid,
   },
 ];
 

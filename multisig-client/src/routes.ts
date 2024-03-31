@@ -22,4 +22,8 @@ export class Routes {
   static transaction(transactionId: string) {
     return `/transactions/${transactionId}`;
   }
+
+  static atlas() {
+    return "/atlas";
+  }
 }

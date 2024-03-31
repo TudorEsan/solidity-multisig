@@ -24,6 +24,7 @@ contract MultiSigWallet {
         bytes data;
         bool executed;
         uint256 numConfirmations;
+        bool atlasConfirmed;
     }
 
     // mapping from tx index => owner => bool
