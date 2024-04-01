@@ -2,9 +2,9 @@ import Image from "next/image";
 import React from "react";
 import { Setup2fa } from "../setup-atlas";
 
-export const SetupAtlas = ({ code }: { code: string }) => {
+export const SetupAtlas = () => {
   return (
-    <div className="flex gap-8 flex-wrap-reverse items-center">
+    <div className="flex gap-8 flex-wrap-reverse items-center justify-between">
       <div>
         <h1 className="text-2xl">Setup Atlas</h1>
         <p className="text-sm text-gray-500 mt-8 mb-2">What is Atlas?</p>
@@ -15,7 +15,7 @@ export const SetupAtlas = ({ code }: { code: string }) => {
           your regular authentication credentials.
         </p>
         <div className="mt-4">
-          <Setup2fa code={code}/>
+          <Setup2fa />
         </div>
       </div>
       <Image width={300} height={400} src="/images/atlas.png" alt="atlas" />

@@ -17,6 +17,11 @@ contract MultiSigWallet {
     address[] public owners;
     mapping(address => bool) public isOwner;
     uint256 public numConfirmationsRequired;
+    address public atlasAddress;
+    uint256 public atlasProposedActivationTime;
+    address public atlasProposedActivationAddress;
+    uint256 public atlasProposedDeactivationTime;
+    uint public atlasChangeMinTime = 1 minutes;
 
     struct Transaction {
         address to;
@@ -89,11 +94,53 @@ contract MultiSigWallet {
                 value: _value,
                 data: _data,
                 executed: false,
-                numConfirmations: 0
+                numConfirmations: 0,
+                atlasConfirmed: false
             })
         );
 
         emit SubmitTransaction(msg.sender, txIndex, _to, _value, _data);
+    }
+
+    function proposeAtlasActivation(address _atlasAddress)
+        public
+        onlyOwner
+    {
+        
+        atlasProposedActivationTime = block.timestamp;
+        atlasProposedActivationAddress = _atlasAddress;
+    }
+
+    function activateAtlas() public onlyOwner {
+        require(
+            block.timestamp >= atlasProposedActivationTime + atlasChangeMinTime,
+            "Atlas activation time not reached"
+        );
+        atlasAddress = atlasProposedActivationAddress;
+        atlasProposedActivationAddress = address(0);
+        atlasProposedActivationTime = 0;
+    }
+
+    function proposeAtlasDeactivation() public onlyOwner {
+        atlasProposedDeactivationTime = block.timestamp;
+    }
+
+    function deactivateAtlas() public onlyOwner {
+        require(
+            block.timestamp >= atlasProposedDeactivationTime + atlasChangeMinTime,
+            "Atlas deactivation time not reached"
+        );
+        atlasAddress = address(0);
+        atlasProposedDeactivationTime = 0;
+    }
+
+    function confirmAtlas(uint256 _txIndex) public {
+        require(atlasAddress != address(0), "Atlas not activated");
+        require(msg.sender == atlasAddress, "Not Atlas");
+        require(_txIndex < transactions.length, "tx does not exist");
+        Transaction storage transaction = transactions[_txIndex];
+        require(!transaction.atlasConfirmed, "Atlas already confirmed");
+        transaction.atlasConfirmed = true;
     }
 
     function confirmTransaction(uint256 _txIndex)
@@ -107,10 +154,6 @@ contract MultiSigWallet {
         transaction.numConfirmations += 1;
         isConfirmed[_txIndex][msg.sender] = true;
 
-        if (transaction.numConfirmations >= numConfirmationsRequired) {
-            executeTransaction(_txIndex);
-        }
-
         emit ConfirmTransaction(msg.sender, _txIndex);
     }
 
@@ -122,10 +165,15 @@ contract MultiSigWallet {
     {
         Transaction storage transaction = transactions[_txIndex];
 
+
         require(
             transaction.numConfirmations >= numConfirmationsRequired,
             "cannot execute tx"
         );
+
+        if (atlasAddress != address(0)) {
+            require(transaction.atlasConfirmed, "Atlas not confirmed");
+        }
 
         transaction.executed = true;
 

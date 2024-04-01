@@ -3,7 +3,10 @@ import { randomBytes, createHmac } from "crypto";
 import base32Encode from "base32-encode";
 import { WalletsTable, db } from "@/db/drizzle";
 import { sql } from "drizzle-orm";
-import { totp } from "otplib";
+import { KeyEncodings } from "otplib/core";
+import { totp, authenticator } from "otplib";
+import base32Decode from "base32-decode";
+import { ethers } from "ethers";
 
 export const getOrGeneratePrivateKey = async (address: string) => {
   const wallet = (
@@ -20,7 +23,7 @@ export const getOrGeneratePrivateKey = async (address: string) => {
     return wallet.secret;
   }
 
-  const privateKey = randomBytes(20).toString("hex");
+  const privateKey = authenticator.generateSecret(32);
   const expiration = Date.now() + 1000 * 60 * 60 * 24; // 24 hours
   console.log("Generated secret:", privateKey);
   await db
@@ -53,12 +56,10 @@ const hexToBytes = (hex: string) => {
 
 export const generateTOTP = async (address: string) => {
   const secret = await getOrGeneratePrivateKey(address);
-  const totp = await generateTOTPSecret(secret);
   const issuer = "Multisig 2fa";
   const label = address;
-  const algorithm = "SHA1";
-
-  return `otpauth://totp/${issuer}:${label}?secret=${totp}&issuer=${issuer}&algorithm=${algorithm}&digits=6&period=30`;
+  const otpauth = authenticator.keyuri(label, issuer, secret);
+  return otpauth;
 };
 
 export const validateOTP = async (otp: string, address: string) => {
@@ -76,5 +77,27 @@ export const validateOTP = async (otp: string, address: string) => {
     throw new Error("Secret not found");
   }
 
-  return totp.check(otp, wallet.secret);
+  const hexSecret = Buffer.from(
+    base32Decode(wallet.secret, "RFC4648")
+  ).toString("hex");
+  totp.options = { encoding: KeyEncodings.HEX };
+
+  const isValid = totp.generate(hexSecret) === otp;
+  if (!isValid) {
+    return false;
+  }
+  const atlasAddress = getAddressFromSecret(hexSecret);
+  await db
+    .update(WalletsTable)
+    .set({
+      totpValidated: true,
+      atlasAddress,
+    })
+    .where(sql`${WalletsTable.walletAddress} = ${address}`);
+
+  return atlasAddress;
+};
+
+const getAddressFromSecret = (secret: string) => {
+  return new ethers.Wallet(secret).address;
 };

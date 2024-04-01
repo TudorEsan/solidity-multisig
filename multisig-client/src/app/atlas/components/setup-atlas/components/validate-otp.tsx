@@ -8,8 +8,13 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { Button } from "@/components/ui/button";
-import { validateOTP } from "@/lib/2fa";
+import { validateOTP } from "@/lib/atlas";
 import { useGetSelectedWallet } from "@/hooks/useGetSelectedWallet";
+import { useWriteContract } from "wagmi";
+import { useMutation } from "@tanstack/react-query";
+import { MultisigAbi } from "@/contracts/multisig-abi";
+import { Address } from "viem";
+import { toast } from "sonner";
 
 export const ValidateOTP = ({
   handleNext,
@@ -20,12 +25,27 @@ export const ValidateOTP = ({
 }) => {
   const [value, setValue] = React.useState<string>("");
   const { address } = useGetSelectedWallet();
+  const { writeContractAsync } = useWriteContract();
 
-  const handleOtpValidation = async () => {
-    console.log("OTP:", value);
-    const valid = await validateOTP(value, address);
-    console.log("Valid:", valid);
-  };
+  const mutation = useMutation({
+    mutationFn: async () => {
+      try {
+        const atlasAddress = await validateOTP(value, address);
+        if (!address) {
+          throw new Error("Invalid OTP");
+        }
+        await writeContractAsync({
+          address,
+          abi: MultisigAbi,
+          functionName: "proposeAtlasActivation",
+          args: [atlasAddress as Address],
+        });
+      } catch (error: any) {
+        console.error(error);
+        toast.error(error?.message || "Failed to validate OTP");
+      }
+    },
+  });
 
   return (
     <div className="flex flex-col gap-8 items-center justify-between h-full">
@@ -46,7 +66,7 @@ export const ValidateOTP = ({
         </InputOTP>
       </div>
       <div className="flex flex-col gap-4">
-        <Button className="w-[250px] mt-full" onClick={handleOtpValidation}>
+        <Button className="w-[250px] mt-full" onClick={() => mutation.mutate()}>
           Validate
         </Button>
         <Button

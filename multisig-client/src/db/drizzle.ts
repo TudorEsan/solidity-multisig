@@ -42,6 +42,8 @@ export const WalletsTable = pgTable("wallets", {
   secret: text("secret"),
   secretVerified: boolean("secretVerified"),
   secretExpiresAt: timestamp("secretExpires"),
+  totpValidated: boolean("otpEnabled"),
+  atlasAddress: text("atlasAddress"),
 });
 
 export const WalletsRelations = relations(WalletsTable, ({ one }) => ({

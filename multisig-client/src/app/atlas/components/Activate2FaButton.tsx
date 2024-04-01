@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { useGetSelectedWallet } from "@/hooks/useGetSelectedWallet";
-import { getOrGeneratePrivateKey, generateTOTP } from "@/lib/2fa";
+import { getOrGeneratePrivateKey, generateTOTP } from "@/lib/atlas";
 import React from "react";
 
 export const Activate2FaButton = () => {

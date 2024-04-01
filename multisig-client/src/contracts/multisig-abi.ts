@@ -135,6 +135,91 @@ export const MultisigAbi = [
     type: "event",
   },
   {
+    inputs: [],
+    name: "activateAtlas",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "atlasAddress",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "atlasChangeMinTime",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "atlasProposedActivationAddress",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "atlasProposedActivationTime",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "atlasProposedDeactivationTime",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_txIndex",
+        type: "uint256",
+      },
+    ],
+    name: "confirmAtlas",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     inputs: [
       {
         internalType: "uint256",
@@ -143,6 +228,13 @@ export const MultisigAbi = [
       },
     ],
     name: "confirmTransaction",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "deactivateAtlas",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -275,6 +367,11 @@ export const MultisigAbi = [
             name: "numConfirmations",
             type: "uint256",
           },
+          {
+            internalType: "bool",
+            name: "atlasConfirmed",
+            type: "bool",
+          },
         ],
         internalType: "struct MultiSigWallet.Transaction[]",
         name: "",
@@ -362,6 +459,26 @@ export const MultisigAbi = [
   {
     inputs: [
       {
+        internalType: "address",
+        name: "_atlasAddress",
+        type: "address",
+      },
+    ],
+    name: "proposeAtlasActivation",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "proposeAtlasDeactivation",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
         internalType: "uint256",
         name: "_txIndex",
         type: "uint256",
@@ -429,6 +546,11 @@ export const MultisigAbi = [
         internalType: "uint256",
         name: "numConfirmations",
         type: "uint256",
+      },
+      {
+        internalType: "bool",
+        name: "atlasConfirmed",
+        type: "bool",
       },
     ],
     stateMutability: "view",
