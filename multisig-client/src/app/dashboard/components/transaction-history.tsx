@@ -12,19 +12,15 @@ import {
   TableBody,
   Table,
 } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useGetRequiredConfirmations } from "@/hooks/useGetRequiredConfirmations";
 import { truncateMiddle } from "@/helpers/truncate";
 import { TokenImage } from "@/components/token-image";
 import { GradientAvatar } from "@/components/gradient-avatar";
-import { useCustomRouter } from "@/hooks/useCustomRouter";
-import { Routes } from "@/routes";
 import React from "react";
 import { formatEther } from "viem";
 
 export const TransactionHistory = () => {
   const transactionHistory = useGetTransactions();
+  console.log(transactionHistory.data);
   return (
     <Card className="p-4">
       <h1 className="text-xl font-semibold">Transaction History</h1>

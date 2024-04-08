@@ -64,7 +64,7 @@ export const ReviewSend = ({
         {fee && (
           <>
             <p>Fee</p>
-            <p className="text-right text-muted-foreground">{fee} EGLD</p>
+            <p className="text-right text-muted-foreground">{fee} ETH</p>
           </>
         )}
       </div>

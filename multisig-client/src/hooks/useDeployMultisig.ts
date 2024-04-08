@@ -18,9 +18,14 @@ export const useDeployMultisig = () => {
   const chain = useChainId();
   const router = useCustomRouter();
 
+  
+
   const deployMutation = useMutation({
     mutationFn: async (formData: CreateWalletForm) => {
       const owners = formData.addresses.map((a) => a.address);
+      if (!owners) {
+        throw new Error("No owners provided");
+      }
 
       const txHash = await walletClient?.deployContract({
         abi: Multisig.abi,

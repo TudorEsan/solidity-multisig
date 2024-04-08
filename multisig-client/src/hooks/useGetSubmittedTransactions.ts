@@ -22,6 +22,7 @@ export const useGetSubmittedTransactions = () => {
         data: transaction.data,
         executed: transaction.executed,
         numConfirmations: transaction.numConfirmations.toString(),
+        atlasConfirmed: transaction.atlasConfirmed,
       };
     });
   }, [data]);

@@ -9,7 +9,7 @@ export const useGetTransaction = (id: string) => {
   const { data, error, isLoading, queryKey } = useReadContract({
     address,
     abi: MultisigAbi,
-    functionName: "getTransaction",
+    functionName: "transactions",
     args: [BigInt(id)],
   });
 
@@ -20,6 +20,7 @@ export const useGetTransaction = (id: string) => {
       data: data?.[2],
       executed: data?.[3],
       numConfirmations: data?.[4].toString(),
+      atlasConfirmed: data?.[5],
     };
   }, [data]);
 

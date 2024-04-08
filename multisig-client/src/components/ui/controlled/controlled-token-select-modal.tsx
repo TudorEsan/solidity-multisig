@@ -25,25 +25,7 @@ import { SelectableTokenList } from "./selectable-token-list";
 import { Token } from "@/types/token.type";
 import { TokenImage } from "@/components/token-image";
 
-const priorityTokens = [
-  "ETH",
-  "USDC",
-  "USDT",
-  "SEGLD",
-  "WBTC",
-  "WETH",
-  "HTM",
-  "MEX",
-  "TADA",
-  "ITHEUM",
-  "ASH",
-  "DAI",
-  "RIDE",
-  "UTK",
-  "CYBER",
-  "ONE",
-  "CRT",
-];
+const priorityTokens = ["ETH"];
 
 const prioritizeToken = (token: Token) => {
   const index = priorityTokens.indexOf(token.identifier.split("-")[0]);

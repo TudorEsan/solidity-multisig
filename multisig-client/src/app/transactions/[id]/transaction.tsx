@@ -21,6 +21,7 @@ import React from "react";
 import { History } from "./components/history";
 import { RefreshIcon } from "@heroicons/react/solid";
 import { QueryKeys } from "@/hooks/query-keys";
+import { ConfirmAtlas } from "./components/confirm-atlas";
 
 export const Transaction = ({ id }: { id: string }) => {
   const { numConfirmationsRequired, error, isLoading, queryKey } =
@@ -58,12 +59,16 @@ export const Transaction = ({ id }: { id: string }) => {
     ]);
   };
 
+  const hasEnoughConfirmations =
+    Number(transaction.numConfirmations) >= Number(numConfirmationsRequired);
+
   if (isLoading || isTransactionLoading) {
     return <LoadingScreen />;
   }
 
   if (error || transactionError) {
-    return <div>Error</div>;
+    console.error(error, transactionError);
+    return <div>{error?.message || transactionError?.message}</div>;
   }
 
   return (
@@ -124,6 +129,7 @@ export const Transaction = ({ id }: { id: string }) => {
           </div>
           {!transaction?.executed && (
             <div className="mt-8 flex gap-4">
+              {/* @ts-ignore */}
               <Button
                 className="w-full"
                 variant="destructive"
@@ -135,16 +141,21 @@ export const Transaction = ({ id }: { id: string }) => {
                   ? "Revoking..."
                   : "Revoke"}
               </Button>
-              <Button
-                className="w-full"
-                onClick={async () => {
-                  await acceptTransaction(id, queries);
-                }}
-              >
-                {isPending && loadingMutation === "accept"
-                  ? "Confirming..."
-                  : "Confirm"}
-              </Button>
+              {!hasEnoughConfirmations && (
+                <Button
+                  className="w-full"
+                  onClick={async () => {
+                    await acceptTransaction(id, queries);
+                  }}
+                >
+                  {isPending && loadingMutation === "accept"
+                    ? "Confirming..."
+                    : "Confirm"}
+                </Button>
+              )}
+              {hasEnoughConfirmations && !transaction.atlasConfirmed && (
+                <ConfirmAtlas txIndex={Number(id)} />
+              )}
             </div>
           )}
         </CardContent>

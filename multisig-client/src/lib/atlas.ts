@@ -6,7 +6,10 @@ import { sql } from "drizzle-orm";
 import { KeyEncodings } from "otplib/core";
 import { totp, authenticator } from "otplib";
 import base32Decode from "base32-decode";
-import { ethers } from "ethers";
+import { Contract, ethers } from "ethers";
+import { Chain } from "viem";
+import { sepolia } from "viem/chains";
+import { MultisigAbi } from "@/contracts/multisig-abi";
 
 export const getOrGeneratePrivateKey = async (address: string) => {
   const wallet = (
@@ -98,6 +101,87 @@ export const validateOTP = async (otp: string, address: string) => {
   return atlasAddress;
 };
 
+const checkOTP = async (otp: string, address: string) => {
+  const wallet = (
+    await db
+      .select()
+      .from(WalletsTable)
+      .where(sql`${WalletsTable.walletAddress} = ${address}`)
+  )[0];
+  if (!wallet) {
+    throw new Error("Wallet not found");
+  }
+
+  if (!wallet.secret) {
+    throw new Error("Secret not found");
+  }
+
+  const hexSecret = Buffer.from(
+    base32Decode(wallet.secret, "RFC4648")
+  ).toString("hex");
+  totp.options = { encoding: KeyEncodings.HEX };
+
+  const generatedOtp = totp.generate(hexSecret);
+  console.log("Generated OTP:", generatedOtp);
+  const isValid = generatedOtp === otp;
+  if (!isValid) {
+    return false;
+  }
+  return true;
+};
+
 const getAddressFromSecret = (secret: string) => {
   return new ethers.Wallet(secret).address;
+};
+
+export const confirmAtlas = async (
+  otp: string,
+  txIndex: number,
+  multisigAddress: string,
+  chain: number
+) => {
+  const isValid = checkOTP(otp, multisigAddress);
+  if (!isValid) {
+    throw new Error("Invalid OTP");
+  }
+
+  const wallet = (
+    await db
+      .select()
+      .from(WalletsTable)
+      .where(sql`${WalletsTable.walletAddress} = ${multisigAddress}`)
+  )[0];
+
+  if (!wallet.secret) {
+    throw new Error("Secret not found");
+  }
+
+  if (!wallet.atlasAddress) {
+    throw new Error("Atlas address not found");
+  }
+
+  const hexSecret = Buffer.from(
+    base32Decode(wallet.secret, "RFC4648")
+  ).toString("hex");
+
+  console.log(chain);
+
+  const provider = new ethers.InfuraProvider(
+    chain,
+    "b3615957c6b0427eb2fac15afb451acb"
+  );
+  console.log("Provider:", provider);
+
+  const signer = new ethers.Wallet(hexSecret, provider);
+  console.log("test");
+
+  const MultisigContract = new Contract(multisigAddress, MultisigAbi, signer);
+  console.log("test2");
+
+  const tx = await MultisigContract.confirmAtlas(BigInt(txIndex));
+  console.log(tx, "tra");
+
+  const receipt = await tx.wait();
+
+  return receipt;
 };

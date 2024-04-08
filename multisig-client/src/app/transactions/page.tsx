@@ -34,6 +34,7 @@ export default function Page() {
           <TableHead>Amount</TableHead>
           <TableHead>Data</TableHead>
           <TableHead>Confirmations</TableHead>
+          <TableHead>Atlas</TableHead>
           <TableHead>Status</TableHead>
         </TableRow>
       </TableHeader>
@@ -66,6 +67,9 @@ export default function Page() {
             </TableCell>
             <TableCell>
               {transaction.numConfirmations} / {numConfirmationsRequired}
+            </TableCell>
+            <TableCell>
+              {transaction.atlasConfirmed ? "Confirmed" : "Not Confirmed"}
             </TableCell>
             <TableCell>
               <Badge>
