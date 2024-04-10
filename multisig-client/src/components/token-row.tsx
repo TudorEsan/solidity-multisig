@@ -25,12 +25,12 @@ export const TokenRow = ({
 }: TokenRowProps) => {
   const amount = useMemo(() => {
     if (!balance || !decimals) return "0";
-    return shortNumberFormater(ethers.utils.formatUnits(balance, decimals));
+    return shortNumberFormater(ethers.formatUnits(balance, decimals));
   }, [balance, decimals]);
 
   const memoedPriceAmount = useMemo(() => {
     if (!balance || !price || !decimals) return "0";
-    const denominated = ethers.utils.formatUnits(balance, decimals);
+    const denominated = ethers.formatUnits(balance, decimals);
     const priceAmount = BigNumber.from(denominated).mul(price ?? 0);
     return priceAmount.toString();
   }, [price, amount, decimals]);

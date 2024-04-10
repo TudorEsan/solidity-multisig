@@ -41,6 +41,7 @@ export const Transaction = ({ id }: { id: string }) => {
   const { owners, queryKey: ownersQueryKeys } = useGetTransactionApprovals(id);
   const queryClient = useQueryClient();
   const txHash = useGetTransactionHash(id, transaction?.executed ?? false);
+  console.log("Transaction", transaction);
 
   const queries = [
     queryKey,

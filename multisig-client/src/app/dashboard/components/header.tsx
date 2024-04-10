@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import React from "react";
 import { ShareAddress } from "./share-address";
 import { useGetTokenBalance } from "@/hooks/useGetTokenBalance";
@@ -13,7 +12,7 @@ export const Header = () => {
       <div className="flex flex-col">
         <p className="text-muted-foreground text-sm">Total Asset Value</p>
         <p className="text-4xl font-semibold">
-          {ethers.utils.formatEther(tokens?.[0]?.balance).toString()} ETH
+          {ethers.formatEther(tokens?.[0]?.balance).toString()} ETH
         </p>
       </div>
       <SendTokensButton />

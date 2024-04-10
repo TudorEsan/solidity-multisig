@@ -213,6 +213,11 @@ export const MultisigAbi = [
         name: "_txIndex",
         type: "uint256",
       },
+      {
+        internalType: "bytes",
+        name: "signature",
+        type: "bytes",
+      },
     ],
     name: "confirmAtlas",
     outputs: [],

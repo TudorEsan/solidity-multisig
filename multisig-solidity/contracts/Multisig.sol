@@ -134,14 +134,57 @@ contract MultiSigWallet {
         atlasProposedDeactivationTime = 0;
     }
 
-    function confirmAtlas(uint256 _txIndex) public {
+    function confirmAtlas(uint256 _txIndex, bytes memory signature) public {
         require(atlasAddress != address(0), "Atlas not activated");
-        require(msg.sender == atlasAddress, "Not Atlas");
         require(_txIndex < transactions.length, "tx does not exist");
         Transaction storage transaction = transactions[_txIndex];
         require(!transaction.atlasConfirmed, "Atlas already confirmed");
+
+        bytes32 messageHash = keccak256(abi.encodePacked(_txIndex));
+        bytes32 ethSignedMessageHash = keccak256(
+            abi.encodePacked("\x19Ethereum Signed Message:\n32", messageHash)
+        );
+
+        // Recover the signer from the signature
+        (address recoveredAddress) = recoverSigner(ethSignedMessageHash, signature);
+        // Verify the signer is the expected address
+        require(recoveredAddress == atlasAddress, "Invalid signature");
+
         transaction.atlasConfirmed = true;
     }
+
+    function recoverSigner(bytes32 _ethSignedMessageHash, bytes memory _signature)
+        internal
+        pure
+        returns (address)
+    {
+        (bytes32 r, bytes32 s, uint8 v) = splitSignature(_signature);
+        return ecrecover(_ethSignedMessageHash, v, r, s);
+    }
+
+    function splitSignature(bytes memory sig)
+        internal
+        pure
+        returns (bytes32 r, bytes32 s, uint8 v)
+    {
+        require(sig.length == 65, "Invalid signature length");
+
+        assembly {
+            // First 32 bytes after the length prefix
+            r := mload(add(sig, 32))
+            // Next 32 bytes
+            s := mload(add(sig, 64))
+            // Final byte (first byte of the next 32 bytes)
+            v := byte(0, mload(add(sig, 96)))
+        }
+
+        // Adjust for non-EIP-155 signatures
+        if (v < 27) v += 27;
+        require(v == 27 || v == 28, "Invalid signature version");
+    }
+
+
+
 
     function confirmTransaction(uint256 _txIndex)
         public

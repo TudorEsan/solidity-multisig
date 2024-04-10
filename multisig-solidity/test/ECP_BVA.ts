@@ -27,6 +27,35 @@ describe("MultiSigWallet", function () {
     await wallet;
   });
 
+  describe("it should generate atlas", async function () {
+    await wallet
+      .connect(owner1)
+      .proposeAtlasActivation(await owner3.getAddress());
+    let proposedTime = await wallet.atlasProposedActivationTime();
+
+    // Ensure atlasProposedActivationAddress is set correctly
+    expect(await wallet.atlasProposedActivationAddress()).to.equal(
+      await owner3.getAddress()
+    );
+
+    // Simulate passing of time
+    const atlasChangeMinTime = 3600; // Assuming 1 hour minimum time; adjust according to your contract
+    await ethers.provider.send("evm_increaseTime", [atlasChangeMinTime + 1]); // Increase EVM time by 1 hour + 1 second
+    await ethers.provider.send("evm_mine", []); // Mine a new block for the time change to take effect
+
+    // Activate Atlas
+    await wallet.connect(owner1).activateAtlas();
+
+    // Validate activation
+    expect(await wallet.atlasAddress()).to.equal(await owner3.getAddress());
+
+    // Ensure reset of proposal state
+    expect(await wallet.atlasProposedActivationAddress()).to.equal(
+      ethers.constants.AddressZero
+    );
+    expect(await wallet.atlasProposedActivationTime()).to.be.equal(0);
+  });
+
   describe("submitTransaction", function () {
     it("Should allow an owner to submit a transaction", async function () {
       await expect(

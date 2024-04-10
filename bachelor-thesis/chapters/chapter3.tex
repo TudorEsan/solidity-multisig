@@ -1,28 +1,95 @@
-\chapter{Titlul capitolului}
-\label{chap:ch3}
+\chapter{Technologies}
 
-\par Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-
-\section{Sectiune}
+\section{Solidity}
 \label{sec:ch3sec1}
+Solidity is a programming language that was created specifically for Ethereum smart contract creation \cite{sdocs} .The primary features are:
 
-\par Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+\begin{itemize}
+	\item OOP: Solidity is an object-oriented programming language, which makes code organization and reuse simple. It is built on the idea of classes and objects.
+	\item JavaScript-Like: Because of its core structure, which is similar to that of JavaScript, web professionals may easily learn Solidity. Its quirks have been tailored especially for blockchain, nevertheless.
+	\item Solidity utilises static typing, which necessitates the specification of the data type of variables in advance. By doing this, compile-time errors are caught and contracts are enforced..
+\end{itemize}
 
+However given that smart contracts are deployed once and cannot be altered after you need to be very carefull about potential security risks that can lead to stolen funds. Some of the most common vulnerabilities are: Reentrancy Attacks, Integer Overflow/Underflow, Uninitialized Storage Pointers, Denial of Service (DoS) Attacks \cite{solidityVulnerabilities}
 
-\subsection{Subsectiune}
-\label{subsec:ch3sec1subsec1}
-
-\par Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-\section{Sectiune}
+\section{Hardhat}
 \label{sec:ch3sec2}
+Hardhat is an open-source testing and development framework for Ethereum. The open-source framework for Ethereum development and testing is called Hardhat. It improves the process for creating and testing smart contracts. Hardhat is flexible; it supports numerous Solidity compilers and allows for different network configurations. Additionally, it may be expanded upon by combining it with additional blockchain ecosystem tools and frameworks. The comprehensive range of testing features contributes to the security and reliability of smart contracts. Hardhat strongly speeds up development, enhances the quality of the code, and lowers the possibility of mistakes in contracts that are well-written.
 
-\par Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+\section{Nextjs}
+\label{sec:ch3sec3}
+Next.js is an open-source React framework that extends the core React capabilities to create high-performance and SEO-friendly web applications. NextJs allows components to be rendered on the server, not only does it help with speed because the server can prerender the response but it can also help with webcrawlers to scan your site. The best features of NextJs include:
+\begin{itemize}
+	\item Image optimizations: "Automatically serve correctly sized images for each device, using modern image formats like WebP and AVIF." \cite{nextImage}
+	\item Dynamic HTML Steaming
+	\item Client And Server Components
+	\item Server Actions: "Server Actions are asynchronous functions that are executed on the server. They can be used in Server and Client Components to handle form submissions and data mutations in Next.js applications." \cite{nextServerActions}
+	\item Route Handlers: "allow you to create custom request handlers for a given route using the Web Request and Response APIs." \cite{nextRouteHandlers}
+\end{itemize}
 
+\section{Typescript}
+\label{sec:ch3sec4}
+"TypeScript adds additional syntax to JavaScript to support a tighter integration with your editor. Catch errors early in your editor"\cite{typescript}. Static types contribute to the reliability and maintainability of your code by reducing compilation errors. Classes make code more readable and scalable by enabling it to be divided into reusable modules. Compiling TypeScript into plain JavaScript makes it interoperable with every runtime and browser.
+Using TypeScript has several advantages:
+\begin{itemize}
+\item Boost code quality: Static types make code more robust by assisting in the detection and prevention of compilation issues.
+\item Boosts scalability: Code may be arranged into reusable modules by using classes and modules, which makes it simpler to create bigger projects.
+\item Boost teamwork: Integrated documentation and static types can help enhance teamwork and communication.
+\end{itemize}
 
-\subsection{Subsectiune}
-\label{subsec:ch3sec2subsec1}
+\section{Tailwind}
+\label{sec:ch3sec5}
+Tailwind is defined as "a utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup" \cite{tailwind}.
 
-\par Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Some of the Tailwind CSS's primary features are:
+\begin{itemize}
+\item Utility Classes: An extensive library of pre-made classes that style HTML components without requiring the creation of unique CSS code.
+\item Components that can be customized: Enables the development of reusable parts with unique styles.
+\item Expandable: Plugins can be added to expand the capabilities.
+\end{itemize}
+The Benefits of tailwind is that it drastically accelerates development, less CSS code writing is needed. There is no need in thinking what to name your css classes because they are pre defined. It minimizes the CSS file size, only the css needed is kept, the rest is "purged"
 
+\section{RainbowKit}
+\label{sec:ch3sec6}
+RainbowKit is an open-source SDK that makes it it easier to incorporate Web3 wallets into your web apps. It gives consumers a range of alternatives by supporting multiple blockchains, including nearly every EVM compatible chain. RainbowKit's user-friendly interface lowers friction while facilitating a simple and seamless connection experience. Because of its customization capabilities, you can incorporate Web3 features unique to your project and alter the wallet's appearance. Rainbowkit also allows to easily change your chain whenever you like \cite{rainbowkit}
+
+\section{Infura}
+\label{sec:ch3sec7}
+Infura is a platform that gives you access to blockchain nodes, drastically simplifying the process of connecting and interacting with blockchains such as Ethereum, IPFS, and Polygon, etc. By using Infura, you can save time and money by avoiding the hassle of configuring your own nodes. With the help of this platform's high scalability, security features, and quick access to blockchain data, you may create decentralized apps (dApps), incorporate blockchain technology into already-existing apps, and test concepts quickly without needing to design complicated infrastructure. \cite{infura}
+
+\section{Etherscan}
+\label{sec:ch3sec8}
+The Etherscan API allows developers to access and query data from the Ethereum blockchain. It offers a wide range of functions that allow:
+\begin{itemize}
+	\item Get details about particular blocks, transactions, and accounts: You may find out information about balances, contract codes, and transaction histories for particular blocks, transactions, and accounts.
+	\item Sending Transactions: You can call smart contract operations and transmit ETH transfers to the Ethereum network.
+	\item Subscribe to events: You can get alerts in real time when new blocks or ETH transfers occur on the blockchain.
+	\item Historical data query: The Ethereum blockchain provides historical information on blocks, transactions, and account statuses.\cite{etherscan}
+\end{itemize}
+
+\section{Viem}
+\label{sec:ch3sec9}
+Viem is a library that makes it easier and more natural for developers to work with the Ethereum network. Viem offers an abstraction over the implementation of the rpc methods used by EVM.\cite{viem}
+Important aspects of Viem:
+\begin{itemize}
+\item Higher-level abstractions: Viem makes it simpler to work with notions like accounts, transactions, and smart contracts in your code by providing higher-level abstractions for them.
+\item Defined Data Types: Viem increases the safety and readability of your code by predefining the data types that ethereum will use.
+\item Multi-Chain Support: Polygon and Avalanche are two of the many Ethereum-compatible blockchains that Viem supports.
+\item Simple integration: Viem interfaces with several well-known JavaScript frameworks and libraries with ease.
+\end{itemize}
+
+\section{Wagmi}
+\label{sec:ch3sec10}
+Wagmi is a library that greatly simplifies web3 development when utilizing React. To make communicating with the blockchain easier, Wagmi provides over 20 react hooks. These hooks can be used to get transactions, listen to events, or even communicate with other addresses or smart contracts. Additionally, Wagmi is the authorized connector for EIP-6963, walletconnect, and metamask. Tanstack useQuery enables Wagmi to assist with caching the get requests and avoiding deduplication. \cite{wagmi}
+
+\section{useQuery}
+\label{sec:ch3sec11}
+useQuery is a library for the react framework that helps you with fetching data from external servers and doing mutations. It helps you with a lot of common task when dealing with this kind of use cases. This are some of its features
+\begin{itemize}
+	\item Prevents deduplication thanks to query keys
+	\item Data Caching
+	\item Error Handling
+	\item Loading and Refetching handling
+	\item Revalidating data after mutations
+	\item Time based revalidation
+\end{itemize}

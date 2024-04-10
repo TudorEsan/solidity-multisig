@@ -1,76 +1,33 @@
-\chapter{Titlul capitolului}
-\label{chap:ch1}
+\chapter{Blockchain}
 
-\indent\par Informatii si citare carte \cite{Sommerville2010}.
+\section{Generalities}
+\label{sec:ch2sec1}
+A blockchain is a growing collection of items known as blocks that is stored in a decentralized, transparent, and secure ledger. Each block is linked to the previous one using hashes to form an unbreakable chain. Blockchains come are useful in a lot of scenarios where having a centralized middleman is not required. Currently, peer-to-peer currency represent the main use case for blockchain technology. cryptocurrencies that keep track of all user balances and transactions without the assistance of a single third. Bitcoin was the first blockchain of this kind as was defined as: "A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution"\cite{nakamoto2008bitcoin}. The main characteristics of Bitcoin are:
+\begin{itemize}
+	\item Decentralisation: No sigle entity controlls the blockchain. It is managed by a distributed network of nodes.
+	\item Imutability: Once a transaction is recorded on the blockchain it is almoast impossible to change it in the future
+	\item Transparency: Everyone can view every transaction on the blockchain and everyones balance since the begining of the blockchain
+	\item Security: Data on the blockchain is protected from modification and hacking by strong encryption.
+\end{itemize}
+\par With only 21 million bitcoins ever created, it is currently considered digital gold. Bitcoin was a groundbreaking idea. However, it is not without its shortcomings. Among them include the fact that Visa offers 24000 TPS whereas Bitcoin only allows 7 TPS (transactions per second). Another disadvantage is that fees are paid in Bitcoin. This meant that transactions were quite inexpensive when it initially launched, but since then, the price has increased from roughly zero to seventy thousand dollars, and fees have also increased. At the moment, a transfer costs about \$6, but this is becoming worse every day.
+Because of this limitations since then over 1000 blockchains appeared according to Watcher Guru \cite{watcherguru}
+\par Ethereum is the 2nd blockchain by market capitalization after bitcoin. After overcoming the early constraints of Bitcoin, the introduction of Ethereum signaled a turning point in the development of blockchain technology. Co-founder of Ethereum, Vitalik Buterin, pointed out that blockchain technology has applications beyond just transferring money. His goal was to build a programmable computer running code on top of Ethereum, a flexible framework for decentralised applications (DApps).
+\par Buterin introduced the idea of a programmable blockchain with its own programming language, Solidity, for creating smart contracts in the Ethereum whitepaper, which was published in 2013. The description of Ethereum is "A Next-Generation Smart Contract and Decentralized Application Platform." \cite{ethereumwhitepaper}
+\par The possibilities for blockchain are endless thanks to the capacity to write self-executing smart contracts. At its core, Ethereum is a worldwide network of nodes that can execute smart contract code thanks to the Ethereum Virtual Machine (EVM). Transaction fees or "gas" are paid for with ether money (ETH), which is also used to compensate network miners. Ethereum is now the foundation of a flourishing DApp ecosystem that is promoting innovation across many industries. The idea of Web3, which envisions a more user-based, decentralized internet, has been strengthened by it.
 
-Informații și citare articol publicat la conferință (in proceedings) \cite{Narayan2012}.
+\section{Smart Contracts}
+\label{sec:ch2sec2}
+For a person that has not much experience with blockchain development, smart contracts are functions that are deployed on the blockchain and can be called by everyone. After the deployment the smart contract code cannot be altered. Investopidia defines smart contracts as: "a self-executing program that automates the actions required in an agreement or contract. Once completed, the transactions are trackable and irreversible. Smart contracts permit trusted transactions and agreements to be carried out among disparate, anonymous parties without the need for a central authority, legal system, or external enforcement mechanism"\cite{smartcontracts}. Some applications of smart contracts are the following:
 
-Informații și citare articol publicat în revista \cite{Robbes2015}.
+Decentralized Finance (DeFi):
+\begin{itemize}
+	\item Liquid Staking: Users can stake their ETH on websites like as Lido or Rocket Pool, and in exchange, they will obtain liquid tokens equivalent to their ETH worth. Then, by using these liquid tokens in different DeFi protocols, more returns can be produced.
+	\item Descentralized exchanges: Users can exchange various crypto-assets directly with one another without the necessity of centralized middlemen thanks to decentralized exchanges (DEX) like Uniswap and SushiSwap
+	\item Lending and borrowing: Users can deposit or lend cryptocurrency assets to earn interest through platforms like Aave or Compound. All transactions are openly managed by smart contracts.
+\end{itemize}
 
-Informații și citare articol publicat tip masterthesis  \cite{mastersthesis1993}.
+NFT Markets: Using smart contracts, marketplaces such as OpenSea or Rarible enable the buying, selling, and trade of unique tokens (NFTs), which stand in for digital art pieces, collectibles, or game assets.
 
-Informații și citare articol publicat tip phdthesis \cite{phdthesis1993}.
-
-Informații și citare articol ca resursă Internet  \cite{kinaSUR}.
-
-
-
-
-Inserarea și Referirea unei figuri \ref{FigCBSD}.
-
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[scale=0.65]{./figures/fig_3_1.eps}
-	\caption{Ciclul de dezvoltare al sistemelor bazate pe componente adaptat modelului cascadã}
-el{FigCBSD}
-\end{figure}
-
-
-elul \ref{TabelSolutii}. 
-
-\begin{table}[htbp]
-\begin{center}
-\begin{tabular}
-{|p{120pt}|p{120pt}|p{120pt}|}
-\hline
- Nume algoritm  &  Toate soluțiile &  Soluția optimã\\
-\hline 
-\hline Nume 1 & $20$ & $5$  \\
-\hline Nume 2 & $20$ & $2$  \\
-\hline
-\end{tabular}
-\end{center}
-\caption{Soluții obținute }
-\label{TabelSolutii}
-\end{table}
-
-
-Adaugarea și Referirea la o Ecuație \ref{LabelMyEquation}.
-
-
- \begin{equation}
-     ws_N4 = w_{14}*N1 + W_{24}+N2 + w_{34}*N3
-\label{LabelMyEquation}
- \end{equation}
+ Decentralized autonomous organizations (DAO), such as MakerDAO, use smart contracts to enable token holders to speak up for themselves and cast votes on decisions that will determine the protocol's future development.
  
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+ Blockchain gaming: Smart contracts facilitate the management of game economies, include NFT components into the game, and guarantee a fair and transparent game for all players.

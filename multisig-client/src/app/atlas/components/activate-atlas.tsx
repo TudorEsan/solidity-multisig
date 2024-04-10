@@ -3,6 +3,7 @@ import { MultisigAbi } from "@/contracts/multisig-abi";
 import { useGetSelectedWallet } from "@/hooks/useGetSelectedWallet";
 import Image from "next/image";
 import React from "react";
+import { toast } from "sonner";
 import { useWriteContract } from "wagmi";
 
 export const ActivateAtlas = ({
@@ -32,11 +33,15 @@ export const ActivateAtlas = ({
         <div className="mt-4">
           <Button
             onClick={async () => {
-              writeContractAsync({
-                abi: MultisigAbi,
-                address: multisigAddress,
-                functionName: "activateAtlas",
-              });
+              try {
+                writeContractAsync({
+                  abi: MultisigAbi,
+                  address: multisigAddress,
+                  functionName: "activateAtlas",
+                });
+              } catch (error: any) {
+                toast.error(error?.message || "Failed to activate Atlas");
+              }
             }}
           >
             Activate Atlas

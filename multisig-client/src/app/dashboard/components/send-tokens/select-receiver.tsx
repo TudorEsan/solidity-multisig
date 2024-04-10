@@ -86,7 +86,7 @@ export const SelectRecipient = ({ next }: { next: () => void }) => {
   const buttonDisabled = !values.toAddress;
 
   const handleNext = async () => {
-    const isAddressValid = ethers.utils.isAddress(values.toAddress);
+    const isAddressValid = ethers.isAddress(values.toAddress);
     if (isAddressValid) {
       next();
     } else {

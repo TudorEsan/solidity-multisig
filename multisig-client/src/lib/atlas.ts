@@ -134,7 +134,7 @@ const getAddressFromSecret = (secret: string) => {
   return new ethers.Wallet(secret).address;
 };
 
-export const confirmAtlas = async (
+export const getConfirmAtlasSignature = async (
   otp: string,
   txIndex: number,
   multisigAddress: string,
@@ -170,18 +170,20 @@ export const confirmAtlas = async (
     chain,
     "b3615957c6b0427eb2fac15afb451acb"
   );
-  console.log("Provider:", provider);
 
   const signer = new ethers.Wallet(hexSecret, provider);
-  console.log("test");
 
-  const MultisigContract = new Contract(multisigAddress, MultisigAbi, signer);
-  console.log("test2");
+  const messageHash = ethers.solidityPackedKeccak256(["uint256"], [txIndex]);
+  const messageBytes = ethers.getBytes(messageHash); // Convert the hash to a bytes array
 
-  const tx = await MultisigContract.confirmAtlas(BigInt(txIndex));
-  console.log(tx, "tra");
+  // const ethSignedMessageHash = ethers.keccak256(
+  //   ethers.solidityPacked(
+  //     ["string", "bytes32"],
+  //     ["\x19Ethereum Signed Message:\n32", messageHash]
+  //   )
+  // );
 
-  const receipt = await tx.wait();
+  const signature = await signer.signMessage(messageBytes);
 
-  return receipt;
+  return signature;
 };

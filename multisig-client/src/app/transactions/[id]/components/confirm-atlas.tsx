@@ -8,7 +8,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { Button } from "@/components/ui/button";
-import { confirmAtlas, validateOTP } from "@/lib/atlas";
+import { getConfirmAtlasSignature, validateOTP } from "@/lib/atlas";
 import { useGetSelectedWallet } from "@/hooks/useGetSelectedWallet";
 import { useChainId, useWriteContract } from "wagmi";
 import { useMutation } from "@tanstack/react-query";
@@ -34,9 +34,18 @@ export const ConfirmAtlas = ({ txIndex }: { txIndex: number }) => {
   const mutation = useMutation({
     mutationFn: async () => {
       try {
-        const receipt = await confirmAtlas(value, txIndex, address, chain);
-        console.log({
-          receipt,
+        const signature = await getConfirmAtlasSignature(
+          value,
+          txIndex,
+          address,
+          chain
+        );
+        console.log("Signature:", signature);
+        await writeContractAsync({
+          abi: MultisigAbi,
+          address,
+          functionName: "confirmAtlas",
+          args: [BigInt(txIndex), signature as Address],
         });
       } catch (error: any) {
         console.error(error);
@@ -47,7 +56,7 @@ export const ConfirmAtlas = ({ txIndex }: { txIndex: number }) => {
   return (
     <>
       <Button onClick={disclosure.onOpen} className="w-full">
-        Setup Atlas
+        Confirm Atlas
       </Button>
       <Modal isOpen={disclosure.isOpen} onOpenChange={disclosure.onOpenChange}>
         <ModalContent>

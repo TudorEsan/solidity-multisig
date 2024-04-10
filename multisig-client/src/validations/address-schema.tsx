@@ -7,7 +7,7 @@ export const AddressSchema = z
   .refine(
     (data) => {
       try {
-        return ethers.utils.isAddress(data);
+        return ethers.isAddress(data);
       } catch (error) {
         return false;
       }

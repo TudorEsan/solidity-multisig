@@ -44,7 +44,7 @@ const Settings = () => {
   console.log(data);
 
   if (
-    !atlasAddress?.result &&
+    atlasAddress?.result === EMPTY_ADDRESS &&
     atlasProposedActivationAddress?.result !== EMPTY_ADDRESS
   ) {
     return <SetupAtlas />;

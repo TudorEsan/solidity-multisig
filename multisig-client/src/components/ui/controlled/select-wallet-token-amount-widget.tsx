@@ -164,7 +164,7 @@ export const SelectWalletTokenAmountWidget = ({
   const handleMax = () => {
     let balance = BigNumber(
       maxNumberFormater(
-        ethers.utils.formatUnits(token?.balance ?? "0", token?.decimals)
+        ethers.formatUnits(token?.balance ?? "0", token?.decimals)
       )
     );
     if (token.identifier === "ETH") {
@@ -279,7 +279,7 @@ export const SelectWalletTokenAmountWidget = ({
         />
         <p className="text-center text-muted-foreground text-sm">
           {shortNumberFormater(
-            ethers.utils.formatUnits(token?.balance ?? "0", token?.decimals)
+            ethers.formatUnits(token?.balance ?? "0", token?.decimals)
           )}{" "}
           {selectedTokenIdentifier}
         </p>

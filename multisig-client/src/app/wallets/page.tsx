@@ -11,9 +11,7 @@ import {
 import { WalletsTable, db } from "@/db/drizzle";
 import { shortenAddress } from "@/helpers/shortenAddress";
 import { getServerAddress } from "@/lib/getServerAddress";
-import { TrashIcon } from "@radix-ui/react-icons";
 import { sql } from "drizzle-orm";
-import { utils } from "ethers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { DeleteButton } from "./components/delete-button";
@@ -60,8 +58,12 @@ const Page = async ({ searchParams }: { searchParams: WalletQueryParam }) => {
                   height={32}
                   width={32}
                   alt="chain"
+                  className="w-[32px] h-[32px]"
                   // @ts-ignore
-                  src={`${CHAINS_IMAGES[Number(wallet.chain)] as string}`}
+                  src={`${
+                    (CHAINS_IMAGES[Number(wallet.chain)] as string) ??
+                    ("/images/ethereum.svg" as string)
+                  }`}
                 />
                 <DeleteButton id={wallet.id} />
               </div>
