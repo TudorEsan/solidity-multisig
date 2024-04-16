@@ -15,8 +15,20 @@ Because of this limitations since then over 1000 blockchains appeared according 
 \par Buterin introduced the idea of a programmable blockchain with its own programming language, Solidity, for creating smart contracts in the Ethereum whitepaper, which was published in 2013. The description of Ethereum is "A Next-Generation Smart Contract and Decentralized Application Platform." \cite{ethereumwhitepaper}
 \par The possibilities for blockchain are endless thanks to the capacity to write self-executing smart contracts. At its core, Ethereum is a worldwide network of nodes that can execute smart contract code thanks to the Ethereum Virtual Machine (EVM). Transaction fees or "gas" are paid for with ether money (ETH), which is also used to compensate network miners. Ethereum is now the foundation of a flourishing DApp ecosystem that is promoting innovation across many industries. The idea of Web3, which envisions a more user-based, decentralized internet, has been strengthened by it.
 
-\section{Smart Contracts}
+\section{How do cryptocurrencies work?}
 \label{sec:ch2sec2}
+\par Blockchain uses public and private key cryptography to ensure the security and integrity of transactions. This cryptography system is essential to the operation of blockchain technologies, including cryptocurrencies. Here's how it works:
+\begin{enumerate}
+	\item Key generation: A pair of cryptographic keys—a private key and a public key—are generated for every blockchain user - tipically by a crypto wallet. While the public key is open for distribution, the private key is confidential and needs to be kept secure by the user. Although there is a mathematical relationship between these keys, the private key cannot be obtained from the public key. With the public key a unique address is generated.
+	\item Transaction creation: When a user wants to initiate a transaction, for example, send tokens to another account, they create a transaction message. This message includes information such as the recipient's address, the amount transferred and other optional data.
+	\item Signing the transaction: With their private key, the user signs the transaction. Each transaction generates a unique digital signature using the private key, which acts as mathematical evidence that the person whose private key is linked to the account from which the money is being transferred approved the transaction.
+	\item Transaction Verification: Using the sender's public key, the network's nodes—or miners, in the case of Bitcoin—verify the transaction's digital signature after it has been published on the blockchain. The transaction is regarded as authentic and can be completed if the signature is legitimate.
+	\item At last, the transaction is added to the blockchain by being included in a new block that is subsequently appended to the current chain of blocks upon validation—thus the term "blockchain." The transaction becomes permanent and irrevocable once it is recorded to the blockchain, offering a transparent and safe record of the money transfer.
+\end{enumerate}
+\par Blockchain utilizes cryptography in these ways to offer a decentralized, transparent, and extremely safe payment system without the need for a dependable central authority like a bank or other financial middleman.
+
+\section{Smart Contracts}
+\label{sec:ch2sec3}
 For a person that has not much experience with blockchain development, smart contracts are functions that are deployed on the blockchain and can be called by everyone. After the deployment the smart contract code cannot be altered. Investopidia defines smart contracts as: "a self-executing program that automates the actions required in an agreement or contract. Once completed, the transactions are trackable and irreversible. Smart contracts permit trusted transactions and agreements to be carried out among disparate, anonymous parties without the need for a central authority, legal system, or external enforcement mechanism"\cite{smartcontracts}. Some applications of smart contracts are the following:
 
 Decentralized Finance (DeFi):
@@ -31,3 +43,32 @@ NFT Markets: Using smart contracts, marketplaces such as OpenSea or Rarible enab
  Decentralized autonomous organizations (DAO), such as MakerDAO, use smart contracts to enable token holders to speak up for themselves and cast votes on decisions that will determine the protocol's future development.
  
  Blockchain gaming: Smart contracts facilitate the management of game economies, include NFT components into the game, and guarantee a fair and transparent game for all players.
+ 
+ \section{Crypto Wallets}
+ \label{sec:ch2sec4}
+\par  Cryptocurrency wallets are digital tools that allow users to store and manage their cryptographic keys used to transact with cryptocurrencies such as Bitcoin, Ethereum, and others. These wallets can exist in various forms, from software applications to hardware devices, and are essential for using cryptocurrencies in a safe and efficient way. Shortly put, a crypto wallet hold one or more private key for you to interact with the blockchain.
+\par Wallets for cryptocurrencies serve a number of crucial purposes:
+\begin{itemize}
+	\item Security: Offers a safe space to save private keys, which are necessary to when using cryptocurrencies, because whoever access the private key has full access to the funds.
+	\item Interacting with the blockchain: Make it possible to send and receive money using cryptocurrencies, enabling transfers, or DApps interactions.
+	\item Interoperability: Enables users to engage with many blockchains and take part in multiple ecosystems such as Bitcoins, Ethereum etc.
+	\item Control: Gives users complete control over their digital assets without the need for intermediaries such as banks.
+\end{itemize}
+\par Cryptocurrency wallets fall into several categories, depending on the nature and level of security offered:
+\begin{enumerate}
+	\item Software wallets: These are computer or mobile applications that can be downloaded. Although they are practical, their degree of security is dependent on how secure the host device is. For instance, if your computer is compromised by malware or viruses and you have an extension wallet, the private key could be taken.
+	\item Hardware wallets: These are physical devices that store and generate private keys offline, providing increased security. The private key is also stored on a hardware device and it never leaves it. They are considered some of the safest options for long-term cryptocurrency storage.
+	\item Paper wallets: Involves printing private and public keys on paper, which are then stored in a secure location. They eliminate the risks associated with cyber attacks, but are susceptible to physical risks such as damage or loss. Almost every time a hardware wallet will be better than this.
+\end{enumerate}
+
+To enable access to and trade of cryptocurrencies, private key wallets employ pairs of private and public keys. They offer a high level of security as long as the private key is safeguarded and kept secret, and they are simple to use and the foundation of the majority of bitcoin wallets currently in use.
+
+However, smart contract wallets handle transactions using smart contracts on Ethereum and other platforms. Advanced capabilities that these wallets can offer include approving transactions from several parties at once or incorporating intricate trade rules straight into the contract logic. Smart contract wallets are perfect for sophisticated usage, such as automatically managed money or wallets that need several approvals to conduct a transaction, because of their considerable customization and automation options. Even if smart contracts wallets are much more sophisticated, to interact with them you still need to use a wallet with a private key, however, they can add features to increase security.
+
+ \section{Multisignature Wallets}
+\label{sec:ch2sec5} 
+Multisig wallets, sometimes referred to as multi-signature wallets, are an important development in the security of cryptocurrencies. They improve the security of monies that are kept in storage by requiring the consent of several parties before executing a transaction.
+
+A smart contract that specifies how many of the preset holders must sign a transaction before it is performed is the foundation of a multisig wallet. A wallet can be set up, for instance, so that two of the three holders must sign it. This system strikes a balance between security and accessibility by preventing illegal acts and preventing the loss of access to funds in the event that a single key is compromised.
+
+Comparing multisig wallets to conventional single-signature wallets reveals numerous noteworthy benefits. The most important thing is more security. The possibility of theft or fraudulent transactions is significantly decreased by needing numerous permissions. Multisig wallets are perfect for groups or organizations that manage shared assets since they also make it easier for members to collaborate and manage funds together.

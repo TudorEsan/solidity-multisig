@@ -9,6 +9,7 @@ Warning--to sort, need author or key in watcherguru
 Warning--to sort, need author or key in smartcontracts
 Warning--to sort, need author or key in sdocs
 Warning--to sort, need author or key in solidityVulnerabilities
+Warning--to sort, need author or key in hardhat
 Warning--to sort, need author or key in nextImage
 Warning--to sort, need author or key in nextServerActions
 Warning--to sort, need author or key in nextRouteHandlers
@@ -16,45 +17,50 @@ Warning--to sort, need author or key in typescript
 Warning--to sort, need author or key in tailwind
 Warning--to sort, need author or key in rainbowkit
 Warning--to sort, need author or key in infura
-You've used 16 entries,
+Warning--to sort, need author or key in etherscan
+Warning--to sort, need author or key in viem
+Warning--to sort, need author or key in wagmi
+Warning--to sort, need author or key in soliditylogs
+Warning--to sort, need author or key in transactionBuilder
+You've used 22 entries,
             2543 wiz_defined-function locations,
-            618 strings with 6217 characters,
-and the built_in function-call counts, 3571 in all, are:
-= -- 357
-> -- 37
+            635 strings with 6923 characters,
+and the built_in function-call counts, 4827 in all, are:
+= -- 483
+> -- 43
 < -- 3
-+ -- 8
++ -- 9
 - -- 6
-* -- 169
-:= -- 445
-add.period$ -- 38
-call.type$ -- 16
-change.case$ -- 67
-chr.to.int$ -- 14
-cite$ -- 42
-duplicate$ -- 169
-empty$ -- 417
+* -- 229
+:= -- 579
+add.period$ -- 50
+call.type$ -- 22
+change.case$ -- 91
+chr.to.int$ -- 19
+cite$ -- 60
+duplicate$ -- 229
+empty$ -- 579
 format.name$ -- 12
-if$ -- 819
-int.to.chr$ -- 3
+if$ -- 1119
+int.to.chr$ -- 4
 int.to.str$ -- 0
 missing$ -- 2
-newline$ -- 73
+newline$ -- 97
 num.names$ -- 9
-pop$ -- 147
+pop$ -- 207
 preamble$ -- 1
-purify$ -- 83
+purify$ -- 113
 quote$ -- 0
-skip$ -- 158
+skip$ -- 216
 stack$ -- 0
-substring$ -- 125
-swap$ -- 16
+substring$ -- 173
+swap$ -- 22
 text.length$ -- 3
 text.prefix$ -- 3
 top$ -- 0
-type$ -- 128
-warning$ -- 13
+type$ -- 176
+warning$ -- 19
 while$ -- 6
-width$ -- 21
-write$ -- 161
-(There were 13 warnings)
+width$ -- 28
+write$ -- 215
+(There were 19 warnings)

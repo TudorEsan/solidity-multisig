@@ -144,46 +144,28 @@ export const getConfirmAtlasSignature = async (
   if (!isValid) {
     throw new Error("Invalid OTP");
   }
-
   const wallet = (
     await db
       .select()
       .from(WalletsTable)
       .where(sql`${WalletsTable.walletAddress} = ${multisigAddress}`)
   )[0];
-
   if (!wallet.secret) {
     throw new Error("Secret not found");
   }
-
   if (!wallet.atlasAddress) {
     throw new Error("Atlas address not found");
   }
-
   const hexSecret = Buffer.from(
     base32Decode(wallet.secret, "RFC4648")
   ).toString("hex");
-
-  console.log(chain);
-
   const provider = new ethers.InfuraProvider(
     chain,
     "b3615957c6b0427eb2fac15afb451acb"
   );
-
   const signer = new ethers.Wallet(hexSecret, provider);
-
   const messageHash = ethers.solidityPackedKeccak256(["uint256"], [txIndex]);
-  const messageBytes = ethers.getBytes(messageHash); // Convert the hash to a bytes array
-
-  // const ethSignedMessageHash = ethers.keccak256(
-  //   ethers.solidityPacked(
-  //     ["string", "bytes32"],
-  //     ["\x19Ethereum Signed Message:\n32", messageHash]
-  //   )
-  // );
-
+  const messageBytes = ethers.getBytes(messageHash);
   const signature = await signer.signMessage(messageBytes);
-
   return signature;
 };

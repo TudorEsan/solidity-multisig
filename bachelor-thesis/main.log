@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.24)  10 APR 2024 20:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.24)  16 APR 2024 17:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -262,7 +262,7 @@ Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@O@orf=\skip59
 )
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 2
-4.
+7.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
@@ -275,24 +275,24 @@ File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -350,16 +350,16 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 24.
+Package hyperref Info: Link coloring OFF on input line 27.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 31.
+(Font)              <17.28> on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 31.
+(Font)              <12> on input line 34.
  [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
@@ -368,19 +368,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.36 \newpage
+l.39 \newpage
               [1]
-Overfull \hbox (5.71335pt too wide) in paragraph at lines 46--47
-\OT1/ppl/m/n/12 we think about fi-nance. They use de-cen-tral-ized net-works, a
-l-low-ing for faster, cheaper
- []
-
-
-Overfull \hbox (14.06198pt too wide) in paragraph at lines 50--51
-[]\OT1/ppl/m/n/12 Ethereum, in-tro-duced af-ter Bit-coin, rev-o-lu-tion-izes wi
-th smart con-tracts|automatic
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -396,13 +385,22 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 3.
-)
+ [2
+
+])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [2
 
-] (./chapters/chapter1_introduction.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[3] (./chapters/chapter1_introduction.tex
 Chapter 1.
 
 Overfull \hbox (14.06198pt too wide) in paragraph at lines 14--15
@@ -410,7 +408,7 @@ Overfull \hbox (14.06198pt too wide) in paragraph at lines 14--15
 th smart con-tracts|automatic
  []
 
-<./figures/stolen-pk.png, id=135, 796.9775pt x 631.35875pt>
+<./figures/stolen-pk.png, id=181, 796.9775pt x 631.35875pt>
 File: ./figures/stolen-pk.png Graphic file (type png)
 <use ./figures/stolen-pk.png>
 Package pdftex.def Info: ./figures/stolen-pk.png  used on input line 19.
@@ -491,10 +489,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[6]) (./chapters/chapter3.tex
-Overfull \hbox (9.08263pt too wide) in paragraph at lines 33--1
-[]\OT1/ppl/m/n/12 Blockchain gam-ing: Smart con-tracts fa-cil-i-tate the man-ag
-e-ment of game economies,
+[6]
+Overfull \hbox (7.29616pt too wide) in paragraph at lines 25--26
+[]\OT1/ppl/m/n/12 Transaction Ver-i-fi-ca-tion: Us-ing the sender's pub-lic key
+, the net-work's nodes|or
  []
 
 
@@ -506,16 +504,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [7]
-Chapter 3.
-
-Overfull \hbox (16.09213pt too wide) in paragraph at lines 9--10
-[]\OT1/ppl/m/n/12 JavaScript-Like: Be-cause of its core struc-ture, which is si
-m-i-lar to that of JavaScript,
+Overfull \hbox (9.08263pt too wide) in paragraph at lines 45--46
+[]\OT1/ppl/m/n/12 Blockchain gam-ing: Smart con-tracts fa-cil-i-tate the man-ag
+e-ment of game economies,
  []
 
-[8
 
-]
+Overfull \hbox (2.70114pt too wide) in paragraph at lines 49--50
+\OT1/ppl/m/n/12 cryp-to-graphic keys used to trans-act with cryp-tocur-ren-cies
+ such as Bit-coin, Ethereum,
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[8]) (./chapters/chapter3.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -534,24 +542,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [10]
+Chapter 3.
 
-LaTeX Warning: Citation `etherscan' on page 11 undefined on input line 67.
+Overfull \hbox (16.09213pt too wide) in paragraph at lines 9--10
+[]\OT1/ppl/m/n/12 JavaScript-Like: Be-cause of its core struc-ture, which is si
+m-i-lar to that of JavaScript,
+ []
 
+[11
 
-LaTeX Warning: Citation `viem' on page 11 undefined on input line 72.
-
-
-LaTeX Warning: Citation `wagmi' on page 11 undefined on input line 83.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[11]) (./chapters/chapter4.tex
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -561,20 +561,221 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [12]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[13]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[14]) (./chapters/chapter4.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[15]
 Chapter 4.
-) (./chapters/chapter6_conclusions.tex [13
+[16
 
 ]
-Chapter 5.
-) (./main.bbl [14
 
-]
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[17]
+<./figures/totp.png, id=306, 1322.9425pt x 847.165pt>
+File: ./figures/totp.png Graphic file (type png)
+<use ./figures/totp.png>
+Package pdftex.def Info: ./figures/totp.png  used on input line 40.
+(pdftex.def)             Requested size: 463.03682pt x 296.51219pt.
+
+Overfull \hbox (22.01909pt too wide) in paragraph at lines 40--41
+ [][] 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[18 <./figures/totp.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[19]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 5
-.
-
-(/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+9.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
+Overfull \hbox (12.58208pt too wide) in paragraph at lines 78--78
+[]  \OT1/pcr/m/n/12 require(_txIndex < transactions.length, "tx does not exist"
+);[] 
+ []
+
+
+Overfull \hbox (34.18207pt too wide) in paragraph at lines 78--78
+[]  \OT1/pcr/m/n/12 require(!transaction.atlasConfirmed, "Atlas already confirm
+ed");[] 
+ []
+
+
+Overfull \hbox (5.38208pt too wide) in paragraph at lines 78--78
+[]  \OT1/pcr/m/n/12 bytes32 messageHash = keccak256(abi.encodePacked(_txIndex))
+;[] 
+ []
+
+
+Overfull \hbox (55.78206pt too wide) in paragraph at lines 78--78
+[]  \OT1/pcr/m/n/12 abi.encodePacked("\x19Ethereum Signed Message:\n32", messag
+eHash));[] 
+ []
+
+
+Overfull \hbox (120.58203pt too wide) in paragraph at lines 78--78
+[]  \OT1/pcr/m/n/12 (address recoveredAddress) = recoverSigner(ethSignedMessage
+Hash, signature);[] 
+ []
+
+
+Overfull \hbox (26.98207pt too wide) in paragraph at lines 78--78
+[]  \OT1/pcr/m/n/12 require(recoveredAddress == atlasAddress, "Invalid signatur
+e");[] 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[20]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[21]
+Overfull \hbox (26.98207pt too wide) in paragraph at lines 129--129
+[]  \OT1/pcr/m/n/12 .where(sql`${WalletsTable.walletAddress} = ${multisigAddres
+s}`)[] 
+ []
+
+
+Overfull \hbox (113.38203pt too wide) in paragraph at lines 129--129
+[]  \OT1/pcr/m/n/12 const messageHash = ethers.solidityPackedKeccak256(["uint25
+6"], [txIndex]);[] 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[22]
+Overfull \hbox (2.02841pt too wide) in paragraph at lines 135--136
+\OT1/ppl/m/n/12 mul-ti-si-gAd-dress. This ad-dress usu-ally refers to a multi-s
+ignature wal-let, which
+ []
+
+
+Overfull \hbox (10.32024pt too wide) in paragraph at lines 137--138
+\OT1/ppl/m/n/12 to cre-ate a blockchain provider. Us-ing In-fura, you can in-te
+r-act with the Ethereum
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[23]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[24]
+Overfull \hbox (10.4522pt too wide) in paragraph at lines 158--159
+\OT1/ppl/m/n/12 Router to di-rectly de-fine routes. Con-sider a file called app
+/page, for in-stance.The
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[25]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[26]) (./chapters/chapter6_conclusions.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[27]
+Chapter 5.
+) (./main.bbl [28
+
+]
 Underfull \hbox (badness 1917) in paragraph at lines 8--14
 []\OT1/ppl/m/n/12 Vitalik Bu-terin.  Ethereum: A next-generation smart con-trac
 t and
@@ -593,61 +794,101 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--14
  []
 
 
-Underfull \hbox (badness 1997) in paragraph at lines 26--32
+Underfull \hbox (badness 1997) in paragraph at lines 35--41
 []\OT1/ppl/m/n/12 NEFTURE SE-CU-RITY I Blockchain Se-cu-rity.  Pri-vate keys ex
 -ploit,
  []
 
 
-Overfull \hbox (84.32475pt too wide) in paragraph at lines 26--32
+Overfull \hbox (84.32475pt too wide) in paragraph at lines 35--41
 \OT1/pcr/m/n/12 private-[]keys-[]exploit-[]the-[]most-[]lucrative-[]hack-[]of-[
 ]2023-[]81390e0a29cb$[]\OT1/ppl/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--37
+Underfull \hbox (badness 10000) in paragraph at lines 43--46
 []\OT1/ppl/m/n/12 Image op-ti-miza-tion.  []$\OT1/pcr/m/n/12 https : / / nextjs
  . org / docs / app /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--42
+Underfull \hbox (badness 10000) in paragraph at lines 48--51
 []\OT1/ppl/m/n/12 Image op-ti-miza-tion.  []$\OT1/pcr/m/n/12 https : / / nextjs
  . org / docs /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--42
+Underfull \hbox (badness 10000) in paragraph at lines 48--51
 \OT1/pcr/m/n/12 app / building-[]your-[]application / data-[]fetching /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--47
+Underfull \hbox (badness 10000) in paragraph at lines 53--56
 []\OT1/ppl/m/n/12 Route han-dlers.  []$\OT1/pcr/m/n/12 https : / / nextjs . org
  / docs / app /
  []
 
+[29
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--68
+]
+Underfull \hbox (badness 10000) in paragraph at lines 74--77
 []\OT1/ppl/m/n/12 Common so-lid-ity se-cu-rity vul-ner-a-bil-i-ties and how
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--68
+Underfull \hbox (badness 10000) in paragraph at lines 74--77
 \OT1/ppl/m/n/12 to avoid them.  []$\OT1/pcr/m/n/12 https : / / metana . io / bl
 og /
  []
 
 
-Overfull \hbox (32.92477pt too wide) in paragraph at lines 65--68
+Overfull \hbox (32.92477pt too wide) in paragraph at lines 74--77
 \OT1/pcr/m/n/12 common-[]solidity-[]security-[]vulnerabilities-[]how-[]to-[]avo
 id-[]them$[]\OT1/ppl/m/n/12 . 
  []
 
-[15
 
-]
-Overfull \hbox (10.77116pt too wide) in paragraph at lines 78--80
+Underfull \hbox (badness 2521) in paragraph at lines 79--82
+[]\OT1/ppl/m/n/12 Understanding so-lid-ity events and logs.  []$\OT1/pcr/m/n/12
+ https : / / medium . com /
+ []
+
+
+Overfull \hbox (64.92476pt too wide) in paragraph at lines 79--82
+\OT1/pcr/m/n/12 coinmonks / understanding-[]solidity-[]events-[]and-[]logs-[]f2
+9ea4f557cc# :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--82
+[] \OT1/pcr/m/n/12 : text = They % 20are % 20written % 20in % 20Solidity ,[] de
+signed %
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--82
+\OT1/pcr/m/n/12 20for % 20the % 20Ethereum % 20platform . &text = Once % 20the 
+%
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--82
+\OT1/pcr/m/n/12 20event % 20has % 20been ,[] be % 20accessed % 20at % 20any % 2
+0time .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--91
+\OT1/pcr/m/n/12 safe = sep : 0x5e18A2A9Fa4A99e8275A09b2125875F9c379B267 &
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--91
+\OT1/pcr/m/n/12 appUrl = https % 3A % 2F % 2Fapps-[]portal . safe . global %
+ []
+
+
+Overfull \hbox (10.77116pt too wide) in paragraph at lines 105--107
 []\OT1/ppl/m/n/12 How many blockchains are there?  []$\OT1/pcr/m/n/12 how-[]man
 y-[]blockchains-[]are-[]there$[]\OT1/ppl/m/n/12 . 
  []
@@ -661,41 +902,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[16] (./main.aux)
+[30] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: F2F58043BD8C34D6FDBDFF3346B8C49A;2197
-(rerunfilecheck)             After:  BD55C7ACB7B349D298F5CA71E06C356D;2255.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 0905FD8C60AD54293D83340F2B35C5A8;3395.
  ) 
 Here is how much of TeX's memory you used:
- 10616 strings out of 474116
- 168797 string characters out of 5743682
+ 10695 strings out of 474116
+ 169751 string characters out of 5743682
  1936187 words of memory out of 5000000
- 32756 multiletter control sequences out of 15000+600000
+ 32790 multiletter control sequences out of 15000+600000
  572743 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,11n,93p,896b,586s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,11n,93p,1086b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/
 local/texlive/2024/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/t
 exlive/2024/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/
 2024/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2024/te
 xmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (20 pages, 635036 bytes).
+Output written on main.pdf (35 pages, 730004 bytes).
 PDF statistics:
- 305 PDF objects out of 1000 (max. 8388607)
- 268 compressed objects within 3 object streams
- 59 named destinations out of 1000 (max. 500000)
- 182 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 462 PDF objects out of 1000 (max. 8388607)
+ 407 compressed objects within 5 object streams
+ 104 named destinations out of 1000 (max. 500000)
+ 251 words of extra memory for PDF output out of 10000 (max. 10000000)
 

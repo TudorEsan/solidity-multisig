@@ -145,9 +145,7 @@ contract MultiSigWallet {
             abi.encodePacked("\x19Ethereum Signed Message:\n32", messageHash)
         );
 
-        // Recover the signer from the signature
         (address recoveredAddress) = recoverSigner(ethSignedMessageHash, signature);
-        // Verify the signer is the expected address
         require(recoveredAddress == atlasAddress, "Invalid signature");
 
         transaction.atlasConfirmed = true;

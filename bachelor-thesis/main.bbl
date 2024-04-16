@@ -12,6 +12,15 @@ Vitalik Buterin.
 \newblock Available online at
   \url{https://ethereum.org/content/whitepaper/whitepaper-pdf/Ethereum_Whitepaper_-_Buterin_2014.pdf}.
 
+\bibitem[eth]{etherscan}
+Etherscan api.
+\newblock \url{https://etherscan.io/apis}.
+
+\bibitem[har]{hardhat}
+Hardhat overview.
+\newblock
+  \url{https://hardhat.org/hardhat-runner/docs/getting-started#overview}.
+
 \bibitem[inf]{infura}
 infura.
 \newblock \url{https://www.infura.io/}.
@@ -61,18 +70,36 @@ Solidity docs.
 What is a smart contract?
 \newblock \url{https://www.investopedia.com/terms/s/smart-contracts.asp/}.
 
-\bibitem[sol]{solidityVulnerabilities}
+\bibitem[sola]{solidityVulnerabilities}
 Common solidity security vulnerabilities and how to avoid them.
 \newblock
   \url{https://metana.io/blog/common-solidity-security-vulnerabilities-how-to-avoid-them}.
+
+\bibitem[solb]{soliditylogs}
+Understanding solidity events and logs.
+\newblock
+  \url{https://medium.com/coinmonks/understanding-solidity-events-and-logs-f29ea4f557cc#:~:text=They%20are%20written%20in%20Solidity,designed%20for%20the%20Ethereum%20platform.\&text=Once%20the%20event%20has%20been,be%20accessed%20at%20any%20time./}.
 
 \bibitem[tai]{tailwind}
 Tailwind.
 \newblock \url{https://tailwindcss.com}.
 
+\bibitem[tra]{transactionBuilder}
+Safe transaction builder.
+\newblock
+  \url{https://app.safe.global/apps/open?safe=sep:0x5e18A2A9Fa4A99e8275A09b2125875F9c379B267&appUrl=https%3A%2F%2Fapps-portal.safe.global%2Ftx-builder}.
+
 \bibitem[typ]{typescript}
 What is typescript?
 \newblock \url{https://www.typescriptlang.org/}.
+
+\bibitem[vie]{viem}
+viem.
+\newblock \url{https://viem.sh/}.
+
+\bibitem[wag]{wagmi}
+wagmi.
+\newblock \url{https://wagmi.sh/}.
 
 \bibitem[wat]{watcherguru}
 How many blockchains are there?
