@@ -1,10 +1,10 @@
 "use client";
-import { useAccount, useBalance, useReadContracts } from "wagmi";
+import { useBalance, useWatchContractEvent } from "wagmi";
 import { useMemo } from "react";
-import { ethers } from "ethers";
-import { Address, erc20Abi } from "viem";
+import { Address } from "viem";
 import { useGetSelectedWallet } from "./useGetSelectedWallet";
 import { WalletToken } from "@/types/token.type";
+import { MultisigAbi } from "@/contracts/multisig-abi";
 
 /**
  * Custom hook to fetch the native token balance and ERC20 token balances for a given address.
@@ -15,9 +15,18 @@ import { WalletToken } from "@/types/token.type";
 export function useGetTokenBalance(tokenAddresses: string[]) {
   const { address } = useGetSelectedWallet();
 
-  // Fetching native token balance
   const nativeBalance = useBalance({
     address: address as Address,
+  });
+
+  useWatchContractEvent({
+    address: address as Address,
+    abi: MultisigAbi,
+    eventName: "Deposit",
+    onLogs: () => {
+      console.log("Deposit event detected");
+      nativeBalance.refetch();
+    },
   });
 
   const tokens = useMemo(() => {

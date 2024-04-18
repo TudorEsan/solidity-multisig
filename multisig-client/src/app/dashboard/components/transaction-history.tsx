@@ -20,7 +20,6 @@ import { formatEther } from "viem";
 
 export const TransactionHistory = () => {
   const transactionHistory = useGetTransactions();
-  console.log(transactionHistory.data);
   return (
     <Card className="p-4">
       <h1 className="text-xl font-semibold">Transaction History</h1>

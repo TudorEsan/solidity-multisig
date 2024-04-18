@@ -10,6 +10,7 @@ export const useCustomRouter = () => {
   };
 
   return {
+    ...router,
     push,
   };
 };

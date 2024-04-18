@@ -22,8 +22,17 @@ import { History } from "./components/history";
 import { RefreshIcon } from "@heroicons/react/solid";
 import { QueryKeys } from "@/hooks/query-keys";
 import { ConfirmAtlas } from "./components/confirm-atlas";
+import { useGetSelectedWallet } from "@/hooks/useGetSelectedWallet";
+import {
+  useReadContract,
+  useWatchContractEvent,
+  useWriteContract,
+} from "wagmi";
+import { MultisigAbi } from "@/contracts/multisig-abi";
+import { EMPTY_ADDRESS } from "@/constants/general";
 
 export const Transaction = ({ id }: { id: string }) => {
+  const { address } = useGetSelectedWallet();
   const { numConfirmationsRequired, error, isLoading, queryKey } =
     useGetRequiredConfirmations();
   const {
@@ -38,10 +47,45 @@ export const Transaction = ({ id }: { id: string }) => {
     loading: loadingMutation,
     isPending,
   } = useMultisigMutations();
+  const { data: atlasAddress } = useReadContract({
+    address: address,
+    abi: MultisigAbi,
+    functionName: "atlasAddress",
+  });
+  const atlasEnabled = atlasAddress && atlasAddress !== EMPTY_ADDRESS;
   const { owners, queryKey: ownersQueryKeys } = useGetTransactionApprovals(id);
   const queryClient = useQueryClient();
   const txHash = useGetTransactionHash(id, transaction?.executed ?? false);
-  console.log("Transaction", transaction);
+  const { writeContractAsync } = useWriteContract();
+
+  useWatchContractEvent({
+    address: address,
+    abi: MultisigAbi,
+    eventName: "ConfirmTransaction",
+    onLogs: async () => {
+      console.log("ConfirmTransaction event detected");
+      await handleRefresh();
+    },
+  });
+
+  useWatchContractEvent({
+    address: address,
+    abi: MultisigAbi,
+    eventName: "RevokeConfirmation",
+    onLogs: async () => {
+      await handleRefresh();
+    },
+  });
+
+  useWatchContractEvent({
+    address: address,
+    abi: MultisigAbi,
+    eventName: "ExecuteTransaction",
+    onLogs: async () => {
+      console.log("ExecuteTransaction event detected");
+      await handleRefresh();
+    },
+  });
 
   const queries = [
     queryKey,
@@ -50,6 +94,7 @@ export const Transaction = ({ id }: { id: string }) => {
     QueryKeys.getTranasctionHistory(id),
     QueryKeys.getTransactionHash(id),
   ];
+
   const handleRefresh = async () => {
     await Promise.all([
       queries.map((query) =>
@@ -154,9 +199,28 @@ export const Transaction = ({ id }: { id: string }) => {
                     : "Confirm"}
                 </Button>
               )}
-              {hasEnoughConfirmations && !transaction.atlasConfirmed && (
-                <ConfirmAtlas txIndex={Number(id)} />
-              )}
+              {hasEnoughConfirmations &&
+                atlasEnabled &&
+                !transaction.atlasConfirmed && (
+                  <ConfirmAtlas txIndex={Number(id)} />
+                )}
+              {hasEnoughConfirmations &&
+                (!atlasEnabled ||
+                  (atlasEnabled && transaction.atlasConfirmed)) && (
+                  <Button
+                    className="w-full"
+                    onClick={async () => {
+                      await writeContractAsync({
+                        abi: MultisigAbi,
+                        address,
+                        functionName: "executeTransaction",
+                        args: [BigInt(id)],
+                      });
+                    }}
+                  >
+                    Execute
+                  </Button>
+                )}
             </div>
           )}
         </CardContent>

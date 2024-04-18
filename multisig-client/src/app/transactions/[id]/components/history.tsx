@@ -11,7 +11,10 @@ export const History = ({ id }: { id: string }) => {
       <p className="text-center font-semibold mb-2">History</p>
       <div className="flex flex-col gap-2">
         {txHistory.data?.map((tx) => (
-          <div className="flex items-center justify-between">
+          <div
+            className="flex items-center justify-between"
+            key={tx.transactionHash}
+          >
             <DisplayAddress address={tx.address} />
             <div className="flex items-center gap-2">
               <Badge>{tx.eventName}</Badge>

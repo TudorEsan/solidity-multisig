@@ -15,7 +15,7 @@ export const useGetTransactionHistory = (id: string) => {
         event: parseAbiItem(
           "event ConfirmTransaction(address indexed owner, uint256 indexed txIndex)"
         ),
-        fromBlock: BigInt(9861580),
+        fromBlock: "latest",
         args: {
           txIndex: BigInt(id),
         },
@@ -26,7 +26,7 @@ export const useGetTransactionHistory = (id: string) => {
         event: parseAbiItem(
           "event RevokeConfirmation(address indexed owner, uint256 indexed txIndex)"
         ),
-        fromBlock: BigInt(9861580),
+        fromBlock: "latest",
         args: {
           txIndex: BigInt(id),
         },

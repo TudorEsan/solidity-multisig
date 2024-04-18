@@ -15,7 +15,7 @@ export const useGetTransactionHash = (id: string, enabled: boolean) => {
         event: parseAbiItem(
           "event ExecuteTransaction(address indexed owner, uint256 indexed txIndex)"
         ),
-        fromBlock: BigInt(9861580),
+        fromBlock: "safe",
         args: {
           txIndex: BigInt(id),
         },

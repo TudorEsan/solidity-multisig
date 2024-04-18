@@ -18,8 +18,6 @@ export const useDeployMultisig = () => {
   const chain = useChainId();
   const router = useCustomRouter();
 
-  
-
   const deployMutation = useMutation({
     mutationFn: async (formData: CreateWalletForm) => {
       const owners = formData.addresses.map((a) => a.address);
@@ -29,6 +27,7 @@ export const useDeployMultisig = () => {
 
       const txHash = await walletClient?.deployContract({
         abi: Multisig.abi,
+        // @ts-ignore
         bytecode: Multisig.bytecode,
         args: [owners, formData.threshold],
       });
@@ -41,9 +40,9 @@ export const useDeployMultisig = () => {
       });
       let txReceipt;
       let retryCount = 0;
-      while (retryCount < 3) {
+      while (retryCount < 10) {
         try {
-          await new Promise((resolve) => setTimeout(resolve, 2000));
+          await new Promise((resolve) => setTimeout(resolve, 5000));
           console.log("try", retryCount);
           txReceipt = await getTransactionReceipt(wagmiConfig, {
             hash: txHash,
@@ -53,6 +52,10 @@ export const useDeployMultisig = () => {
           console.error(error);
           retryCount++;
         }
+      }
+
+      if (!txReceipt) {
+        throw new Error("Failed to get transaction receipt");
       }
 
       const addedWallet = await MultisigService.addWallet({
