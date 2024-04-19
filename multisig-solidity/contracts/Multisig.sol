@@ -13,6 +13,11 @@ contract MultiSigWallet {
     event ConfirmTransaction(address indexed owner, uint256 indexed txIndex);
     event RevokeConfirmation(address indexed owner, uint256 indexed txIndex);
     event ExecuteTransaction(address indexed owner, uint256 indexed txIndex);
+    event AtlasActivationProposed(address indexed owner, address indexed atlasAddress);
+    event AtlasDeactivationProposed(address indexed owner);
+    event AtlasActivated(address indexed owner, address indexed atlasAddress);
+    event AtlasDeactivated(address indexed owner);
+    event AtlasConfirmed(address indexed owner, uint256 indexed txIndex);
 
     address[] public owners;
     mapping(address => bool) public isOwner;
@@ -109,6 +114,7 @@ contract MultiSigWallet {
         
         atlasProposedActivationTime = block.timestamp;
         atlasProposedActivationAddress = _atlasAddress;
+        emit AtlasActivationProposed(msg.sender, _atlasAddress);
     }
 
     function activateAtlas() public onlyOwner {
@@ -119,10 +125,12 @@ contract MultiSigWallet {
         atlasAddress = atlasProposedActivationAddress;
         atlasProposedActivationAddress = address(0);
         atlasProposedActivationTime = 0;
+        emit AtlasActivated(msg.sender, atlasAddress);
     }
 
     function proposeAtlasDeactivation() public onlyOwner {
         atlasProposedDeactivationTime = block.timestamp;
+        emit AtlasDeactivationProposed(msg.sender);
     }
 
     function deactivateAtlas() public onlyOwner {
@@ -132,9 +140,10 @@ contract MultiSigWallet {
         );
         atlasAddress = address(0);
         atlasProposedDeactivationTime = 0;
+        emit AtlasDeactivated(msg.sender);
     }
 
-    function confirmAtlas(uint256 _txIndex, bytes memory signature) public {
+    function confirmAtlas(uint256 _txIndex, bytes memory signature) public onlyOwner {
         require(atlasAddress != address(0), "Atlas not activated");
         require(_txIndex < transactions.length, "tx does not exist");
         Transaction storage transaction = transactions[_txIndex];
@@ -148,6 +157,7 @@ contract MultiSigWallet {
         (address recoveredAddress) = recoverSigner(ethSignedMessageHash, signature);
         require(recoveredAddress == atlasAddress, "Invalid signature");
 
+        emit AtlasConfirmed(msg.sender, _txIndex);
         transaction.atlasConfirmed = true;
     }
 

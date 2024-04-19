@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { SetupAtlas } from "./components/setup-atlas/setup-atlas";
-import { useReadContracts } from "wagmi";
+import { useReadContracts, useWatchContractEvent } from "wagmi";
 import { useGetSelectedWallet } from "@/hooks/useGetSelectedWallet";
 import { MultisigAbi } from "@/contracts/multisig-abi";
 import { LoadingScreen } from "@/components/loading-screen";
@@ -31,6 +31,37 @@ const Settings = () => {
     ],
   });
 
+  const refresh = () => {
+    console.log("refresh");
+    data.refetch();
+  };
+
+  useWatchContractEvent({
+    address,
+    abi: MultisigAbi,
+    eventName: "AtlasActivated",
+    onLogs: () => refresh(),
+  });
+
+  useWatchContractEvent({
+    address,
+    abi: MultisigAbi,
+    eventName: "AtlasActivationProposed",
+    onLogs: () => refresh(),
+  });
+  useWatchContractEvent({
+    address,
+    abi: MultisigAbi,
+    eventName: "AtlasDeactivated",
+    onLogs: () => refresh(),
+  });
+  useWatchContractEvent({
+    address,
+    abi: MultisigAbi,
+    eventName: "AtlasDeactivationProposed",
+    onLogs: () => refresh(),
+  });
+
   const [
     atlasAddress,
     atlasProposedActivationAddress,
@@ -41,23 +72,22 @@ const Settings = () => {
     return <LoadingScreen />;
   }
 
-  console.log(data);
-
   if (
     atlasAddress?.result === EMPTY_ADDRESS &&
-    atlasProposedActivationAddress?.result !== EMPTY_ADDRESS
+    atlasProposedActivationAddress?.result === EMPTY_ADDRESS
   ) {
     return <SetupAtlas />;
   }
 
   if (
+    atlasAddress?.result === EMPTY_ADDRESS &&
     atlasProposedActivationAddress?.result &&
     atlasProposedActivationAddress?.result !== EMPTY_ADDRESS
   ) {
     return (
       <ActivateAtlas
         address={atlasProposedActivationAddress?.result}
-        activationTimestamp={Number(atlasProposedActivationTime?.result)}
+        activationTimestamp={Number(atlasProposedActivationTime?.result) * 1000}
       />
     );
   }
