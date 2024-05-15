@@ -99,13 +99,9 @@ const Drawer = ({ selectedWallet }: { selectedWallet: string | null }) => {
   );
 };
 
-export const Layout = ({
-  children,
-  selectedWallet,
-}: {
-  children: React.ReactNode;
-  selectedWallet: string | null;
-}) => {
+export const Layout = ({ children }: { children: React.ReactNode }) => {
+  const searchParams = useSearchParams();
+  const selectedWallet = searchParams.get("acc");
   return (
     <div>
       <Drawer selectedWallet={selectedWallet} />

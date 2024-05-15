@@ -19,7 +19,7 @@ import { Routes } from "@/routes";
 import Image from "next/image";
 import { CHAINS_IMAGES } from "@/constants/chains";
 
-const Page = async ({ searchParams }: { searchParams: WalletQueryParam }) => {
+const Page = async () => {
   const address = await getServerAddress();
   if (!address) {
     redirect(Routes.login());
