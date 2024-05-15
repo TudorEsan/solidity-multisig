@@ -59,8 +59,8 @@ const Page = async ({ searchParams }: { searchParams: WalletQueryParam }) => {
                   width={32}
                   alt="chain"
                   className="w-[32px] h-[32px]"
-                  // @ts-ignore
                   src={`${
+                    // @ts-ignore
                     (CHAINS_IMAGES[Number(wallet.chain)] as string) ??
                     ("/images/ethereum.svg" as string)
                   }`}

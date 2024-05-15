@@ -5,7 +5,7 @@ export const WalletTokenSchema = z.object({
   decimals: z.number(),
   identifier: z.string(),
   type: z.string(),
-  url: z.string().isOptional(),
+  url: z.string().optional(),
 });
 
 export type WalletTokenSchema = z.infer<typeof WalletTokenSchema>;

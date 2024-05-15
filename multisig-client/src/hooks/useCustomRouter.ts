@@ -1,4 +1,5 @@
-import { useRouter } from "next-nprogress-bar";
+"use client";
+import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
 export const useCustomRouter = () => {

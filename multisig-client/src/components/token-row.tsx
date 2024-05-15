@@ -2,9 +2,10 @@ import React, { useMemo } from "react";
 
 import { cn } from "@/lib/utils";
 import { shortNumberFormater } from "@/helpers/numberFormaters";
-import { BigNumber, ethers } from "ethers";
+import { ethers } from "ethers";
 import { TokenImage } from "./token-image";
 import { StyledNumber } from "./styled-number";
+import BigNumber from "bignumber.js";
 
 export interface TokenRowProps {
   identifier: string;
@@ -31,7 +32,7 @@ export const TokenRow = ({
   const memoedPriceAmount = useMemo(() => {
     if (!balance || !price || !decimals) return "0";
     const denominated = ethers.formatUnits(balance, decimals);
-    const priceAmount = BigNumber.from(denominated).mul(price ?? 0);
+    const priceAmount = BigNumber(denominated).multipliedBy(price ?? 0);
     return priceAmount.toString();
   }, [price, amount, decimals]);
 

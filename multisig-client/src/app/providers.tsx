@@ -1,6 +1,6 @@
 "use client";
 import { NextUIProvider } from "@nextui-org/react";
-import React from "react";
+import React, { Suspense } from "react";
 import "@rainbow-me/rainbowkit/styles.css";
 import {
   GetSiweMessageOptions,
@@ -16,7 +16,6 @@ import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { SendTokensModal } from "./dashboard/components/send-tokens";
-import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { wagmiConfig } from "../constants/config";
 
 const queryClient = new QueryClient();
@@ -33,27 +32,29 @@ export const AppProviders = ({
   });
 
   return (
-    <WagmiProvider config={wagmiConfig}>
-      <QueryClientProvider client={queryClient}>
-        <SessionProvider>
-          <RainbowKitSiweNextAuthProvider
-            getSiweMessageOptions={getSiweMessageOptions}
-          >
-            <RainbowKitProvider theme={darkTheme()}>
-              <ProgressBar
+    <Suspense>
+      <WagmiProvider config={wagmiConfig}>
+        <QueryClientProvider client={queryClient}>
+          <SessionProvider>
+            <RainbowKitSiweNextAuthProvider
+              getSiweMessageOptions={getSiweMessageOptions}
+            >
+              <RainbowKitProvider theme={darkTheme()}>
+                {/* <ProgressBar
                 height="4px"
                 color="#FFFFFF"
                 options={{ showSpinner: false }}
                 shallowRouting
-              />
-              <Toaster />
-              <SendTokensModal />
-              <NextUIProvider>{children}</NextUIProvider>
-              <ReactQueryDevtools initialIsOpen={false} />
-            </RainbowKitProvider>
-          </RainbowKitSiweNextAuthProvider>
-        </SessionProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
+              /> */}
+                <Toaster />
+                <SendTokensModal />
+                <NextUIProvider>{children}</NextUIProvider>
+                <ReactQueryDevtools initialIsOpen={false} />
+              </RainbowKitProvider>
+            </RainbowKitSiweNextAuthProvider>
+          </SessionProvider>
+        </QueryClientProvider>
+      </WagmiProvider>
+    </Suspense>
   );
 };

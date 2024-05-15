@@ -2,7 +2,6 @@ import React, { useMemo } from "react";
 import { useReadContract } from "wagmi";
 import { useGetSelectedWallet } from "./useGetSelectedWallet";
 import { MultisigAbi } from "@/contracts/multisig-abi";
-import { BigNumber } from "ethers";
 import { formatEther } from "viem";
 
 export const useGetSubmittedTransactions = () => {

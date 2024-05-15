@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { AppProviders } from "./providers";
@@ -20,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark min-h-screen">
       <body className={cn(inter.className, "min-h-screen bg-black pb-2")}>
-        <AppProviders>
-          <Layout selectedWallet={separateChainFromAddress(get("acc"))}>
-            {children}
-          </Layout>
-        </AppProviders>
+        <Suspense>
+          <AppProviders>
+            <Layout selectedWallet={separateChainFromAddress(get("acc"))}>
+              {children}
+            </Layout>
+          </AppProviders>
+        </Suspense>
       </body>
     </html>
   );
