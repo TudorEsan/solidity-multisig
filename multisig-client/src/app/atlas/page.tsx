@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { SetupAtlas } from "./components/setup-atlas/setup-atlas";
 import { useReadContracts, useWatchContractEvent } from "wagmi";
@@ -43,7 +44,7 @@ const Settings = () => {
     onLogs: () => {
       toast.success("Atlas activated");
       refresh();
-    }
+    },
   });
 
   useWatchContractEvent({
