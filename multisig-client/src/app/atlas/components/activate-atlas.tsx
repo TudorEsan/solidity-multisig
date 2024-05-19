@@ -34,7 +34,7 @@ export const ActivateAtlas = ({
           <Button
             onClick={async () => {
               try {
-                writeContractAsync({
+                await writeContractAsync({
                   abi: MultisigAbi,
                   address: multisigAddress,
                   functionName: "activateAtlas",
