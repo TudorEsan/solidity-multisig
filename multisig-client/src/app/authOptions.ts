@@ -37,7 +37,9 @@ export const authOptions: AuthOptions = {
 
           const nextAuthHost = new URL(nextAuthUrl).host;
           if (siwe.domain !== nextAuthHost) {
-            console.error("Domain mismatch");
+            console.error(
+              `Domain mismatch got ${siwe.domain} expected ${nextAuthHost}`
+            );
             return null;
           }
 
