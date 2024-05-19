@@ -22,7 +22,7 @@ import { CHAINS_IMAGES } from "@/constants/chains";
 const Page = async () => {
   const address = await getServerAddress();
   if (!address) {
-    redirect(Routes.login());
+    redirect(Routes.wallets());
   }
   const wallets = await db
     .select()
