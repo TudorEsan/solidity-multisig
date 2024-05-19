@@ -123,8 +123,10 @@ const checkOTP = async (otp: string, address: string) => {
 
   const generatedOtp = totp.generate(hexSecret);
   console.log("Generated OTP:", generatedOtp);
+  console.log("generatedOtp", generatedOtp, "otp", otp);
   const isValid = generatedOtp === otp;
   if (!isValid) {
+    console.log("returning false");
     return false;
   }
   return true;
@@ -140,7 +142,8 @@ export const getConfirmAtlasSignature = async (
   multisigAddress: string,
   chain: number
 ) => {
-  const isValid = checkOTP(otp, multisigAddress);
+  const isValid = await checkOTP(otp, multisigAddress);
+  console.log("isValid", isValid);
   if (!isValid) {
     throw new Error("Invalid OTP");
   }

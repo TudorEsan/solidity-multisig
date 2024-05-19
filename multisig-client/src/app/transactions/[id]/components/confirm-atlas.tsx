@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-
 import {
   InputOTP,
   InputOTPGroup,
@@ -8,12 +7,12 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { Button } from "@/components/ui/button";
-import { getConfirmAtlasSignature, validateOTP } from "@/lib/atlas";
+import { getConfirmAtlasSignature } from "@/lib/atlas";
 import { useGetSelectedWallet } from "@/hooks/useGetSelectedWallet";
-import { useChainId, useWriteContract } from "wagmi";
+import { useChainId, useWriteContract, useBalance, useBlock } from "wagmi";
 import { useMutation } from "@tanstack/react-query";
 import { MultisigAbi } from "@/contracts/multisig-abi";
-import { Address } from "viem";
+import { parseUnits } from "ethers";
 import { toast } from "sonner";
 import {
   Modal,
@@ -23,6 +22,8 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
+import { Address } from "viem";
+import BigNumber from "bignumber.js";
 
 export const ConfirmAtlas = ({ txIndex }: { txIndex: number }) => {
   const disclosure = useDisclosure();
@@ -30,6 +31,8 @@ export const ConfirmAtlas = ({ txIndex }: { txIndex: number }) => {
   const { address } = useGetSelectedWallet();
   const { writeContractAsync } = useWriteContract();
   const chain = useChainId();
+  const blockBaseFee = useBlock();
+  const { data: balanceData } = useBalance({ address: address });
 
   const mutation = useMutation({
     mutationFn: async () => {
@@ -41,18 +44,44 @@ export const ConfirmAtlas = ({ txIndex }: { txIndex: number }) => {
           chain
         );
         console.log("Signature:", signature);
+
+        const baseFeePerGas = BigInt(15398100000);
+        console.log("Base Fee Per Gas:", baseFeePerGas);
+        if (!baseFeePerGas) {
+          toast.error("Cannot fetch base fee");
+          return;
+        }
+
+        const maxPriorityFeePerGas = parseUnits("3.0", "gwei");
+        const maxFeePerGas = baseFeePerGas + maxPriorityFeePerGas;
+        const gasLimit = BigInt(200000000);
+
+        const gasCost = maxFeePerGas * gasLimit;
+        const balance = balanceData?.value;
+        console.log("Balance:", balance, "Gas Cost:", gasCost.toString());
+        // if (balance && balance < gasCost) {
+        //   toast.error("Insufficient balance");
+        //   return;
+        // }
+
         await writeContractAsync({
           abi: MultisigAbi,
-          address,
+          address: address,
           functionName: "confirmAtlas",
           args: [BigInt(txIndex), signature as Address],
+          // gas: gasLimit,
+          // maxPriorityFeePerGas,
+          // maxFeePerGas,
         });
+
+        toast.success("Transaction sent successfully");
       } catch (error: any) {
         console.error(error);
         toast.error(error?.message || "Failed to validate OTP");
       }
     },
   });
+
   return (
     <>
       <Button onClick={disclosure.onOpen} className="w-full">

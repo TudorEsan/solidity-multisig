@@ -27,9 +27,14 @@ import {
   useReadContract,
   useWatchContractEvent,
   useWriteContract,
+  useBalance,
+  useBlock,
 } from "wagmi";
 import { MultisigAbi } from "@/contracts/multisig-abi";
 import { EMPTY_ADDRESS } from "@/constants/general";
+import { toast } from "sonner";
+import { parseUnits, ethers } from "ethers";
+import { Address } from "viem";
 
 export const Transaction = ({ id }: { id: string }) => {
   const { address } = useGetSelectedWallet();
@@ -57,6 +62,8 @@ export const Transaction = ({ id }: { id: string }) => {
   const queryClient = useQueryClient();
   const txHash = useGetTransactionHash(id, transaction?.executed ?? false);
   const { writeContractAsync } = useWriteContract();
+  const blockBaseFee = useBlock();
+  const { data: balanceData } = useBalance({ address: address as Address });
 
   useWatchContractEvent({
     address: address,
@@ -64,6 +71,7 @@ export const Transaction = ({ id }: { id: string }) => {
     eventName: "ConfirmTransaction",
     onLogs: async () => {
       console.log("ConfirmTransaction event detected");
+      toast.success("Transaction confirmed");
       await handleRefresh();
     },
   });
@@ -73,6 +81,8 @@ export const Transaction = ({ id }: { id: string }) => {
     abi: MultisigAbi,
     eventName: "RevokeConfirmation",
     onLogs: async () => {
+      console.log("RevokeConfirmation event detected");
+      toast.success("Confirmation revoked");
       await handleRefresh();
     },
   });
@@ -83,6 +93,7 @@ export const Transaction = ({ id }: { id: string }) => {
     eventName: "ExecuteTransaction",
     onLogs: async () => {
       console.log("ExecuteTransaction event detected");
+      toast.success("Transaction executed");
       await handleRefresh();
     },
   });
@@ -96,17 +107,54 @@ export const Transaction = ({ id }: { id: string }) => {
   ];
 
   const handleRefresh = async () => {
-    await Promise.all([
+    await Promise.all(
       queries.map((query) =>
         queryClient.invalidateQueries({
           queryKey: query,
         })
-      ),
-    ]);
+      )
+    );
   };
 
   const hasEnoughConfirmations =
     Number(transaction.numConfirmations) >= Number(numConfirmationsRequired);
+
+  const executeTransaction = async () => {
+    try {
+      const baseFeePerGas = blockBaseFee.data?.baseFeePerGas;
+      if (!baseFeePerGas) {
+        toast.error("Cannot fetch base fee");
+        return;
+      }
+
+      const maxPriorityFeePerGas = parseUnits("2.0", "gwei");
+      const maxFeePerGas = baseFeePerGas + maxPriorityFeePerGas;
+      const gasLimit = BigInt(2000000);
+
+      const gasCost = maxFeePerGas * gasLimit;
+      const balance = balanceData?.value;
+
+      if (balance && balance < gasCost) {
+        toast.error("Insufficient balance");
+        return;
+      }
+
+      await writeContractAsync({
+        abi: MultisigAbi,
+        address,
+        functionName: "executeTransaction",
+        args: [BigInt(id)],
+        gas: gasLimit,
+        maxPriorityFeePerGas,
+        maxFeePerGas,
+      });
+
+      toast.success("Transaction executed successfully");
+    } catch (error: any) {
+      console.error(error);
+      toast.error(error?.message || "Failed to execute transaction");
+    }
+  };
 
   if (isLoading || isTransactionLoading) {
     return <LoadingScreen />;
@@ -175,7 +223,6 @@ export const Transaction = ({ id }: { id: string }) => {
           </div>
           {!transaction?.executed && (
             <div className="mt-8 flex gap-4">
-              {/* @ts-ignore */}
               <Button
                 className="w-full"
                 variant="destructive"
@@ -207,17 +254,7 @@ export const Transaction = ({ id }: { id: string }) => {
               {hasEnoughConfirmations &&
                 (!atlasEnabled ||
                   (atlasEnabled && transaction.atlasConfirmed)) && (
-                  <Button
-                    className="w-full"
-                    onClick={async () => {
-                      await writeContractAsync({
-                        abi: MultisigAbi,
-                        address,
-                        functionName: "executeTransaction",
-                        args: [BigInt(id)],
-                      });
-                    }}
-                  >
+                  <Button className="w-full" onClick={executeTransaction}>
                     Execute
                   </Button>
                 )}

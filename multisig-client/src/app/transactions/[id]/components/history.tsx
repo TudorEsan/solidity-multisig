@@ -15,7 +15,7 @@ export const History = ({ id }: { id: string }) => {
             className="flex items-center justify-between"
             key={tx.transactionHash}
           >
-            <DisplayAddress address={tx.address} />
+            <DisplayAddress address={tx.transactionHash} />
             <div className="flex items-center gap-2">
               <Badge>{tx.eventName}</Badge>
               <p className="max-w-28 truncate">{tx.transactionHash}</p>

@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { SetupAtlas } from "./components/setup-atlas/setup-atlas";
 import { useReadContracts, useWatchContractEvent } from "wagmi";
@@ -8,6 +7,7 @@ import { LoadingScreen } from "@/components/loading-screen";
 import { ActivateAtlas } from "./components/activate-atlas";
 import { EMPTY_ADDRESS } from "@/constants/general";
 import { AtlasInfo } from "./components/atlas-info";
+import { toast } from "sonner";
 
 const Settings = () => {
   const address = useGetSelectedWallet().address;
@@ -40,26 +40,38 @@ const Settings = () => {
     address,
     abi: MultisigAbi,
     eventName: "AtlasActivated",
-    onLogs: () => refresh(),
+    onLogs: () => {
+      toast.success("Atlas activated");
+      refresh();
+    }
   });
 
   useWatchContractEvent({
     address,
     abi: MultisigAbi,
     eventName: "AtlasActivationProposed",
-    onLogs: () => refresh(),
+    onLogs: () => {
+      toast.success("Atlas activation proposed");
+      refresh();
+    },
   });
   useWatchContractEvent({
     address,
     abi: MultisigAbi,
     eventName: "AtlasDeactivated",
-    onLogs: () => refresh(),
+    onLogs: () => {
+      toast.success("Atlas deactivated");
+      refresh();
+    },
   });
   useWatchContractEvent({
     address,
     abi: MultisigAbi,
     eventName: "AtlasDeactivationProposed",
-    onLogs: () => refresh(),
+    onLogs: () => {
+      toast.success("Atlas deactivation proposed");
+      refresh();
+    },
   });
 
   const [

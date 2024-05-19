@@ -31,11 +31,13 @@ export const authOptions: AuthOptions = {
               ? `https://${process.env.VERCEL_URL}`
               : null);
           if (!nextAuthUrl) {
+            console.error("NEXTAUTH_URL or VERCEL_URL is not set");
             return null;
           }
 
           const nextAuthHost = new URL(nextAuthUrl).host;
           if (siwe.domain !== nextAuthHost) {
+            console.error("Domain mismatch");
             return null;
           }
 
@@ -43,6 +45,7 @@ export const authOptions: AuthOptions = {
             siwe.nonce !==
             (await getCsrfToken({ req: { headers: req.headers } }))
           ) {
+            console.error("Nonce mismatch");
             return null;
           }
 
@@ -51,6 +54,7 @@ export const authOptions: AuthOptions = {
             id: siwe.address,
           };
         } catch (e) {
+          console.error("This is the error", e);
           return null;
         }
       },
@@ -58,7 +62,7 @@ export const authOptions: AuthOptions = {
   ],
   session: { strategy: "jwt" },
 
-  debug: process.env.NODE_ENV === "development",
+  debug: true,
 
   secret: process.env.NEXAUTH_SECRET,
 

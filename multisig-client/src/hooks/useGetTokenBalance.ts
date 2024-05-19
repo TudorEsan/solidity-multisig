@@ -5,6 +5,7 @@ import { Address } from "viem";
 import { useGetSelectedWallet } from "./useGetSelectedWallet";
 import { WalletToken } from "@/types/token.type";
 import { MultisigAbi } from "@/contracts/multisig-abi";
+import { toast } from "sonner";
 
 /**
  * Custom hook to fetch the native token balance and ERC20 token balances for a given address.
@@ -25,6 +26,7 @@ export function useGetTokenBalance(tokenAddresses: string[]) {
     eventName: "Deposit",
     onLogs: () => {
       console.log("Deposit event detected");
+      toast.success("Deposit event detected");
       nativeBalance.refetch();
     },
   });
