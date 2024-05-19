@@ -36,13 +36,6 @@ export const useGetTransactions = () => {
         default:
           return [];
       }
-
-      const resp = await axios.get<{
-        result?: Transaction[];
-      }>(url);
-      console.log("resp.data", resp.data);
-
-      return resp.data?.result;
     },
   });
 };
