@@ -74,7 +74,7 @@ export const ConfirmAtlas = ({ txIndex }: { txIndex: number }) => {
           // maxFeePerGas,
         });
 
-        toast.success("Transaction sent successfully");
+        toast.success("Atlas was confirmed");
       } catch (error: any) {
         console.error(error);
         toast.error(error?.message || "Failed to validate OTP");

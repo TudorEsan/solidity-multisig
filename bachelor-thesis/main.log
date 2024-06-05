@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.24)  16 APR 2024 17:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.24)  5 JUN 2024 13:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -408,7 +408,7 @@ Overfull \hbox (14.06198pt too wide) in paragraph at lines 14--15
 th smart con-tracts|automatic
  []
 
-<./figures/stolen-pk.png, id=181, 796.9775pt x 631.35875pt>
+<./figures/stolen-pk.png, id=236, 796.9775pt x 631.35875pt>
 File: ./figures/stolen-pk.png Graphic file (type png)
 <use ./figures/stolen-pk.png>
 Package pdftex.def Info: ./figures/stolen-pk.png  used on input line 19.
@@ -495,6 +495,11 @@ Overfull \hbox (7.29616pt too wide) in paragraph at lines 25--26
 , the net-work's nodes|or
  []
 
+<./figures/crypto-flow.png, id=278, 397.98688pt x 269.005pt>
+File: ./figures/crypto-flow.png Graphic file (type png)
+<use ./figures/crypto-flow.png>
+Package pdftex.def Info: ./figures/crypto-flow.png  used on input line 30.
+(pdftex.def)             Requested size: 397.9859pt x 269.00433pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -503,14 +508,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[7]
-Overfull \hbox (9.08263pt too wide) in paragraph at lines 45--46
+[7 <./figures/crypto-flow.png>]
+Overfull \hbox (9.08263pt too wide) in paragraph at lines 50--51
 []\OT1/ppl/m/n/12 Blockchain gam-ing: Smart con-tracts fa-cil-i-tate the man-ag
 e-ment of game economies,
  []
 
 
-Overfull \hbox (2.70114pt too wide) in paragraph at lines 49--50
+Overfull \hbox (2.70114pt too wide) in paragraph at lines 54--55
 \OT1/ppl/m/n/12 cryp-to-graphic keys used to trans-act with cryp-tocur-ren-cies
  such as Bit-coin, Ethereum,
  []
@@ -523,7 +528,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[8]) (./chapters/chapter3.tex
+[8]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -533,25 +538,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [9]
+<./figures/multisig-flow.png, id=302, 723.70375pt x 348.30125pt>
+File: ./figures/multisig-flow.png Graphic file (type png)
+<use ./figures/multisig-flow.png>
+Package pdftex.def Info: ./figures/multisig-flow.png  used on input line 80.
+(pdftex.def)             Requested size: 470.40186pt x 226.39313pt.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[10]
-Chapter 3.
-
-Overfull \hbox (16.09213pt too wide) in paragraph at lines 9--10
-[]\OT1/ppl/m/n/12 JavaScript-Like: Be-cause of its core struc-ture, which is si
-m-i-lar to that of JavaScript,
+Overfull \hbox (29.38412pt too wide) in paragraph at lines 80--81
+ [][] 
  []
 
-[11
-
-]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -560,7 +556,42 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[12]
+[10 <./figures/multisig-flow.png>]
+Overfull \hbox (6.81711pt too wide) in paragraph at lines 89--90
+\OT1/ppl/m/n/12 Account Ab-strac-tion is an emerg-ing con-cept in the Ethereum 
+ecosys-tem that promises
+ []
+
+
+Overfull \hbox (6.55078pt too wide) in paragraph at lines 93--94
+[]\OT1/ppl/b/n/12 Advanced Se-cu-rity: \OT1/ppl/m/n/12 An ab-stracted ac-count 
+may in-clude ad-di-tional se-cu-rity mech-
+ []
+
+
+Overfull \hbox (10.60611pt too wide) in paragraph at lines 105--106
+[]\OT1/ppl/m/n/12 Account Ab-strac-tion rep-re-sents a ma-jor step for-ward in 
+the evo-lu-tion of blockchain
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[11]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[12]) (./chapters/chapter3.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -570,26 +601,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [13]
+Chapter 3.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+Overfull \hbox (16.09213pt too wide) in paragraph at lines 9--10
+[]\OT1/ppl/m/n/12 JavaScript-Like: Be-cause of its core struc-ture, which is si
+m-i-lar to that of JavaScript,
+ []
 
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[14]) (./chapters/chapter4.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[15]
-Chapter 4.
-[16
+[14
 
 ]
 
@@ -600,8 +619,66 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
+[15]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[16]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
 [17]
-<./figures/totp.png, id=306, 1322.9425pt x 847.165pt>
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[18]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[19]) (./chapters/chapter4.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[20]
+Chapter 4.
+[21
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[22]
+<./figures/totp.png, id=388, 1322.9425pt x 847.165pt>
 File: ./figures/totp.png Graphic file (type png)
 <use ./figures/totp.png>
 Package pdftex.def Info: ./figures/totp.png  used on input line 40.
@@ -619,7 +696,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[18 <./figures/totp.png>]
+[23 <./figures/totp.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 57--59
 
  []
@@ -632,7 +709,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[19]
+[24]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 5
 9.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/ot1pcr.fd
@@ -681,7 +758,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[20]
+[25]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -690,7 +767,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[21]
+[26]
 Overfull \hbox (26.98207pt too wide) in paragraph at lines 129--129
 []  \OT1/pcr/m/n/12 .where(sql`${WalletsTable.walletAddress} = ${multisigAddres
 s}`)[] 
@@ -710,7 +787,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[22]
+[27]
 Overfull \hbox (2.02841pt too wide) in paragraph at lines 135--136
 \OT1/ppl/m/n/12 mul-ti-si-gAd-dress. This ad-dress usu-ally refers to a multi-s
 ignature wal-let, which
@@ -730,7 +807,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[23]
+[28]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -739,7 +816,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[24]
+[29]
 Overfull \hbox (10.4522pt too wide) in paragraph at lines 158--159
 \OT1/ppl/m/n/12 Router to di-rectly de-fine routes. Con-sider a file called app
 /page, for in-stance.The
@@ -753,7 +830,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[25]
+[30]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -762,7 +839,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[26]) (./chapters/chapter6_conclusions.tex
+[31]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -771,9 +848,52 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[27]
+[32]
+Overfull \hbox (3.07018pt too wide) in paragraph at lines 205--206
+[]\OT1/ppl/m/n/12 Vault can in-te-grate ad-vanced cy-ber se-cu-rity mea-sures t
+o bet-ter pro-tect user funds.
+ []
+
+) (./chapters/chapter5_experiments.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[33]
 Chapter 5.
-) (./main.bbl [28
+
+Overfull \hbox (0.60922pt too wide) in paragraph at lines 10--11
+[]\OT1/ppl/m/n/12 Initially, I chose to de-ploy the con-tract on the Se-po-lia 
+Ethereum test-net. Ethereum
+ []
+
+[34
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[35]) (./chapters/chapter6_conclusions.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[36]
+Chapter 6.
+) (./main.bbl [37
 
 ]
 Underfull \hbox (badness 1917) in paragraph at lines 8--14
@@ -828,7 +948,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--56
  / docs / app /
  []
 
-[29
+[38
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 74--77
@@ -902,19 +1022,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[30] (./main.aux)
+[39] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0905FD8C60AD54293D83340F2B35C5A8;3395.
+(rerunfilecheck)             Checksum: 2040DE86B1C75B574C095E0B4AF5A9CC;5010.
  ) 
 Here is how much of TeX's memory you used:
- 10695 strings out of 474116
- 169751 string characters out of 5743682
+ 10758 strings out of 474116
+ 170958 string characters out of 5743682
  1936187 words of memory out of 5000000
- 32790 multiletter control sequences out of 15000+600000
+ 32828 multiletter control sequences out of 15000+600000
  572743 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,11n,93p,1086b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -923,10 +1043,10 @@ local/texlive/2024/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/t
 exlive/2024/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/
 2024/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2024/te
 xmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (35 pages, 730004 bytes).
+Output written on main.pdf (44 pages, 853527 bytes).
 PDF statistics:
- 462 PDF objects out of 1000 (max. 8388607)
- 407 compressed objects within 5 object streams
- 104 named destinations out of 1000 (max. 500000)
- 251 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 567 PDF objects out of 1000 (max. 8388607)
+ 499 compressed objects within 5 object streams
+ 126 named destinations out of 1000 (max. 500000)
+ 349 words of extra memory for PDF output out of 10000 (max. 10000000)
 

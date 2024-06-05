@@ -98,6 +98,17 @@ export const Transaction = ({ id }: { id: string }) => {
     },
   });
 
+  useWatchContractEvent({
+    address,
+    abi: MultisigAbi,
+    eventName: "AtlasConfirmed",
+    onLogs: async () => {
+      console.log("Atlas Confirmed Successfully");
+      toast.success("Atlas confirmed");
+      await handleRefresh();
+    },
+  });
+
   const queries = [
     queryKey,
     transactionQueryKey,
@@ -127,26 +138,11 @@ export const Transaction = ({ id }: { id: string }) => {
         return;
       }
 
-      const maxPriorityFeePerGas = parseUnits("2.0", "gwei");
-      const maxFeePerGas = baseFeePerGas + maxPriorityFeePerGas;
-      const gasLimit = BigInt(2000000);
-
-      const gasCost = maxFeePerGas * gasLimit;
-      const balance = balanceData?.value;
-
-      if (balance && balance < gasCost) {
-        toast.error("Insufficient balance");
-        return;
-      }
-
       await writeContractAsync({
         abi: MultisigAbi,
         address,
         functionName: "executeTransaction",
         args: [BigInt(id)],
-        gas: gasLimit,
-        maxPriorityFeePerGas,
-        maxFeePerGas,
       });
 
       toast.success("Transaction executed successfully");

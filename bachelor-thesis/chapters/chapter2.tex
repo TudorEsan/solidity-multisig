@@ -25,6 +25,11 @@ Because of this limitations since then over 1000 blockchains appeared according 
 	\item Transaction Verification: Using the sender's public key, the network's nodes—or miners, in the case of Bitcoin—verify the transaction's digital signature after it has been published on the blockchain. The transaction is regarded as authentic and can be completed if the signature is legitimate.
 	\item At last, the transaction is added to the blockchain by being included in a new block that is subsequently appended to the current chain of blocks upon validation—thus the term "blockchain." The transaction becomes permanent and irrevocable once it is recorded to the blockchain, offering a transparent and safe record of the money transfer.
 \end{enumerate}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=1]{./figures/crypto-flow.png}
+	\caption{Sending a transaction flow}
+\end{figure}
 \par Blockchain utilizes cryptography in these ways to offer a decentralized, transparent, and extremely safe payment system without the need for a dependable central authority like a bank or other financial middleman.
 
 \section{Smart Contracts}
@@ -70,5 +75,61 @@ However, smart contract wallets handle transactions using smart contracts on Eth
 Multisig wallets, sometimes referred to as multi-signature wallets, are an important development in the security of cryptocurrencies. They improve the security of monies that are kept in storage by requiring the consent of several parties before executing a transaction.
 
 A smart contract that specifies how many of the preset holders must sign a transaction before it is performed is the foundation of a multisig wallet. A wallet can be set up, for instance, so that two of the three holders must sign it. This system strikes a balance between security and accessibility by preventing illegal acts and preventing the loss of access to funds in the event that a single key is compromised.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.65]{./figures/multisig-flow.png}
+	\caption{Approving a transaction with a multisig wallet}
+\end{figure}
+
 
 Comparing multisig wallets to conventional single-signature wallets reveals numerous noteworthy benefits. The most important thing is more security. The possibility of theft or fraudulent transactions is significantly decreased by needing numerous permissions. Multisig wallets are perfect for groups or organizations that manage shared assets since they also make it easier for members to collaborate and manage funds together.
+
+ \section{Account Abstraction}
+\label{sec:ch2sec6} 
+Account Abstraction is an emerging concept in the Ethereum ecosystem that promises to bring a new level of flexibility and security to blockchain users. Essentially, Account Abstraction allows users to define their account logic in a more complex and customized way, using smart contracts instead of traditional private key accounts. This approach opens the door to a number of advanced functionalities not possible with standard accounts.
+
+Account Abstraction in the context of Ethereum allows users to use smart contracts to manage and control their accounts. Basically, the account itself becomes a smart contract that can have complex rules and conditions for making transactions. This brings several advantages, including advanced security, flexibility and customization, key recovery and automation.
+
+\textbf{Advanced Security:} An abstracted account may include additional security mechanisms such as multi-factor authentication or limiting transactions based on various criteria (eg daily spending limits). This reduces the risk of unauthorized access and theft.
+
+\textbf{Flexibility and Customization:} Users can define specific logic for their transactions. For example, accounts can be created that require multi-party approval (multisig) or that automatically perform certain actions based on predefined conditions.
+
+\textbf{Key Recovery:} If a private key is lost, Account Abstraction allows the implementation of access recovery mechanisms. These mechanisms may include approval by other trusted users or the use of alternative authentication methods.
+
+\textbf{Automation and Programmability:} Smart contracts can automate many aspects of fund management, such as recurring payments, automatic distribution of funds, or integration with other blockchain services.
+
+To implement Account Abstraction in Solidity, developers create smart contracts that define account logic. These contracts may include functions for initiating transactions, verifying multiple signatures, and enforcing security rules.
+
+For example, a simple contract in Solidity for an abstracted account would include an owner, a set of guardians who can approve transactions, and a function to execute transactions after they are approved by a sufficient number of guardians. This type of contract allows for increased security and customization, adapting to the individual needs of users.
+
+Account Abstraction represents a major step forward in the evolution of blockchain technology, giving users and developers the tools to create more secure, flexible and innovative solutions. As standards and solutions for this technology continue to develop, we can expect a wider integration of abstracted accounts into the Ethereum ecosystem, which will lead to increased security and a more efficient and personalized use of digital funds.
+
+ \section{Ethereum Virtual Machine and Layer 2s}
+\label{sec:ch2sec7} 
+The Ethereum Virtual Machine (EVM) is the central engine that enables smart contracts to run on the Ethereum blockchain. EVM is a Turing-complete runtime, meaning it can execute any computational logic defined by smart contract code. Each node in the network runs EVM, ensuring that transactions are executed in a consistent and verifiable manner. Smart contracts are written in Solidity, a contract-oriented programming language that compiles and can be deployed on any EVM-compatible chain.
+
+As Ethereum has grown in popularity, the network has faced significant scalability and cost challenges. Transactions on Ethereum can become slow and expensive during periods of high demand due to limited transaction processing capacity. To address these issues, Layer 2 solutions have been developed, which run on top of the main Ethereum network (Layer 1) and allow for increased transaction capacity without sacrificing security or decentralization.
+
+Optimism and Arbitrum are one of the most prominet Layer 2 solutions developed to improve Ethereum scalability.
+
+\section{Optimism}
+Optimism is a Layer 2 solution based on Optimistic Rollup technology. This allows the execution of smart contracts on a secondary layer, aggregating multiple transactions into a single transaction on the main layer. Transactions are considered valid by default (optimistic), with the possibility of being challenged in case of fraudulent activity.
+
+\textbf{How Optimism works:}
+
+Transaction Aggregation: Transactions are grouped and processed on the secondary layer. This significantly reduces the number of transactions that need to be processed on the core layer.
+Fraud-Proof Verification: Because transactions are considered valid by default, there is a period of time in which they can be disputed by other nodes. If fraud is discovered, the transaction is voided.
+Low Fees: Due to the reduction in the number of transactions that need to be processed on the main layer, transaction costs are much lower compared to Ethereum. Optimism fees are usually a fraction of the main layer fees, often around 1/10th or less.
+Block Time: The block time on Optimism is much faster than on Ethereum, facilitating fast and efficient transactions.
+
+\section{Arbitrum}
+Arbitrum is another Layer 2 solution that uses Optimistic Rollup technology to improve Ethereum's scalability and efficiency. Arbitrum offers full EVM support, meaning that smart contracts written in Solidity can be implemented on Arbitrum without major modifications. This facilitates the adoption of Arbitrum by developers and users who are already familiar with the Ethereum ecosystem.
+
+\textbf{How Arbitrum works:}
+
+Transaction Aggregation: Similar to Optimism, Arbitrum aggregates multiple transactions into a single transaction that is processed on the Ethereum core layer.
+Validation and Dispute: Transactions are considered valid by default, but can be disputed within a specified period. If a transaction is disputed and found to be fraudulent, it is invalidated.
+Low Fees: Arbitrum offers transactions with much lower fees compared to Ethereum main layer. The fees on Arbitrum are usually similar or even lower than those on Optimism.
+Block Time: Arbitrum has a very fast block times, under 1 seconds, at the moment is the faster layer 2 present.
+
+These Layer 2 solutions play a crucial role in improving the performance of Ethereum, facilitating the widespread adoption of blockchain technology by providing fast and cheap transactions while maintaining the security and decentralization of the network.

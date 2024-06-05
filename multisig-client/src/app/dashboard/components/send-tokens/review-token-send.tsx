@@ -76,9 +76,6 @@ export const ReviewTokenSend = ({ close }: { close: () => void }) => {
       address: address as Address,
       functionName: "submitTransaction",
       args: [formValues.toAddress, parseEther(formValues.amount), "0x"],
-      gas: gasLimit,
-      maxPriorityFeePerGas,
-      maxFeePerGas,
     });
     console.log(resp);
   };

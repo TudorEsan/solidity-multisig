@@ -1,0 +1,36 @@
+\chapter{Experiments and Discussions}
+
+\section{Ethereum vs Optimism vs Arbitrum}
+\label{sec:ch5sec1}
+
+Ethereum vs Optimism vs Arbitrum
+
+To experiment with the efficiency and performance of the multisig application, I decided to deploy the contract in Solidity on multiple blockchains. Being written in solidity, the contract can be deployed on any evm compatible chain. This process gave me the opportunity to explore various solutions and better understand how different layers and scalability solutions work.
+
+Initially, I chose to deploy the contract on the Sepolia Ethereum testnet. Ethereum is known for its security and decentralization, but also for its high transaction fees. Ethereum Sepolia is practically the same code as for ethereum mainnet, only that the tokens on it are given through "faucets" to developers to test the application before putting it on the mainnet.   To get testnet tokens on Sepolia, I used a faucet that provided me 0.1 ETH per day. Unfortunately, this amount was insufficient for frequent and extensive testing, as the transaction fees were considerable. This limitation forced me to look for more efficient alternatives.
+
+Thus, I decided to explore Optimism, a Layer 2 scalability solution for Ethereum. Layer 2 refers to solutions built on top of the main blockchain (Layer 1), in this case Ethereum, to improve scalability and reduce transaction costs. Optimism uses a technology called optimistic rollups. This involves aggregating multiple transactions into a single packet, which is then processed on the main blockchain, thereby reducing costs and increasing efficiency. On Optimism, the transaction fees were considerably lower (at the time we tested the application a transaction cost somewhere below 0.02 USD compared to Ethereum which was 8 USD - so hundreds of times cheaper, which allowed more frequent testing. However, I ran into issues with transactions taking a long time to complete, often causing timeouts in the API due to the long time it took to receive a transaction status response from the RPC. 
+
+After experiencing these difficulties on Optimism, I decided to try Arbitrum, another Layer 2 solution for Ethereum. Arbitrum, like Optimism, uses rollup technology to improve scalability and reduce transaction costs. However, Arbitrum has demonstrated superior performance in terms of transaction completion time. On Arbitrum, transactions took under a second to complete, which greatly improved the performance of my application. So far arbitrum seemed to me to offer the best experience and as a user of web3 but especially as a developer who works with it 
+
+Through these experiments and adaptations, I was able to greatly optimize the efficiency and performance of the application, while also discovering about the advantages and challenges associated with different Layer 2 scalability solutions.
+
+
+\section{MetaMask vs Rainbow Wallet}
+\label{sec:ch5sec2}
+
+While testing the application, I used two main  wallets: Rainbow Wallet and MetaMask. I found significant differences between the two in terms of usability and performance in the context of deployments on various blockchain networks.
+
+\textbf{Rainbow Wallet:}
+Rainbow Wallet is known for its user-friendly interface and intuitive design, making it a popular choice for everyday users. However, during my testing, I ran into problems approximating the cost of gas. In some cases, Rainbow Wallet did not correctly calculate the cost of gas required for transactions on Arbitrum. This led to transaction execution failures and the need to manually recalculate costs, which slowed down the testing and deployment process considerably.
+
+\textbf{MetaMask:}
+MetaMask, on the other hand, has proven to be more robust and reliable in handling transactions on various blockchain networks. MetaMask provides a more accurate gas cost estimate and allows for easy adjustments, which simplified the deployment process and reduced errors. MetaMask also benefits from wider integration with various dApps and networks, providing increased flexibility for developers. After switching to MetaMask, my Arbitrum transactions started to complete smoothly and the overall performance of my app improved significantly.
+
+\textbf{What is Gas?}
+
+Gas is a unit of measure for the computational resources required to execute operations and transactions on the blockchain. Every operation, be it a simple token transfer transaction or a complex execution of a smart contract, requires a certain amount of gas. Gas Price is the amount users are willing to pay for each unit of gas and is expressed in gwei, where 1 gwei is equal to 0.000000001 ETH.
+
+Estimating the cost of gas involves determining the amount of gas needed to execute the transaction and multiplying it by the price of gas. Most digital wallets, including MetaMask and Rainbow Wallet, offer automatic gas cost estimation functionality. MetaMask, for example, provides a more accurate estimate and allows for slight gas price adjustments to optimize transaction confirmation time, which has proven extremely useful in my testing.
+
+While Rainbow Wallet is great for everyday users due to its user-friendly interface, MetaMask has proven to be better suited for testing and complex deployments across multiple blockchain networks due to its reliability and flexibility. This experience highlighted to me the importance of choosing the right tools according to the specific needs of the project and development environment.
