@@ -1,6 +1,3 @@
-
-
-%\documentclass[12pt]{scrreprt}
 \documentclass[12pt]{report} 
 
 % language may be romanian or english (default is english)
@@ -8,8 +5,7 @@
 \usepackage[language=english, type=bachelor]{style}
 \usepackage{graphicx}
 \usepackage{setspace}
-
-
+\usepackage{ragged2e} % For ragged right alignment
 
 \graphicspath{{./figures/}}
 
@@ -25,61 +21,121 @@
 
 \onehalfspacing
 \begin{document}
-
-\specialization{German Informatics}	
-\title{2FA Solidity Multisig Wallet}					   
-\author{EȘAN TUDOR-CONSTANTIN}											
-\supervisor{Associate Professor, MIHAI-FLORIN-GABRIEL CRĂCIUN}				
-				
-\maketitle
-
-\newpage
-\thispagestyle{empty}
-\mbox{}
-\newpage
-\pagenumbering{roman} 
-
-\cleardoublepage
-ABSTRACT
-\vspace{0.5cm}	
-\hrule
-\vspace{0.5cm}	
-%\cleardoublepage
-
-In the context of cryptocurrency security, multisig (multiple signature) wallets have gained popularity due to their ability to provide a higher level of security compared to traditional wallets. These wallets increase the security of digital funds by requiring transaction approval from numerous sources. The introduction of the Atlas feature, a two-step authentication (2FA) method for transaction approval, represents a new development in multisig wallet technology. This adds an extra degree of protection by fusing the benefits of multisig management with the efficiency and user-friendliness of 2FA solutions commonly found in web2 apps. Using Atlas in multisig wallets improves security while simplifying the approval process and making transactions easier to access and handle. With its potential to revolutionize the authorization and security of cryptocurrency transactions, this approach offers a strong means to manage risk in the rapidly developing cryptocurrencies world.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\tableofcontents
-
-
-\newpage
-\pagenumbering{arabic}
-
-\input{chapters/chapter1_introduction}
-%\addcontentsline{toc}{chapter}{Introducere}
-%\addcontentsline{toc}{chapter}{Introduction}
-
-\input{chapters/chapter2}
-\input{chapters/chapter3}
-\input{chapters/chapter4}
-\input{chapters/chapter5_experiments}
-
-\input{chapters/chapter6_conclusions}
-%\addcontentsline{toc}{chapter}{Concluzii}
-%\addcontentsline{toc}{chapter}{Conclusions}
-
-\bibliography{references}
-
+	
+	% German Title Page
+	\begin{titlepage}
+		\centering
+		{\large BABEŞ-BOLYAI UNIVERSITÄT CLUJ-NAPOCA\par}
+		\vspace{0.5cm}
+		{\large FAKULTÄT FÜR MATHEMATIK UND INFORMATIK\par}
+		\vspace{0.5cm}
+		{\large INFORMATIK IN DEUTSCHER SPRACHE\par}
+		\vspace{2cm}
+		{\LARGE\bfseries BACHELORARBEIT\par}
+		\vspace{2cm}
+		{\Large 2FA Ethereum Virtual Machine Multi-Signatur-Wallet\par}
+		\vfill
+		\begin{flushleft}
+			{\large \textbf{Betreuer}\par}
+			\vspace{0.2cm}
+			\parbox{10cm}{\large \textbf{Dozent Dr. MIHAI-FLORIN-GABRIEL CRĂCIUN}\par}
+		\end{flushleft}
+		\vspace{1.5cm}
+		\begin{flushright}
+			{\large Author\par}
+			{\large EȘAN TUDOR-CONSTANTIN\par}
+			\vspace{1cm}
+			{\large 2024\par}
+		\end{flushright}
+	\end{titlepage}
+	
+	\newpage
+	% Romanian Title Page
+	\begin{titlepage}
+		\centering
+		{\large UNIVERSITATEA BABEŞ-BOLYAI CLUJ-NAPOCA\par}
+		\vspace{0.5cm}
+		{\large FACULTATEA DE MATEMATICĂ ȘI INFORMATICĂ\par}
+		\vspace{0.5cm}
+		{\large SPECIALIZAREA Informatică Germană\par}
+		\vspace{2cm}
+		{\LARGE\bfseries LUCRARE DE LICENȚĂ\par}
+		\vspace{2cm}
+		{\Large Portofel Multi-Semnătură pe Mașina Virtuală Ethereum cu 2FA\par}
+		\vfill
+		\begin{flushleft}
+			{\large \textbf{Conducător ştiinţific}\par}
+						\vspace{0.2cm}
+			\parbox{11cm}{\large \textbf{Conf. Univ. Dr. MIHAI-FLORIN-GABRIEL CRĂCIUN}}
+		\end{flushleft}
+		\vspace{1.5cm}
+		\begin{flushright}
+			{\large Autor\par}
+			{\large EȘAN TUDOR-CONSTANTIN\par}
+			\vspace{1cm}
+			{\large 2024\par}
+		\end{flushright}
+	\end{titlepage}
+	
+	\newpage
+	% English Title Page
+	\begin{titlepage}
+		\centering
+		{\large BABEȘ-BOLYAI UNIVERSITY CLUJ-NAPOCA\par}
+		\vspace{0.5cm}
+		{\large FACULTY OF MATHEMATICS AND COMPUTER SCIENCE\par}
+		\vspace{0.5cm}
+		{\large SPECIALIZATION COMPUTER SCIENCE IN GERMAN\par}
+		\vspace{2cm}
+		{\LARGE\bfseries DIPLOMA THESIS\par}
+		\vspace{2cm}
+		{\Large 2FA Ethereum Virtual Machine Multi-Signature Wallet\par}
+		\vfill
+		\begin{flushleft}
+			{\large \textbf{Supervisor}\par}
+			\parbox{10cm}{\large \textbf{Assoc. Prof. MIHAI-FLORIN-GABRIEL CRĂCIUN, PhD}}
+		\end{flushleft}
+		\vspace{1.5cm}
+		\begin{flushright}
+			{\large Author\par}
+			{\large EȘAN TUDOR-CONSTANTIN\par}
+			\vspace{1cm}
+			{\large 2024\par}
+		\end{flushright}
+	\end{titlepage}
+	
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
+	\newpage
+	\pagenumbering{roman} 
+	
+	\cleardoublepage
+	ABSTRACT
+	\vspace{0.5cm}    
+	\hrule
+	\vspace{0.5cm}    
+	
+	In the context of cryptocurrency security, multisig (multiple signature) wallets have gained popularity due to their ability to provide a higher level of security compared to traditional wallets. These wallets increase the security of digital funds by requiring transaction approval from numerous sources. The introduction of the Atlas feature, a two-step authentication (2FA) method for transaction approval, represents a new development in multisig wallet technology. This adds an extra degree of protection by fusing the benefits of multisig management with the efficiency and user-friendliness of 2FA solutions commonly found in web2 apps. Using Atlas in multisig wallets improves security while simplifying the approval process and making transactions easier to access and handle. With its potential to revolutionize the authorization and security of cryptocurrency transactions, this approach offers a strong means to manage risk in the rapidly developing cryptocurrencies world.
+	
+	\tableofcontents
+	
+	\newpage
+	\pagenumbering{arabic}
+	
+	\input{chapters/chapter1_introduction}
+	%\addcontentsline{toc}{chapter}{Introducere}
+	%\addcontentsline{toc}{chapter}{Introduction}
+	
+	\input{chapters/chapter2}
+	\input{chapters/chapter3}
+	\input{chapters/chapter4}
+	\input{chapters/chapter5_experiments}
+	
+	\input{chapters/chapter6_conclusions}
+	%\addcontentsline{toc}{chapter}{Concluzii}
+	%\addcontentsline{toc}{chapter}{Conclusions}
+	
+	\bibliography{references}
+	
 \end{document}

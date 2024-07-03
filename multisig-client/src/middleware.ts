@@ -11,7 +11,9 @@ export function middleware(request: NextRequest) {
   }
 
   const acc = new URL(request.url).searchParams.get("acc");
-  if (!acc) {
+  console.log("acc", acc, typeof acc);
+  if (!acc || acc === "null") {
+    console.log("redirect");
     return NextResponse.redirect(new URL("/wallets", request.url));
   }
   return NextResponse.next();

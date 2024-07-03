@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.24)  5 JUN 2024 13:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.24)  10 JUN 2024 13:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -248,21 +248,38 @@ Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
 ex
 Package babel Info: Importing font and identification data for english
 (babel)             from babel-en.ini. Reported on input line 11.
-)) (/usr/local/texlive/2024/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/ragged2e/ragged2e.sty
+Package: ragged2e 2023/06/22 v3.6 ragged2e Package
+\CenteringLeftskip=\skip51
+\RaggedLeftLeftskip=\skip52
+\RaggedRightLeftskip=\skip53
+\CenteringRightskip=\skip54
+\RaggedLeftRightskip=\skip55
+\RaggedRightRightskip=\skip56
+\CenteringParfillskip=\skip57
+\RaggedLeftParfillskip=\skip58
+\RaggedRightParfillskip=\skip59
+\JustifyingParfillskip=\skip60
+\CenteringParindent=\skip61
+\RaggedLeftParindent=\skip62
+\RaggedRightParindent=\skip63
+\JustifyingParindent=\skip64
+)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 
-\f@nch@headwidth=\skip51
-\f@nch@O@elh=\skip52
-\f@nch@O@erh=\skip53
-\f@nch@O@olh=\skip54
-\f@nch@O@orh=\skip55
-\f@nch@O@elf=\skip56
-\f@nch@O@erf=\skip57
-\f@nch@O@olf=\skip58
-\f@nch@O@orf=\skip59
+\f@nch@headwidth=\skip65
+\f@nch@O@elh=\skip66
+\f@nch@O@erh=\skip67
+\f@nch@O@olh=\skip68
+\f@nch@O@orh=\skip69
+\f@nch@O@elf=\skip70
+\f@nch@O@erf=\skip71
+\f@nch@O@olf=\skip72
+\f@nch@O@orf=\skip73
 )
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 2
-7.
+3.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
@@ -275,24 +292,24 @@ File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -350,26 +367,54 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 27.
+Package hyperref Info: Link coloring OFF on input line 23.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
+
+Underfull \hbox (badness 2875) in paragraph at lines 41--41
+[]\OT1/ppl/b/n/14.4 Dozent Dr. MIHAI-FLORIN-GABRIEL
+ []
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 34.
+(Font)              <12> on input line 41.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 34.
- [1
+(Font)              <8> on input line 41.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 41.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 46.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 46.
+[1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <20.74> on input line 62.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 64.
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.39 \newpage
-              [1]
+l.78 	\end{titlepage}
+                      [1]
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.105 	\end{titlepage}
+                       [1]
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.110 	\newpage
+                [1]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -380,12 +425,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1
 
-] (./main.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 3.
- [2
+] (./main.toc [2
 
 ])
 \tf@toc=\write4
@@ -408,7 +448,7 @@ Overfull \hbox (14.06198pt too wide) in paragraph at lines 14--15
 th smart con-tracts|automatic
  []
 
-<./figures/stolen-pk.png, id=236, 796.9775pt x 631.35875pt>
+<./figures/stolen-pk.png, id=242, 796.9775pt x 631.35875pt>
 File: ./figures/stolen-pk.png Graphic file (type png)
 <use ./figures/stolen-pk.png>
 Package pdftex.def Info: ./figures/stolen-pk.png  used on input line 19.
@@ -456,7 +496,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3]) (./chapters/chapter2.tex
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 50--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--55
+
+ []
+
+)
+Overfull \hbox (4.18575pt too wide) in paragraph at lines 55--129
+[]\OT1/ppl/m/n/12 During the prepa-ra-tion of this work the au-thor used Chat-G
+PT in or-der to rephrase
+ []
+
+(./chapters/chapter2.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -495,7 +551,7 @@ Overfull \hbox (7.29616pt too wide) in paragraph at lines 25--26
 , the net-work's nodes|or
  []
 
-<./figures/crypto-flow.png, id=278, 397.98688pt x 269.005pt>
+<./figures/crypto-flow.png, id=284, 397.98688pt x 269.005pt>
 File: ./figures/crypto-flow.png Graphic file (type png)
 <use ./figures/crypto-flow.png>
 Package pdftex.def Info: ./figures/crypto-flow.png  used on input line 30.
@@ -538,7 +594,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [9]
-<./figures/multisig-flow.png, id=302, 723.70375pt x 348.30125pt>
+<./figures/multisig-flow.png, id=307, 723.70375pt x 348.30125pt>
 File: ./figures/multisig-flow.png Graphic file (type png)
 <use ./figures/multisig-flow.png>
 Package pdftex.def Info: ./figures/multisig-flow.png  used on input line 80.
@@ -678,7 +734,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [22]
-<./figures/totp.png, id=388, 1322.9425pt x 847.165pt>
+<./figures/totp.png, id=393, 1322.9425pt x 847.165pt>
 File: ./figures/totp.png Graphic file (type png)
 <use ./figures/totp.png>
 Package pdftex.def Info: ./figures/totp.png  used on input line 40.
@@ -1031,22 +1087,22 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 2040DE86B1C75B574C095E0B4AF5A9CC;5010.
  ) 
 Here is how much of TeX's memory you used:
- 10758 strings out of 474116
- 170958 string characters out of 5743682
+ 10861 strings out of 474116
+ 173053 string characters out of 5743682
  1936187 words of memory out of 5000000
- 32828 multiletter control sequences out of 15000+600000
- 572743 words of font info for 71 fonts, out of 8000000 for 9000
+ 32924 multiletter control sequences out of 15000+600000
+ 578151 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,11n,93p,1086b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,11n,93p,1087b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/
 local/texlive/2024/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/t
 exlive/2024/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/
 2024/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2024/te
 xmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (44 pages, 853527 bytes).
+Output written on main.pdf (46 pages, 853568 bytes).
 PDF statistics:
- 567 PDF objects out of 1000 (max. 8388607)
- 499 compressed objects within 5 object streams
+ 574 PDF objects out of 1000 (max. 8388607)
+ 503 compressed objects within 6 object streams
  126 named destinations out of 1000 (max. 500000)
  349 words of extra memory for PDF output out of 10000 (max. 10000000)
 
